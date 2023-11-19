@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-2-1.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>VehicleProject</SHORT-NAME>
+      <ELEMENTS>
+        <SYSTEM>
+          <SHORT-NAME>System</SHORT-NAME>
+          <FIBEX-ELEMENTS>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="CAN-TP-CONFIG">/TP/DemoFBL_Fca_SLP5_CAN</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="CAN-CLUSTER">/Cluster/DemoFBL_Fca_SLP5</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="ECU-INSTANCE">/ECU/Demo_0_CAN29</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="CAN-FRAME">/CanFrame/Demo_0_CAN_20_Request_oDemoFBL_Fca_SLP5</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="CAN-FRAME">/CanFrame/Demo_0_CAN_20_Response_oDemoFBL_Fca_SLP5</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="CAN-FRAME">/CanFrame/Demo_0_CAN_FD_Request_oDemoFBL_Fca_SLP5</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="CAN-FRAME">/CanFrame/Demo_0_CAN_FD_Response_oDemoFBL_Fca_SLP5</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="CAN-FRAME">/CanFrame/Functional_CAN_20_oDemoFBL_Fca_SLP5</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="CAN-FRAME">/CanFrame/Functional_CAN_FD_oDemoFBL_Fca_SLP5</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="DCM-I-PDU">/PDU/Demo_0_CAN_20_Request_oDemoFBL_Fca_SLP5</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="DCM-I-PDU">/PDU/Demo_0_CAN_20_Response_oDemoFBL_Fca_SLP5</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="DCM-I-PDU">/PDU/Demo_0_CAN_FD_Request_oDemoFBL_Fca_SLP5</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="DCM-I-PDU">/PDU/Demo_0_CAN_FD_Response_oDemoFBL_Fca_SLP5</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="DCM-I-PDU">/PDU/Functional_CAN_20_oDemoFBL_Fca_SLP5</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="DCM-I-PDU">/PDU/Functional_CAN_FD_oDemoFBL_Fca_SLP5</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="N-PDU">/PDU/Demo_0_CAN_20_Request_Tp_oDemoFBL_Fca_SLP5</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="N-PDU">/PDU/Demo_0_CAN_20_Response_Tp_oDemoFBL_Fca_SLP5</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="N-PDU">/PDU/Demo_0_CAN_FD_Request_Tp_oDemoFBL_Fca_SLP5</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="N-PDU">/PDU/Demo_0_CAN_FD_Response_Tp_oDemoFBL_Fca_SLP5</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="N-PDU">/PDU/Functional_CAN_20_Tp_oDemoFBL_Fca_SLP5</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+            <FIBEX-ELEMENT-REF-CONDITIONAL>
+              <FIBEX-ELEMENT-REF DEST="N-PDU">/PDU/Functional_CAN_FD_Tp_oDemoFBL_Fca_SLP5</FIBEX-ELEMENT-REF>
+            </FIBEX-ELEMENT-REF-CONDITIONAL>
+          </FIBEX-ELEMENTS>
+        </SYSTEM>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE>
+      <SHORT-NAME>TP</SHORT-NAME>
+      <ELEMENTS>
+        <CAN-TP-CONFIG>
+          <SHORT-NAME>DemoFBL_Fca_SLP5_CAN</SHORT-NAME>
+          <COMMUNICATION-CLUSTER-REF DEST="CAN-CLUSTER">/Cluster/DemoFBL_Fca_SLP5</COMMUNICATION-CLUSTER-REF>
+          <TP-CHANNELS>
+            <CAN-TP-CHANNEL>
+              <SHORT-NAME>TPCH</SHORT-NAME>
+              <CHANNEL-ID>0</CHANNEL-ID>
+              <CHANNEL-MODE>FULL-DUPLEX-MODE</CHANNEL-MODE>
+            </CAN-TP-CHANNEL>
+          </TP-CHANNELS>
+          <TP-CONNECTIONS>
+            <CAN-TP-CONNECTION>
+              <IDENT>
+                <SHORT-NAME>Functional_CAN_20_oTN_Tester</SHORT-NAME>
+              </IDENT>
+              <ADDRESSING-FORMAT>STANDARD</ADDRESSING-FORMAT>
+              <CAN-TP-CHANNEL-REF DEST="CAN-TP-CHANNEL">/TP/DemoFBL_Fca_SLP5_CAN/TPCH</CAN-TP-CHANNEL-REF>
+              <DATA-PDU-REF DEST="N-PDU">/PDU/Functional_CAN_20_Tp_oDemoFBL_Fca_SLP5</DATA-PDU-REF>
+              <RECEIVER-REFS>
+                <RECEIVER-REF DEST="CAN-TP-NODE">/TP/DemoFBL_Fca_SLP5_CAN/TN_Demo_0_CAN29</RECEIVER-REF>
+              </RECEIVER-REFS>
+              <TA-TYPE>FUNCTIONAL</TA-TYPE>
+              <TP-SDU-REF DEST="DCM-I-PDU">/PDU/Functional_CAN_20_oDemoFBL_Fca_SLP5</TP-SDU-REF>
+              <TRANSMITTER-REF DEST="CAN-TP-NODE">/TP/DemoFBL_Fca_SLP5_CAN/TN_Tester</TRANSMITTER-REF>
+            </CAN-TP-CONNECTION>
+            <CAN-TP-CONNECTION>
+              <IDENT>
+                <SHORT-NAME>Functional_CAN_FD_FD_oTN_Tester_FD</SHORT-NAME>
+              </IDENT>
+              <ADDRESSING-FORMAT>STANDARD</ADDRESSING-FORMAT>
+              <CAN-TP-CHANNEL-REF DEST="CAN-TP-CHANNEL">/TP/DemoFBL_Fca_SLP5_CAN/TPCH</CAN-TP-CHANNEL-REF>
+              <DATA-PDU-REF DEST="N-PDU">/PDU/Functional_CAN_FD_Tp_oDemoFBL_Fca_SLP5</DATA-PDU-REF>
+              <RECEIVER-REFS>
+                <RECEIVER-REF DEST="CAN-TP-NODE">/TP/DemoFBL_Fca_SLP5_CAN/TN_Demo_0_CAN29_FD</RECEIVER-REF>
+              </RECEIVER-REFS>
+              <TA-TYPE>FUNCTIONAL-CAN-FD</TA-TYPE>
+              <TP-SDU-REF DEST="DCM-I-PDU">/PDU/Functional_CAN_FD_oDemoFBL_Fca_SLP5</TP-SDU-REF>
+              <TRANSMITTER-REF DEST="CAN-TP-NODE">/TP/DemoFBL_Fca_SLP5_CAN/TN_Tester_FD</TRANSMITTER-REF>
+            </CAN-TP-CONNECTION>
+            <CAN-TP-CONNECTION>
+              <IDENT>
+                <SHORT-NAME>Demo_0_CAN_20_Request_oTN_Demo_0_CAN29</SHORT-NAME>
+              </IDENT>
+              <ADDRESSING-FORMAT>STANDARD</ADDRESSING-FORMAT>
+              <CAN-TP-CHANNEL-REF DEST="CAN-TP-CHANNEL">/TP/DemoFBL_Fca_SLP5_CAN/TPCH</CAN-TP-CHANNEL-REF>
+              <DATA-PDU-REF DEST="N-PDU">/PDU/Demo_0_CAN_20_Request_Tp_oDemoFBL_Fca_SLP5</DATA-PDU-REF>
+              <FLOW-CONTROL-PDU-REF DEST="N-PDU">/PDU/Demo_0_CAN_20_Response_Tp_oDemoFBL_Fca_SLP5</FLOW-CONTROL-PDU-REF>
+              <RECEIVER-REFS>
+                <RECEIVER-REF DEST="CAN-TP-NODE">/TP/DemoFBL_Fca_SLP5_CAN/TN_Demo_0_CAN29</RECEIVER-REF>
+              </RECEIVER-REFS>
+              <TA-TYPE>PHYSICAL</TA-TYPE>
+              <TP-SDU-REF DEST="DCM-I-PDU">/PDU/Demo_0_CAN_20_Request_oDemoFBL_Fca_SLP5</TP-SDU-REF>
+              <TRANSMITTER-REF DEST="CAN-TP-NODE">/TP/DemoFBL_Fca_SLP5_CAN/TN_Tester</TRANSMITTER-REF>
+            </CAN-TP-CONNECTION>
+            <CAN-TP-CONNECTION>
+              <IDENT>
+                <SHORT-NAME>Demo_0_CAN_20_Response_oTN_Demo_0_CAN29</SHORT-NAME>
+              </IDENT>
+              <ADDRESSING-FORMAT>STANDARD</ADDRESSING-FORMAT>
+              <CAN-TP-CHANNEL-REF DEST="CAN-TP-CHANNEL">/TP/DemoFBL_Fca_SLP5_CAN/TPCH</CAN-TP-CHANNEL-REF>
+              <DATA-PDU-REF DEST="N-PDU">/PDU/Demo_0_CAN_20_Response_Tp_oDemoFBL_Fca_SLP5</DATA-PDU-REF>
+              <FLOW-CONTROL-PDU-REF DEST="N-PDU">/PDU/Demo_0_CAN_20_Request_Tp_oDemoFBL_Fca_SLP5</FLOW-CONTROL-PDU-REF>
+              <RECEIVER-REFS>
+                <RECEIVER-REF DEST="CAN-TP-NODE">/TP/DemoFBL_Fca_SLP5_CAN/TN_Tester</RECEIVER-REF>
+              </RECEIVER-REFS>
+              <TA-TYPE>PHYSICAL</TA-TYPE>
+              <TP-SDU-REF DEST="DCM-I-PDU">/PDU/Demo_0_CAN_20_Response_oDemoFBL_Fca_SLP5</TP-SDU-REF>
+              <TRANSMITTER-REF DEST="CAN-TP-NODE">/TP/DemoFBL_Fca_SLP5_CAN/TN_Demo_0_CAN29</TRANSMITTER-REF>
+            </CAN-TP-CONNECTION>
+            <CAN-TP-CONNECTION>
+              <IDENT>
+                <SHORT-NAME>Demo_0_CAN_FD_Request_oTN_Demo_0_CAN29_FD</SHORT-NAME>
+              </IDENT>
+              <ADDRESSING-FORMAT>STANDARD</ADDRESSING-FORMAT>
+              <CAN-TP-CHANNEL-REF DEST="CAN-TP-CHANNEL">/TP/DemoFBL_Fca_SLP5_CAN/TPCH</CAN-TP-CHANNEL-REF>
+              <DATA-PDU-REF DEST="N-PDU">/PDU/Demo_0_CAN_FD_Request_Tp_oDemoFBL_Fca_SLP5</DATA-PDU-REF>
+              <FLOW-CONTROL-PDU-REF DEST="N-PDU">/PDU/Demo_0_CAN_FD_Response_Tp_oDemoFBL_Fca_SLP5</FLOW-CONTROL-PDU-REF>
+              <RECEIVER-REFS>
+                <RECEIVER-REF DEST="CAN-TP-NODE">/TP/DemoFBL_Fca_SLP5_CAN/TN_Demo_0_CAN29_FD</RECEIVER-REF>
+              </RECEIVER-REFS>
+              <TA-TYPE>PHYSICAL-CAN-FD</TA-TYPE>
+              <TP-SDU-REF DEST="DCM-I-PDU">/PDU/Demo_0_CAN_FD_Request_oDemoFBL_Fca_SLP5</TP-SDU-REF>
+              <TRANSMITTER-REF DEST="CAN-TP-NODE">/TP/DemoFBL_Fca_SLP5_CAN/TN_Tester_FD</TRANSMITTER-REF>
+            </CAN-TP-CONNECTION>
+            <CAN-TP-CONNECTION>
+              <IDENT>
+                <SHORT-NAME>Demo_0_CAN_FD_Response_oTN_Demo_0_CAN29_FD</SHORT-NAME>
+              </IDENT>
+              <ADDRESSING-FORMAT>STANDARD</ADDRESSING-FORMAT>
+              <CAN-TP-CHANNEL-REF DEST="CAN-TP-CHANNEL">/TP/DemoFBL_Fca_SLP5_CAN/TPCH</CAN-TP-CHANNEL-REF>
+              <DATA-PDU-REF DEST="N-PDU">/PDU/Demo_0_CAN_FD_Response_Tp_oDemoFBL_Fca_SLP5</DATA-PDU-REF>
+              <FLOW-CONTROL-PDU-REF DEST="N-PDU">/PDU/Demo_0_CAN_FD_Request_Tp_oDemoFBL_Fca_SLP5</FLOW-CONTROL-PDU-REF>
+              <RECEIVER-REFS>
+                <RECEIVER-REF DEST="CAN-TP-NODE">/TP/DemoFBL_Fca_SLP5_CAN/TN_Tester_FD</RECEIVER-REF>
+              </RECEIVER-REFS>
+              <TA-TYPE>PHYSICAL-CAN-FD</TA-TYPE>
+              <TP-SDU-REF DEST="DCM-I-PDU">/PDU/Demo_0_CAN_FD_Response_oDemoFBL_Fca_SLP5</TP-SDU-REF>
+              <TRANSMITTER-REF DEST="CAN-TP-NODE">/TP/DemoFBL_Fca_SLP5_CAN/TN_Demo_0_CAN29_FD</TRANSMITTER-REF>
+            </CAN-TP-CONNECTION>
+          </TP-CONNECTIONS>
+          <TP-ECUS>
+            <CAN-TP-ECU>
+              <CYCLE-TIME-MAIN-FUNCTION>0.005</CYCLE-TIME-MAIN-FUNCTION>
+              <ECU-INSTANCE-REF DEST="ECU-INSTANCE">/ECU/Demo_0_CAN29</ECU-INSTANCE-REF>
+            </CAN-TP-ECU>
+          </TP-ECUS>
+          <TP-NODES>
+            <CAN-TP-NODE>
+              <SHORT-NAME>TN_Demo_0_CAN29</SHORT-NAME>
+              <CONNECTOR-REF DEST="CAN-COMMUNICATION-CONNECTOR">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5</CONNECTOR-REF>
+            </CAN-TP-NODE>
+            <CAN-TP-NODE>
+              <SHORT-NAME>TN_Demo_0_CAN29_FD</SHORT-NAME>
+              <CONNECTOR-REF DEST="CAN-COMMUNICATION-CONNECTOR">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5</CONNECTOR-REF>
+            </CAN-TP-NODE>
+            <CAN-TP-NODE>
+              <SHORT-NAME>TN_Tester</SHORT-NAME>
+            </CAN-TP-NODE>
+            <CAN-TP-NODE>
+              <SHORT-NAME>TN_Tester_FD</SHORT-NAME>
+            </CAN-TP-NODE>
+          </TP-NODES>
+        </CAN-TP-CONFIG>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE>
+      <SHORT-NAME>Cluster</SHORT-NAME>
+      <ELEMENTS>
+        <CAN-CLUSTER>
+          <SHORT-NAME>DemoFBL_Fca_SLP5</SHORT-NAME>
+          <LONG-NAME>
+            <L-4 L="FOR-ALL">DemoFBL_CAN_FD_Fca_SLP5</L-4>
+          </LONG-NAME>
+          <ADMIN-DATA>
+            <SDGS>
+              <SDG GID="DV:ToolData">
+                <SD GID="DV:ToolName">Vector Legacy Database Converter</SD>
+                <SD GID="DV:ToolVersion">1.8.21.0</SD>
+              </SDG>
+            </SDGS>
+          </ADMIN-DATA>
+          <CAN-CLUSTER-VARIANTS>
+            <CAN-CLUSTER-CONDITIONAL>
+              <PHYSICAL-CHANNELS>
+                <CAN-PHYSICAL-CHANNEL>
+                  <SHORT-NAME>CHNL</SHORT-NAME>
+                  <COMM-CONNECTORS>
+                    <COMMUNICATION-CONNECTOR-REF-CONDITIONAL>
+                      <COMMUNICATION-CONNECTOR-REF DEST="CAN-COMMUNICATION-CONNECTOR">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5</COMMUNICATION-CONNECTOR-REF>
+                    </COMMUNICATION-CONNECTOR-REF-CONDITIONAL>
+                  </COMM-CONNECTORS>
+                  <FRAME-TRIGGERINGS>
+                    <CAN-FRAME-TRIGGERING>
+                      <SHORT-NAME>FT_Demo_0_CAN_20_Request</SHORT-NAME>
+                      <FRAME-PORT-REFS>
+                        <FRAME-PORT-REF DEST="FRAME-PORT">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5/FP_Demo_0_CAN_20_Request_Rx</FRAME-PORT-REF>
+                      </FRAME-PORT-REFS>
+                      <FRAME-REF DEST="CAN-FRAME">/CanFrame/Demo_0_CAN_20_Request_oDemoFBL_Fca_SLP5</FRAME-REF>
+                      <PDU-TRIGGERINGS>
+                        <PDU-TRIGGERING-REF-CONDITIONAL>
+                          <PDU-TRIGGERING-REF DEST="PDU-TRIGGERING">/Cluster/DemoFBL_Fca_SLP5/CHNL/PT_Demo_0_CAN_20_Request_Tp</PDU-TRIGGERING-REF>
+                        </PDU-TRIGGERING-REF-CONDITIONAL>
+                      </PDU-TRIGGERINGS>
+                      <CAN-ADDRESSING-MODE>EXTENDED</CAN-ADDRESSING-MODE>
+                      <CAN-FRAME-RX-BEHAVIOR>CAN-20</CAN-FRAME-RX-BEHAVIOR>
+                      <CAN-FRAME-TX-BEHAVIOR>CAN-20</CAN-FRAME-TX-BEHAVIOR>
+                      <IDENTIFIER>416991217</IDENTIFIER>
+                    </CAN-FRAME-TRIGGERING>
+                    <CAN-FRAME-TRIGGERING>
+                      <SHORT-NAME>FT_Demo_0_CAN_20_Response</SHORT-NAME>
+                      <FRAME-PORT-REFS>
+                        <FRAME-PORT-REF DEST="FRAME-PORT">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5/FP_Demo_0_CAN_20_Response_Tx</FRAME-PORT-REF>
+                      </FRAME-PORT-REFS>
+                      <FRAME-REF DEST="CAN-FRAME">/CanFrame/Demo_0_CAN_20_Response_oDemoFBL_Fca_SLP5</FRAME-REF>
+                      <PDU-TRIGGERINGS>
+                        <PDU-TRIGGERING-REF-CONDITIONAL>
+                          <PDU-TRIGGERING-REF DEST="PDU-TRIGGERING">/Cluster/DemoFBL_Fca_SLP5/CHNL/PT_Demo_0_CAN_20_Response_Tp</PDU-TRIGGERING-REF>
+                        </PDU-TRIGGERING-REF-CONDITIONAL>
+                      </PDU-TRIGGERINGS>
+                      <CAN-ADDRESSING-MODE>EXTENDED</CAN-ADDRESSING-MODE>
+                      <CAN-FRAME-RX-BEHAVIOR>CAN-20</CAN-FRAME-RX-BEHAVIOR>
+                      <CAN-FRAME-TX-BEHAVIOR>CAN-20</CAN-FRAME-TX-BEHAVIOR>
+                      <IDENTIFIER>417001927</IDENTIFIER>
+                    </CAN-FRAME-TRIGGERING>
+                    <CAN-FRAME-TRIGGERING>
+                      <SHORT-NAME>FT_Demo_0_CAN_FD_Request</SHORT-NAME>
+                      <FRAME-PORT-REFS>
+                        <FRAME-PORT-REF DEST="FRAME-PORT">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5/FP_Demo_0_CAN_FD_Request_Rx</FRAME-PORT-REF>
+                      </FRAME-PORT-REFS>
+                      <FRAME-REF DEST="CAN-FRAME">/CanFrame/Demo_0_CAN_FD_Request_oDemoFBL_Fca_SLP5</FRAME-REF>
+                      <PDU-TRIGGERINGS>
+                        <PDU-TRIGGERING-REF-CONDITIONAL>
+                          <PDU-TRIGGERING-REF DEST="PDU-TRIGGERING">/Cluster/DemoFBL_Fca_SLP5/CHNL/PT_Demo_0_CAN_FD_Request_Tp</PDU-TRIGGERING-REF>
+                        </PDU-TRIGGERING-REF-CONDITIONAL>
+                      </PDU-TRIGGERINGS>
+                      <CAN-ADDRESSING-MODE>EXTENDED</CAN-ADDRESSING-MODE>
+                      <CAN-FRAME-RX-BEHAVIOR>CAN-FD</CAN-FRAME-RX-BEHAVIOR>
+                      <CAN-FRAME-TX-BEHAVIOR>CAN-FD</CAN-FRAME-TX-BEHAVIOR>
+                      <IDENTIFIER>416991218</IDENTIFIER>
+                    </CAN-FRAME-TRIGGERING>
+                    <CAN-FRAME-TRIGGERING>
+                      <SHORT-NAME>FT_Demo_0_CAN_FD_Response</SHORT-NAME>
+                      <FRAME-PORT-REFS>
+                        <FRAME-PORT-REF DEST="FRAME-PORT">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5/FP_Demo_0_CAN_FD_Response_Tx</FRAME-PORT-REF>
+                      </FRAME-PORT-REFS>
+                      <FRAME-REF DEST="CAN-FRAME">/CanFrame/Demo_0_CAN_FD_Response_oDemoFBL_Fca_SLP5</FRAME-REF>
+                      <PDU-TRIGGERINGS>
+                        <PDU-TRIGGERING-REF-CONDITIONAL>
+                          <PDU-TRIGGERING-REF DEST="PDU-TRIGGERING">/Cluster/DemoFBL_Fca_SLP5/CHNL/PT_Demo_0_CAN_FD_Response_Tp</PDU-TRIGGERING-REF>
+                        </PDU-TRIGGERING-REF-CONDITIONAL>
+                      </PDU-TRIGGERINGS>
+                      <CAN-ADDRESSING-MODE>EXTENDED</CAN-ADDRESSING-MODE>
+                      <CAN-FRAME-RX-BEHAVIOR>CAN-FD</CAN-FRAME-RX-BEHAVIOR>
+                      <CAN-FRAME-TX-BEHAVIOR>CAN-FD</CAN-FRAME-TX-BEHAVIOR>
+                      <IDENTIFIER>417002183</IDENTIFIER>
+                    </CAN-FRAME-TRIGGERING>
+                    <CAN-FRAME-TRIGGERING>
+                      <SHORT-NAME>FT_Functional_CAN_20</SHORT-NAME>
+                      <FRAME-PORT-REFS>
+                        <FRAME-PORT-REF DEST="FRAME-PORT">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5/FP_Functional_CAN_20_Rx</FRAME-PORT-REF>
+                      </FRAME-PORT-REFS>
+                      <FRAME-REF DEST="CAN-FRAME">/CanFrame/Functional_CAN_20_oDemoFBL_Fca_SLP5</FRAME-REF>
+                      <PDU-TRIGGERINGS>
+                        <PDU-TRIGGERING-REF-CONDITIONAL>
+                          <PDU-TRIGGERING-REF DEST="PDU-TRIGGERING">/Cluster/DemoFBL_Fca_SLP5/CHNL/PT_Functional_CAN_20_Tp</PDU-TRIGGERING-REF>
+                        </PDU-TRIGGERING-REF-CONDITIONAL>
+                      </PDU-TRIGGERINGS>
+                      <CAN-ADDRESSING-MODE>EXTENDED</CAN-ADDRESSING-MODE>
+                      <CAN-FRAME-RX-BEHAVIOR>CAN-20</CAN-FRAME-RX-BEHAVIOR>
+                      <CAN-FRAME-TX-BEHAVIOR>CAN-20</CAN-FRAME-TX-BEHAVIOR>
+                      <IDENTIFIER>417070833</IDENTIFIER>
+                    </CAN-FRAME-TRIGGERING>
+                    <CAN-FRAME-TRIGGERING>
+                      <SHORT-NAME>FT_Functional_CAN_FD</SHORT-NAME>
+                      <FRAME-PORT-REFS>
+                        <FRAME-PORT-REF DEST="FRAME-PORT">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5/FP_Functional_CAN_FD_Rx</FRAME-PORT-REF>
+                      </FRAME-PORT-REFS>
+                      <FRAME-REF DEST="CAN-FRAME">/CanFrame/Functional_CAN_FD_oDemoFBL_Fca_SLP5</FRAME-REF>
+                      <PDU-TRIGGERINGS>
+                        <PDU-TRIGGERING-REF-CONDITIONAL>
+                          <PDU-TRIGGERING-REF DEST="PDU-TRIGGERING">/Cluster/DemoFBL_Fca_SLP5/CHNL/PT_Functional_CAN_FD_Tp</PDU-TRIGGERING-REF>
+                        </PDU-TRIGGERING-REF-CONDITIONAL>
+                      </PDU-TRIGGERINGS>
+                      <CAN-ADDRESSING-MODE>EXTENDED</CAN-ADDRESSING-MODE>
+                      <CAN-FRAME-RX-BEHAVIOR>CAN-FD</CAN-FRAME-RX-BEHAVIOR>
+                      <CAN-FRAME-TX-BEHAVIOR>CAN-FD</CAN-FRAME-TX-BEHAVIOR>
+                      <IDENTIFIER>417070834</IDENTIFIER>
+                    </CAN-FRAME-TRIGGERING>
+                  </FRAME-TRIGGERINGS>
+                  <PDU-TRIGGERINGS>
+                    <PDU-TRIGGERING>
+                      <SHORT-NAME>PT_Demo_0_CAN_20_Request</SHORT-NAME>
+                      <I-PDU-PORT-REFS>
+                        <I-PDU-PORT-REF DEST="I-PDU-PORT">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5/PP_Demo_0_CAN_20_Request_Rx</I-PDU-PORT-REF>
+                      </I-PDU-PORT-REFS>
+                      <I-PDU-REF DEST="DCM-I-PDU">/PDU/Demo_0_CAN_20_Request_oDemoFBL_Fca_SLP5</I-PDU-REF>
+                    </PDU-TRIGGERING>
+                    <PDU-TRIGGERING>
+                      <SHORT-NAME>PT_Demo_0_CAN_20_Request_Tp</SHORT-NAME>
+                      <I-PDU-PORT-REFS>
+                        <I-PDU-PORT-REF DEST="I-PDU-PORT">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5/PP_Demo_0_CAN_20_Request_Tp_Rx</I-PDU-PORT-REF>
+                      </I-PDU-PORT-REFS>
+                      <I-PDU-REF DEST="N-PDU">/PDU/Demo_0_CAN_20_Request_Tp_oDemoFBL_Fca_SLP5</I-PDU-REF>
+                    </PDU-TRIGGERING>
+                    <PDU-TRIGGERING>
+                      <SHORT-NAME>PT_Demo_0_CAN_20_Response</SHORT-NAME>
+                      <I-PDU-PORT-REFS>
+                        <I-PDU-PORT-REF DEST="I-PDU-PORT">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5/PP_Demo_0_CAN_20_Response_Tx</I-PDU-PORT-REF>
+                      </I-PDU-PORT-REFS>
+                      <I-PDU-REF DEST="DCM-I-PDU">/PDU/Demo_0_CAN_20_Response_oDemoFBL_Fca_SLP5</I-PDU-REF>
+                    </PDU-TRIGGERING>
+                    <PDU-TRIGGERING>
+                      <SHORT-NAME>PT_Demo_0_CAN_20_Response_Tp</SHORT-NAME>
+                      <I-PDU-PORT-REFS>
+                        <I-PDU-PORT-REF DEST="I-PDU-PORT">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5/PP_Demo_0_CAN_20_Response_Tp_Tx</I-PDU-PORT-REF>
+                      </I-PDU-PORT-REFS>
+                      <I-PDU-REF DEST="N-PDU">/PDU/Demo_0_CAN_20_Response_Tp_oDemoFBL_Fca_SLP5</I-PDU-REF>
+                    </PDU-TRIGGERING>
+                    <PDU-TRIGGERING>
+                      <SHORT-NAME>PT_Demo_0_CAN_FD_Request</SHORT-NAME>
+                      <I-PDU-PORT-REFS>
+                        <I-PDU-PORT-REF DEST="I-PDU-PORT">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5/PP_Demo_0_CAN_FD_Request_Rx</I-PDU-PORT-REF>
+                      </I-PDU-PORT-REFS>
+                      <I-PDU-REF DEST="DCM-I-PDU">/PDU/Demo_0_CAN_FD_Request_oDemoFBL_Fca_SLP5</I-PDU-REF>
+                    </PDU-TRIGGERING>
+                    <PDU-TRIGGERING>
+                      <SHORT-NAME>PT_Demo_0_CAN_FD_Request_Tp</SHORT-NAME>
+                      <I-PDU-PORT-REFS>
+                        <I-PDU-PORT-REF DEST="I-PDU-PORT">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5/PP_Demo_0_CAN_FD_Request_Tp_Rx</I-PDU-PORT-REF>
+                      </I-PDU-PORT-REFS>
+                      <I-PDU-REF DEST="N-PDU">/PDU/Demo_0_CAN_FD_Request_Tp_oDemoFBL_Fca_SLP5</I-PDU-REF>
+                    </PDU-TRIGGERING>
+                    <PDU-TRIGGERING>
+                      <SHORT-NAME>PT_Demo_0_CAN_FD_Response</SHORT-NAME>
+                      <I-PDU-PORT-REFS>
+                        <I-PDU-PORT-REF DEST="I-PDU-PORT">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5/PP_Demo_0_CAN_FD_Response_Tx</I-PDU-PORT-REF>
+                      </I-PDU-PORT-REFS>
+                      <I-PDU-REF DEST="DCM-I-PDU">/PDU/Demo_0_CAN_FD_Response_oDemoFBL_Fca_SLP5</I-PDU-REF>
+                    </PDU-TRIGGERING>
+                    <PDU-TRIGGERING>
+                      <SHORT-NAME>PT_Demo_0_CAN_FD_Response_Tp</SHORT-NAME>
+                      <I-PDU-PORT-REFS>
+                        <I-PDU-PORT-REF DEST="I-PDU-PORT">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5/PP_Demo_0_CAN_FD_Response_Tp_Tx</I-PDU-PORT-REF>
+                      </I-PDU-PORT-REFS>
+                      <I-PDU-REF DEST="N-PDU">/PDU/Demo_0_CAN_FD_Response_Tp_oDemoFBL_Fca_SLP5</I-PDU-REF>
+                    </PDU-TRIGGERING>
+                    <PDU-TRIGGERING>
+                      <SHORT-NAME>PT_Functional_CAN_20</SHORT-NAME>
+                      <I-PDU-PORT-REFS>
+                        <I-PDU-PORT-REF DEST="I-PDU-PORT">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5/PP_Functional_CAN_20_Rx</I-PDU-PORT-REF>
+                      </I-PDU-PORT-REFS>
+                      <I-PDU-REF DEST="DCM-I-PDU">/PDU/Functional_CAN_20_oDemoFBL_Fca_SLP5</I-PDU-REF>
+                    </PDU-TRIGGERING>
+                    <PDU-TRIGGERING>
+                      <SHORT-NAME>PT_Functional_CAN_20_Tp</SHORT-NAME>
+                      <I-PDU-PORT-REFS>
+                        <I-PDU-PORT-REF DEST="I-PDU-PORT">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5/PP_Functional_CAN_20_Tp_Rx</I-PDU-PORT-REF>
+                      </I-PDU-PORT-REFS>
+                      <I-PDU-REF DEST="N-PDU">/PDU/Functional_CAN_20_Tp_oDemoFBL_Fca_SLP5</I-PDU-REF>
+                    </PDU-TRIGGERING>
+                    <PDU-TRIGGERING>
+                      <SHORT-NAME>PT_Functional_CAN_FD</SHORT-NAME>
+                      <I-PDU-PORT-REFS>
+                        <I-PDU-PORT-REF DEST="I-PDU-PORT">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5/PP_Functional_CAN_FD_Rx</I-PDU-PORT-REF>
+                      </I-PDU-PORT-REFS>
+                      <I-PDU-REF DEST="DCM-I-PDU">/PDU/Functional_CAN_FD_oDemoFBL_Fca_SLP5</I-PDU-REF>
+                    </PDU-TRIGGERING>
+                    <PDU-TRIGGERING>
+                      <SHORT-NAME>PT_Functional_CAN_FD_Tp</SHORT-NAME>
+                      <I-PDU-PORT-REFS>
+                        <I-PDU-PORT-REF DEST="I-PDU-PORT">/ECU/Demo_0_CAN29/CN_DemoFBL_Fca_SLP5/PP_Functional_CAN_FD_Tp_Rx</I-PDU-PORT-REF>
+                      </I-PDU-PORT-REFS>
+                      <I-PDU-REF DEST="N-PDU">/PDU/Functional_CAN_FD_Tp_oDemoFBL_Fca_SLP5</I-PDU-REF>
+                    </PDU-TRIGGERING>
+                  </PDU-TRIGGERINGS>
+                </CAN-PHYSICAL-CHANNEL>
+              </PHYSICAL-CHANNELS>
+              <PROTOCOL-NAME>CAN</PROTOCOL-NAME>
+            </CAN-CLUSTER-CONDITIONAL>
+          </CAN-CLUSTER-VARIANTS>
+        </CAN-CLUSTER>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE>
+      <SHORT-NAME>ECU</SHORT-NAME>
+      <ELEMENTS>
+        <ECU-INSTANCE>
+          <SHORT-NAME>Demo_0_CAN29</SHORT-NAME>
+          <DESC>
+            <L-2 L="FOR-ALL">Classic CAN, 11 Bit identifiers</L-2>
+          </DESC>
+          <COMM-CONTROLLERS>
+            <CAN-COMMUNICATION-CONTROLLER>
+              <SHORT-NAME>CT_DemoFBL_Fca_SLP5</SHORT-NAME>
+              <CAN-COMMUNICATION-CONTROLLER-VARIANTS>
+                <CAN-COMMUNICATION-CONTROLLER-CONDITIONAL/>
+              </CAN-COMMUNICATION-CONTROLLER-VARIANTS>
+            </CAN-COMMUNICATION-CONTROLLER>
+          </COMM-CONTROLLERS>
+          <CONNECTORS>
+            <CAN-COMMUNICATION-CONNECTOR>
+              <SHORT-NAME>CN_DemoFBL_Fca_SLP5</SHORT-NAME>
+              <COMM-CONTROLLER-REF DEST="CAN-COMMUNICATION-CONTROLLER">/ECU/Demo_0_CAN29/CT_DemoFBL_Fca_SLP5</COMM-CONTROLLER-REF>
+              <ECU-COMM-PORT-INSTANCES>
+                <FRAME-PORT>
+                  <SHORT-NAME>FP_Demo_0_CAN_20_Request_Rx</SHORT-NAME>
+                  <COMMUNICATION-DIRECTION>IN</COMMUNICATION-DIRECTION>
+                </FRAME-PORT>
+                <FRAME-PORT>
+                  <SHORT-NAME>FP_Demo_0_CAN_20_Response_Tx</SHORT-NAME>
+                  <COMMUNICATION-DIRECTION>OUT</COMMUNICATION-DIRECTION>
+                </FRAME-PORT>
+                <FRAME-PORT>
+                  <SHORT-NAME>FP_Demo_0_CAN_FD_Request_Rx</SHORT-NAME>
+                  <COMMUNICATION-DIRECTION>IN</COMMUNICATION-DIRECTION>
+                </FRAME-PORT>
+                <FRAME-PORT>
+                  <SHORT-NAME>FP_Demo_0_CAN_FD_Response_Tx</SHORT-NAME>
+                  <COMMUNICATION-DIRECTION>OUT</COMMUNICATION-DIRECTION>
+                </FRAME-PORT>
+                <FRAME-PORT>
+                  <SHORT-NAME>FP_Functional_CAN_20_Rx</SHORT-NAME>
+                  <COMMUNICATION-DIRECTION>IN</COMMUNICATION-DIRECTION>
+                </FRAME-PORT>
+                <FRAME-PORT>
+                  <SHORT-NAME>FP_Functional_CAN_FD_Rx</SHORT-NAME>
+                  <COMMUNICATION-DIRECTION>IN</COMMUNICATION-DIRECTION>
+                </FRAME-PORT>
+                <I-PDU-PORT>
+                  <SHORT-NAME>PP_Demo_0_CAN_20_Request_Rx</SHORT-NAME>
+                  <COMMUNICATION-DIRECTION>IN</COMMUNICATION-DIRECTION>
+                </I-PDU-PORT>
+                <I-PDU-PORT>
+                  <SHORT-NAME>PP_Demo_0_CAN_20_Request_Tp_Rx</SHORT-NAME>
+                  <COMMUNICATION-DIRECTION>IN</COMMUNICATION-DIRECTION>
+                </I-PDU-PORT>
+                <I-PDU-PORT>
+                  <SHORT-NAME>PP_Demo_0_CAN_20_Response_Tp_Tx</SHORT-NAME>
+                  <COMMUNICATION-DIRECTION>OUT</COMMUNICATION-DIRECTION>
+                </I-PDU-PORT>
+                <I-PDU-PORT>
+                  <SHORT-NAME>PP_Demo_0_CAN_20_Response_Tx</SHORT-NAME>
+                  <COMMUNICATION-DIRECTION>OUT</COMMUNICATION-DIRECTION>
+                </I-PDU-PORT>
+                <I-PDU-PORT>
+                  <SHORT-NAME>PP_Demo_0_CAN_FD_Request_Rx</SHORT-NAME>
+                  <COMMUNICATION-DIRECTION>IN</COMMUNICATION-DIRECTION>
+                </I-PDU-PORT>
+                <I-PDU-PORT>
+                  <SHORT-NAME>PP_Demo_0_CAN_FD_Request_Tp_Rx</SHORT-NAME>
+                  <COMMUNICATION-DIRECTION>IN</COMMUNICATION-DIRECTION>
+                </I-PDU-PORT>
+                <I-PDU-PORT>
+                  <SHORT-NAME>PP_Demo_0_CAN_FD_Response_Tp_Tx</SHORT-NAME>
+                  <COMMUNICATION-DIRECTION>OUT</COMMUNICATION-DIRECTION>
+                </I-PDU-PORT>
+                <I-PDU-PORT>
+                  <SHORT-NAME>PP_Demo_0_CAN_FD_Response_Tx</SHORT-NAME>
+                  <COMMUNICATION-DIRECTION>OUT</COMMUNICATION-DIRECTION>
+                </I-PDU-PORT>
+                <I-PDU-PORT>
+                  <SHORT-NAME>PP_Functional_CAN_20_Rx</SHORT-NAME>
+                  <COMMUNICATION-DIRECTION>IN</COMMUNICATION-DIRECTION>
+                </I-PDU-PORT>
+                <I-PDU-PORT>
+                  <SHORT-NAME>PP_Functional_CAN_20_Tp_Rx</SHORT-NAME>
+                  <COMMUNICATION-DIRECTION>IN</COMMUNICATION-DIRECTION>
+                </I-PDU-PORT>
+                <I-PDU-PORT>
+                  <SHORT-NAME>PP_Functional_CAN_FD_Rx</SHORT-NAME>
+                  <COMMUNICATION-DIRECTION>IN</COMMUNICATION-DIRECTION>
+                </I-PDU-PORT>
+                <I-PDU-PORT>
+                  <SHORT-NAME>PP_Functional_CAN_FD_Tp_Rx</SHORT-NAME>
+                  <COMMUNICATION-DIRECTION>IN</COMMUNICATION-DIRECTION>
+                </I-PDU-PORT>
+              </ECU-COMM-PORT-INSTANCES>
+            </CAN-COMMUNICATION-CONNECTOR>
+          </CONNECTORS>
+        </ECU-INSTANCE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE>
+      <SHORT-NAME>CanFrame</SHORT-NAME>
+      <ELEMENTS>
+        <CAN-FRAME>
+          <SHORT-NAME>Demo_0_CAN_20_Request_oDemoFBL_Fca_SLP5</SHORT-NAME>
+          <DESC>
+            <L-2 L="FOR-ALL">Physical CAN request message (11 Bit ID)</L-2>
+          </DESC>
+          <FRAME-LENGTH>8</FRAME-LENGTH>
+          <PDU-TO-FRAME-MAPPINGS>
+            <PDU-TO-FRAME-MAPPING>
+              <SHORT-NAME>Demo_0_CAN_20_Request_Tp</SHORT-NAME>
+              <PACKING-BYTE-ORDER>MOST-SIGNIFICANT-BYTE-LAST</PACKING-BYTE-ORDER>
+              <PDU-REF DEST="N-PDU">/PDU/Demo_0_CAN_20_Request_Tp_oDemoFBL_Fca_SLP5</PDU-REF>
+              <START-POSITION>0</START-POSITION>
+            </PDU-TO-FRAME-MAPPING>
+          </PDU-TO-FRAME-MAPPINGS>
+        </CAN-FRAME>
+        <CAN-FRAME>
+          <SHORT-NAME>Demo_0_CAN_20_Response_oDemoFBL_Fca_SLP5</SHORT-NAME>
+          <DESC>
+            <L-2 L="FOR-ALL">Physical CAN response message (11 Bit ID)</L-2>
+          </DESC>
+          <FRAME-LENGTH>8</FRAME-LENGTH>
+          <PDU-TO-FRAME-MAPPINGS>
+            <PDU-TO-FRAME-MAPPING>
+              <SHORT-NAME>Demo_0_CAN_20_Response_Tp</SHORT-NAME>
+              <PACKING-BYTE-ORDER>MOST-SIGNIFICANT-BYTE-LAST</PACKING-BYTE-ORDER>
+              <PDU-REF DEST="N-PDU">/PDU/Demo_0_CAN_20_Response_Tp_oDemoFBL_Fca_SLP5</PDU-REF>
+              <START-POSITION>0</START-POSITION>
+            </PDU-TO-FRAME-MAPPING>
+          </PDU-TO-FRAME-MAPPINGS>
+        </CAN-FRAME>
+        <CAN-FRAME>
+          <SHORT-NAME>Demo_0_CAN_FD_Request_oDemoFBL_Fca_SLP5</SHORT-NAME>
+          <DESC>
+            <L-2 L="FOR-ALL">Physical CAN FD request message (11 Bit ID)</L-2>
+          </DESC>
+          <FRAME-LENGTH>64</FRAME-LENGTH>
+          <PDU-TO-FRAME-MAPPINGS>
+            <PDU-TO-FRAME-MAPPING>
+              <SHORT-NAME>Demo_0_CAN_FD_Request_Tp</SHORT-NAME>
+              <PACKING-BYTE-ORDER>MOST-SIGNIFICANT-BYTE-LAST</PACKING-BYTE-ORDER>
+              <PDU-REF DEST="N-PDU">/PDU/Demo_0_CAN_FD_Request_Tp_oDemoFBL_Fca_SLP5</PDU-REF>
+              <START-POSITION>0</START-POSITION>
+            </PDU-TO-FRAME-MAPPING>
+          </PDU-TO-FRAME-MAPPINGS>
+        </CAN-FRAME>
+        <CAN-FRAME>
+          <SHORT-NAME>Demo_0_CAN_FD_Response_oDemoFBL_Fca_SLP5</SHORT-NAME>
+          <DESC>
+            <L-2 L="FOR-ALL">Physical CAN FD response message (11 Bit ID)</L-2>
+          </DESC>
+          <FRAME-LENGTH>64</FRAME-LENGTH>
+          <PDU-TO-FRAME-MAPPINGS>
+            <PDU-TO-FRAME-MAPPING>
+              <SHORT-NAME>Demo_0_CAN_FD_Response_Tp</SHORT-NAME>
+              <PACKING-BYTE-ORDER>MOST-SIGNIFICANT-BYTE-LAST</PACKING-BYTE-ORDER>
+              <PDU-REF DEST="N-PDU">/PDU/Demo_0_CAN_FD_Response_Tp_oDemoFBL_Fca_SLP5</PDU-REF>
+              <START-POSITION>0</START-POSITION>
+            </PDU-TO-FRAME-MAPPING>
+          </PDU-TO-FRAME-MAPPINGS>
+        </CAN-FRAME>
+        <CAN-FRAME>
+          <SHORT-NAME>Functional_CAN_20_oDemoFBL_Fca_SLP5</SHORT-NAME>
+          <DESC>
+            <L-2 L="FOR-ALL">Functional CAN message (11 Bit ID)</L-2>
+          </DESC>
+          <FRAME-LENGTH>8</FRAME-LENGTH>
+          <PDU-TO-FRAME-MAPPINGS>
+            <PDU-TO-FRAME-MAPPING>
+              <SHORT-NAME>Functional_CAN_20_Tp</SHORT-NAME>
+              <PACKING-BYTE-ORDER>MOST-SIGNIFICANT-BYTE-LAST</PACKING-BYTE-ORDER>
+              <PDU-REF DEST="N-PDU">/PDU/Functional_CAN_20_Tp_oDemoFBL_Fca_SLP5</PDU-REF>
+              <START-POSITION>0</START-POSITION>
+            </PDU-TO-FRAME-MAPPING>
+          </PDU-TO-FRAME-MAPPINGS>
+        </CAN-FRAME>
+        <CAN-FRAME>
+          <SHORT-NAME>Functional_CAN_FD_oDemoFBL_Fca_SLP5</SHORT-NAME>
+          <DESC>
+            <L-2 L="FOR-ALL">Functional CAN FD message (11 Bit ID)</L-2>
+          </DESC>
+          <FRAME-LENGTH>64</FRAME-LENGTH>
+          <PDU-TO-FRAME-MAPPINGS>
+            <PDU-TO-FRAME-MAPPING>
+              <SHORT-NAME>Functional_CAN_FD_Tp</SHORT-NAME>
+              <PACKING-BYTE-ORDER>MOST-SIGNIFICANT-BYTE-LAST</PACKING-BYTE-ORDER>
+              <PDU-REF DEST="N-PDU">/PDU/Functional_CAN_FD_Tp_oDemoFBL_Fca_SLP5</PDU-REF>
+              <START-POSITION>0</START-POSITION>
+            </PDU-TO-FRAME-MAPPING>
+          </PDU-TO-FRAME-MAPPINGS>
+        </CAN-FRAME>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE>
+      <SHORT-NAME>PDU</SHORT-NAME>
+      <ELEMENTS>
+        <DCM-I-PDU>
+          <SHORT-NAME>Demo_0_CAN_20_Request_oDemoFBL_Fca_SLP5</SHORT-NAME>
+          <ADMIN-DATA>
+            <SDGS>
+              <SDG GID="DV:DcmConfiguration">
+                <SD GID="DV:DcmConnectionCommunicationType">PHYSICAL</SD>
+              </SDG>
+            </SDGS>
+          </ADMIN-DATA>
+          <LENGTH>8</LENGTH>
+          <DIAG-PDU-TYPE>DIAG-REQUEST</DIAG-PDU-TYPE>
+        </DCM-I-PDU>
+        <DCM-I-PDU>
+          <SHORT-NAME>Demo_0_CAN_20_Response_oDemoFBL_Fca_SLP5</SHORT-NAME>
+          <ADMIN-DATA>
+            <SDGS>
+              <SDG GID="DV:DcmConfiguration">
+                <SD GID="DV:DcmConnectionCommunicationType">PHYSICAL</SD>
+              </SDG>
+            </SDGS>
+          </ADMIN-DATA>
+          <LENGTH>8</LENGTH>
+          <DIAG-PDU-TYPE>DIAG-RESPONSE</DIAG-PDU-TYPE>
+        </DCM-I-PDU>
+        <DCM-I-PDU>
+          <SHORT-NAME>Demo_0_CAN_FD_Request_oDemoFBL_Fca_SLP5</SHORT-NAME>
+          <ADMIN-DATA>
+            <SDGS>
+              <SDG GID="DV:DcmConfiguration">
+                <SD GID="DV:DcmConnectionCommunicationType">PHYSICAL</SD>
+              </SDG>
+            </SDGS>
+          </ADMIN-DATA>
+          <LENGTH>64</LENGTH>
+          <DIAG-PDU-TYPE>DIAG-REQUEST</DIAG-PDU-TYPE>
+        </DCM-I-PDU>
+        <DCM-I-PDU>
+          <SHORT-NAME>Demo_0_CAN_FD_Response_oDemoFBL_Fca_SLP5</SHORT-NAME>
+          <ADMIN-DATA>
+            <SDGS>
+              <SDG GID="DV:DcmConfiguration">
+                <SD GID="DV:DcmConnectionCommunicationType">PHYSICAL</SD>
+              </SDG>
+            </SDGS>
+          </ADMIN-DATA>
+          <LENGTH>64</LENGTH>
+          <DIAG-PDU-TYPE>DIAG-RESPONSE</DIAG-PDU-TYPE>
+        </DCM-I-PDU>
+        <DCM-I-PDU>
+          <SHORT-NAME>Functional_CAN_20_oDemoFBL_Fca_SLP5</SHORT-NAME>
+          <ADMIN-DATA>
+            <SDGS>
+              <SDG GID="DV:DcmConfiguration">
+                <SD GID="DV:DcmConnectionCommunicationType">FUNCTIONAL</SD>
+              </SDG>
+            </SDGS>
+          </ADMIN-DATA>
+          <LENGTH>7</LENGTH>
+          <DIAG-PDU-TYPE>DIAG-REQUEST</DIAG-PDU-TYPE>
+        </DCM-I-PDU>
+        <DCM-I-PDU>
+          <SHORT-NAME>Functional_CAN_FD_oDemoFBL_Fca_SLP5</SHORT-NAME>
+          <ADMIN-DATA>
+            <SDGS>
+              <SDG GID="DV:DcmConfiguration">
+                <SD GID="DV:DcmConnectionCommunicationType">FUNCTIONAL</SD>
+              </SDG>
+            </SDGS>
+          </ADMIN-DATA>
+          <LENGTH>62</LENGTH>
+          <DIAG-PDU-TYPE>DIAG-REQUEST</DIAG-PDU-TYPE>
+        </DCM-I-PDU>
+        <N-PDU>
+          <SHORT-NAME>Demo_0_CAN_20_Request_Tp_oDemoFBL_Fca_SLP5</SHORT-NAME>
+          <LENGTH>8</LENGTH>
+        </N-PDU>
+        <N-PDU>
+          <SHORT-NAME>Demo_0_CAN_20_Response_Tp_oDemoFBL_Fca_SLP5</SHORT-NAME>
+          <LENGTH>8</LENGTH>
+        </N-PDU>
+        <N-PDU>
+          <SHORT-NAME>Demo_0_CAN_FD_Request_Tp_oDemoFBL_Fca_SLP5</SHORT-NAME>
+          <LENGTH>64</LENGTH>
+        </N-PDU>
+        <N-PDU>
+          <SHORT-NAME>Demo_0_CAN_FD_Response_Tp_oDemoFBL_Fca_SLP5</SHORT-NAME>
+          <LENGTH>64</LENGTH>
+        </N-PDU>
+        <N-PDU>
+          <SHORT-NAME>Functional_CAN_20_Tp_oDemoFBL_Fca_SLP5</SHORT-NAME>
+          <LENGTH>8</LENGTH>
+        </N-PDU>
+        <N-PDU>
+          <SHORT-NAME>Functional_CAN_FD_Tp_oDemoFBL_Fca_SLP5</SHORT-NAME>
+          <LENGTH>64</LENGTH>
+        </N-PDU>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

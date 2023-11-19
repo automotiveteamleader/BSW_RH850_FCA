@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<variables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="UserVariable.xsd" fileFormatVersion="1.0">    	
+	<variable name="ISignalIPdus" remove="yes"/>
+	<variable name="MultiplexedIPdus" remove="yes"/>
+	<variable name="UserDefinedPdus" remove="yes"/>
+	<variable name="UserDefinedIPdus" remove="yes"/>	
+	<variable name="GeneralPurposePdus" remove="yes"/>	<!--except Category DoIP-->
+	<variable name="SecuredIPdus" remove="yes"/>
+	<variable name="DcmIPdus" remove="yes"/> <!--pduToFrameMappingCase-->
+	<variable name="XcpPdus" remove="yes"/>
+	<variable name="NmPdus" remove="yes"/>	
+	<variable name="GeneralPurposeIPdus" remove="yes"/>	<!--Category XCP-->
+</variables>

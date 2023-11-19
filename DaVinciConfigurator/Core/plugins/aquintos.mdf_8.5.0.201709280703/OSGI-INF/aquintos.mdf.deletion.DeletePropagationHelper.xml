@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="aquintos.mdf.deletion.DeletePropagationHelper">
+   <implementation class="aquintos.mdf.deletion.DeletePropagationHelper"/>
+   <service>
+      <provide interface="aquintos.mdf.deletion.IMDFDeletion"/>
+   </service>
+   <reference bind="bindIDeletionPropagator" cardinality="0..n" interface="aquintos.mdf.deletion.IDeletionPropagator" name="IDeletionPropagator" policy="dynamic" unbind="unbindIDeletionPropagator"/>
+</scr:component>

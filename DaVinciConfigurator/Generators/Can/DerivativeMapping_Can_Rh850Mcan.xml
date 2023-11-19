@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Settings Name="com.vector.cfg.core.sip.ISIPService">
+    <Settings Name="ModuleList">
+      <Settings Name="Can">
+        <Settings Name="Can_Rh850_P1xC">
+          <Setting Name="SIP_Folder" Value="Can_Rh850Mcan" />
+          <Settings Name="2FAEEFEB-1401-42F2-9DE5-54D3C3BE0610">
+            <Setting Name="Derivative" Value="RH850_1374" />
+            <Setting Name="SIP_Folder" Value="Can_Rh850Mcan" />
+            <Setting Name="ReleaseType" Value="Hardware Reference Checked" />
+          </Settings>
+        </Settings>
+      </Settings>
+    </Settings>
+  </Settings>
+</Settings>

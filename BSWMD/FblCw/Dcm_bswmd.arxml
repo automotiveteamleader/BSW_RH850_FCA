@@ -1,0 +1,2017 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://autosar.org/schema/r4.0">
+	<AR-PACKAGES>
+		<AR-PACKAGE UUID="8c5c0baa-719f-416f-8ef7-51ae80cd0f42">
+			<SHORT-NAME>MICROSARFBL</SHORT-NAME>
+			<ELEMENTS>
+				<BSW-IMPLEMENTATION UUID="0bbceaf6-f444-40f5-a33f-fc6574a6fbbf">
+					<SHORT-NAME>Dcm_Impl</SHORT-NAME>
+					<PROGRAMMING-LANGUAGE>C</PROGRAMMING-LANGUAGE>
+					<SW-VERSION>8.03.00</SW-VERSION>
+					<USED-CODE-GENERATOR>DaVinci Configurator</USED-CODE-GENERATOR>
+					<VENDOR-ID>30</VENDOR-ID>
+					<AR-RELEASE-VERSION>4.00.03</AR-RELEASE-VERSION>
+					<BEHAVIOR-REF DEST="BSW-INTERNAL-BEHAVIOR">/MICROSARFBL/Dcm_ib_bswmd/BswModuleDescriptions/Dcm/DcmBehavior</BEHAVIOR-REF>
+					<PRECONFIGURED-CONFIGURATION-REFS>
+						<PRECONFIGURED-CONFIGURATION-REF DEST="ECUC-MODULE-CONFIGURATION-VALUES">/MICROSARFBL/Dcm_Pre</PRECONFIGURED-CONFIGURATION-REF>
+					</PRECONFIGURED-CONFIGURATION-REFS>
+					<RECOMMENDED-CONFIGURATION-REFS>
+						<RECOMMENDED-CONFIGURATION-REF DEST="ECUC-MODULE-CONFIGURATION-VALUES">/MICROSARFBL/Dcm_Rec</RECOMMENDED-CONFIGURATION-REF>
+					</RECOMMENDED-CONFIGURATION-REFS>
+					<VENDOR-SPECIFIC-MODULE-DEF-REFS>
+						<VENDOR-SPECIFIC-MODULE-DEF-REF DEST="ECUC-MODULE-DEF">/MICROSARFBL/Dcm</VENDOR-SPECIFIC-MODULE-DEF-REF>
+					</VENDOR-SPECIFIC-MODULE-DEF-REFS>
+				</BSW-IMPLEMENTATION>
+				<ECUC-MODULE-DEF UUID="d8622056-0c1b-40e8-89f0-8a27221b0b64">
+					<SHORT-NAME>Dcm</SHORT-NAME>
+					<DESC>
+						<L-2 L="EN">Configuration of the Dcm (Diagnostic Communications Manager) module.</L-2>
+					</DESC>
+					<CATEGORY>VENDOR_SPECIFIC_MODULE_DEFINITION</CATEGORY>
+					<ADMIN-DATA>
+						<DOC-REVISIONS>
+							<DOC-REVISION>
+								<REVISION-LABEL>1.0.0</REVISION-LABEL>
+								<ISSUED-BY>visms vismvi</ISSUED-BY>
+								<DATE>2017-07-18</DATE>
+								<MODIFICATIONS>
+									<MODIFICATION>
+										<CHANGE>
+											<L-2 L="EN">Support PostBuildSelectable</L-2>
+										</CHANGE>
+										<REASON>
+											<L-2 L="EN">STORYC-1890</L-2>
+										</REASON>
+									</MODIFICATION>
+								</MODIFICATIONS>
+							</DOC-REVISION>
+						</DOC-REVISIONS>
+					</ADMIN-DATA>
+					<LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+					<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+					<API-SERVICE-PREFIX>FblCw</API-SERVICE-PREFIX>
+					<REFINED-MODULE-DEF-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/Dcm</REFINED-MODULE-DEF-REF>
+					<SUPPORTED-CONFIG-VARIANTS>
+						<SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
+						<SUPPORTED-CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</SUPPORTED-CONFIG-VARIANT>
+						<SUPPORTED-CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</SUPPORTED-CONFIG-VARIANT>
+					</SUPPORTED-CONFIG-VARIANTS>
+					<CONTAINERS>
+						<!-- Container Definition: DcmConfigSet -->
+						<ECUC-PARAM-CONF-CONTAINER-DEF UUID="cac4b452-d2a9-4b38-b595-c7182567e72b">
+							<SHORT-NAME>DcmConfigSet</SHORT-NAME>
+							<DESC>
+								<L-2 L="EN">This container contains the configuration parameters and sub containers of the Dcm module supporting multiple configuration sets.</L-2>
+							</DESC>
+							<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+							<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+							<POST-BUILD-CHANGEABLE>false</POST-BUILD-CHANGEABLE>
+							<MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+							<SUB-CONTAINERS>
+								<!-- Container Definition: DcmDsd -->
+								<!-- Container Definition: DcmDsl -->
+								<ECUC-PARAM-CONF-CONTAINER-DEF UUID="fa885625-23f7-41bc-9832-0d1eb8fc7206">
+									<SHORT-NAME>DcmDsl</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">These parameters apply to a Diagnostic Session Layer. There may be a parameter set (DSL Configuration) per protocol.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<POST-BUILD-CHANGEABLE>false</POST-BUILD-CHANGEABLE>
+									<MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+									<SUB-CONTAINERS>
+										<!-- Container Definition: DcmDslBuffer -->
+										<ECUC-PARAM-CONF-CONTAINER-DEF UUID="aa36fd1d-1700-482a-b8eb-892d37aa8ee9">
+											<SHORT-NAME>DcmDslBuffer</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">This container contains the configuration (parameters) for the diagnostic buffer.</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<POST-BUILD-CHANGEABLE>false</POST-BUILD-CHANGEABLE>
+											<MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+											<PARAMETERS>
+												<!-- PARAMETER DEFINITION: DcmDslBufferSize -->
+												<ECUC-INTEGER-PARAM-DEF UUID="da2641f5-1999-4e55-bdb2-828a14617d89">
+													<SHORT-NAME>DcmDslBufferSize</SHORT-NAME>
+													<DESC>
+														<L-2 L="EN">Specifies the size of a diagnostic buffer (in Bytes).
+
+Effect:
+------------------------------------
+Determines the longest request and in some cases - response the Dcm will be able to receive, resp. transmit.
+
+Constraints:
+------------------------------------
+It depends on the communication bus system how much buffer shall be reserved. For example on CAN a buffer of more than 4095 will not bring any advantage since the CanTp can transfer only up to 4095 bytes.
+
+Dependencies:
+------------------------------------
+In case of Paged Buffer usage (refer to DcmPageBufferCfg), the buffer size shall be chosen such that at least the longest snapshot record/extended data record of the Dem plus some additional bytes (i.e. in case of CAN -&gt; 6 additional bytes) will fit it.
+
+Runtime effects:
+------------------------------------
+none
+
+Code ROM usage effects:
+------------------------------------
+none
+
+Const data ROM usage effects:
+------------------------------------
+none
+
+Global RAM usage effects:
+------------------------------------
+The greater the buffer the more RAM will be required.
+
+Stack RAM usage effects:
+------------------------------------
+none</L-2>
+													</DESC>
+													<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+													<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+													<IMPLEMENTATION-CONFIG-CLASSES>
+														<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+															<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+															<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+														</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+														<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+															<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+															<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+														</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+														<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+															<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+															<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+														</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													</IMPLEMENTATION-CONFIG-CLASSES>
+													<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+													<REQUIRES-INDEX>false</REQUIRES-INDEX>
+													<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+													<DEFAULT-VALUE>50</DEFAULT-VALUE>
+													<MAX>4294967294</MAX>
+													<MIN>8</MIN>
+												</ECUC-INTEGER-PARAM-DEF>
+											</PARAMETERS>
+										</ECUC-PARAM-CONF-CONTAINER-DEF>
+										<!-- Container Definition: DcmDslCallbackDCMRequestService -->
+										<!-- Container Definition: DcmDslDiagResp -->
+										<ECUC-PARAM-CONF-CONTAINER-DEF UUID="7c495ec9-054b-4419-92e2-b7bd063805ef">
+											<SHORT-NAME>DcmDslDiagResp</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">This container contains the configuration (parameters) for the ResponsePending handling</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<POST-BUILD-CHANGEABLE>false</POST-BUILD-CHANGEABLE>
+											<MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+											<PARAMETERS>
+												<!-- PARAMETER DEFINITION: DcmDslDiagRespMaxNumRespPend -->
+												<!-- PARAMETER DEFINITION: DcmDslDiagRespOnSecondDeclinedRequest -->
+												<ECUC-BOOLEAN-PARAM-DEF UUID="7b663825-a29b-41be-885c-498e71fb775c">
+													<SHORT-NAME>DcmDslDiagRespOnSecondDeclinedRequest</SHORT-NAME>
+													<DESC>
+														<L-2 L="EN">Defines the reaction upon a second request (ClientB) that can not be processed (e.g. due to priority assessment).
+
+Effect:
+------------------------------------
+If enabled, the Dcm will reject any nested diagnostic request by NRC 0x21 (BusyRepeatRequest).
+
+Constraints:
+------------------------------------
+For optimization reasons not all Dcm managed connection will support this feature by default. It is configurable how many parallel (nested) request to be handled at a time to save RAM and run time resources.
+
+Dependencies:
+------------------------------------
+Refer to DcmDslDiagRespMaxNumOfDeclinedRequests.
+
+Runtime effects:
+------------------------------------
+If enabled the Dcm diagnostic request reception functionality will have slightly increased run time usage.
+
+Code ROM usage effects:
+------------------------------------
+If enabled the Dcm will have slightly increased code ROM usage.
+
+Const data ROM usage effects:
+------------------------------------
+none
+
+Global RAM usage effects:
+------------------------------------
+If enabled the Dcm will have slightly increased RAM usage.
+
+Stack RAM usage effects:
+------------------------------------
+If enabled the Dcm will have insignificantly increased stack usage within the Rx ISRs.</L-2>
+													</DESC>
+													<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+													<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+													<IMPLEMENTATION-CONFIG-CLASSES>
+														<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+															<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+															<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+														</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+														<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+															<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+															<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+														</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+														<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+															<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+															<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+														</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													</IMPLEMENTATION-CONFIG-CLASSES>
+													<ORIGIN>AUTOSAR_ECUC V1.0.0</ORIGIN>
+													<REQUIRES-INDEX>false</REQUIRES-INDEX>
+													<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+													<DEFAULT-VALUE>false</DEFAULT-VALUE>
+												</ECUC-BOOLEAN-PARAM-DEF>
+												<ECUC-INTEGER-PARAM-DEF UUID="93fcd2a0-9ae9-4473-a3fd-d6ff25bbe77d">
+													<SHORT-NAME>DcmDslDiagRespMaxNumOfDeclinedRequests</SHORT-NAME>
+													<DESC>
+														<L-2 L="EN">Defines the maximum number of reactions upon a second request (ClientB) that can not be processed (e.g. due to priority assessment).
+
+Effect:
+------------------------------------
+The Dcm will calculate the required amount of resources upon the specified by this option resource for parallel client processing.
+
+Constraints:
+------------------------------------
+If the amount of configured requests exceeds the total number of Dcm connections, during the code generation the resource usage optimization will be disabled and only as many as available diagnostic connection objects will be allocated. This will also shorten the run time usage (see below).
+
+Dependencies:
+------------------------------------
+Has any effect only if DcmDslDiagRespOnSecondDeclinedRequest is enabled.
+
+Runtime effects:
+------------------------------------
+The more clients to be handled the longer the run time for looking up for free resources. If the number of declined requests matches the total number of Dcm connection, no look up will be necessary, and the run time will be minimal.
+
+Code ROM usage effects:
+------------------------------------
+If the number of declined requests matches the total number of Dcm connection, no look up will be necessary, and the code ROM will be minimal.
+
+Const data ROM usage effects:
+------------------------------------
+none
+
+Global RAM usage effects:
+------------------------------------
+The more clients to be handled the more RAM will be required for handling them.
+
+Stack RAM usage effects:
+------------------------------------
+If the number of declined requests matches the total number of Dcm connection, no look up will be necessary, and the stack usage will be minimal.
+</L-2>
+													</DESC>
+													<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+													<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+													<IMPLEMENTATION-CONFIG-CLASSES>
+														<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+															<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+															<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+														</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+														<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+															<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+															<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+														</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+														<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+															<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+															<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+														</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													</IMPLEMENTATION-CONFIG-CLASSES>
+													<ORIGIN>Vector Informatik</ORIGIN>
+													<REQUIRES-INDEX>false</REQUIRES-INDEX>
+													<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+													<DEFAULT-VALUE>3</DEFAULT-VALUE>
+													<MAX>255</MAX>
+													<MIN>1</MIN>
+												</ECUC-INTEGER-PARAM-DEF>
+											</PARAMETERS>
+										</ECUC-PARAM-CONF-CONTAINER-DEF>
+										<!-- Container Definition: DcmDslProtocol -->
+										<ECUC-PARAM-CONF-CONTAINER-DEF UUID="64160234-65a6-4122-941d-745a06b14b47">
+											<SHORT-NAME>DcmDslProtocol</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">This container contains the configuration (parameters) for the protocol configuration (for each protocol) The following parameters needs to be configured per protocol.</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<POST-BUILD-CHANGEABLE>false</POST-BUILD-CHANGEABLE>
+											<MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+											<SUB-CONTAINERS>
+												<!-- Container Definition: DcmDslProtocolRow -->
+												<ECUC-PARAM-CONF-CONTAINER-DEF UUID="26bd9fbe-47a3-4704-a435-935845d15bf4">
+													<SHORT-NAME>DcmDslProtocolRow</SHORT-NAME>
+													<DESC>
+														<L-2 L="EN">Definition of a single Row of configuration for the protocol configuration (for each protocol)</L-2>
+													</DESC>
+													<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+													<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+													<POST-BUILD-CHANGEABLE>false</POST-BUILD-CHANGEABLE>
+													<MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+													<PARAMETERS>
+														<!-- PARAMETER DEFINITION: DcmDslProtocolEndiannessConvEnabled -->
+														<!-- PARAMETER DEFINITION: DcmDslProtocolID -->
+														<ECUC-ENUMERATION-PARAM-DEF UUID="fe71c45b-7774-4d1c-9e04-576df770cab1">
+															<SHORT-NAME>DcmDslProtocolID</SHORT-NAME>
+															<DESC>
+																<L-2 L="EN">Specifies the diagnostic protocol type the Dcm shall manage.
+
+Effect:
+------------------------------------
+On a multi protocol configuration Dcm will be able to distinguish among different protocols and notify the application for activation/deactivation of a concrete protocol, specified by this parameter.
+
+Constraints:
+------------------------------------
+none
+
+Dependencies:
+------------------------------------
+Has any effect only if multi protocol configuration is used.
+
+Runtime effects:
+------------------------------------
+none
+
+Code ROM usage effects:
+------------------------------------
+none
+
+Const data ROM usage effects:
+------------------------------------
+none
+
+Global RAM usage effects:
+------------------------------------
+none
+
+Stack RAM usage effects:
+------------------------------------
+none</L-2>
+															</DESC>
+															<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+															<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+															<IMPLEMENTATION-CONFIG-CLASSES>
+																<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																	<CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+																	<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+																</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																	<CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+																	<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+																</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																	<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																	<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+																</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+															</IMPLEMENTATION-CONFIG-CLASSES>
+															<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+															<REQUIRES-INDEX>false</REQUIRES-INDEX>
+															<SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+															<DEFAULT-VALUE>DCM_UDS_ON_CAN</DEFAULT-VALUE>
+															<LITERALS>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:dc7fd3a3-4ae7-8b6a-5e78-09caaf996a62">
+																	<SHORT-NAME>DCM_OBD_ON_CAN</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:9d6ddcdb-e052-8be2-5366-85fe30e454e6">
+																	<SHORT-NAME>DCM_OBD_ON_FLEXRAY</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:80af3798-225a-9594-6240-5fa2b1201ebf">
+																	<SHORT-NAME>DCM_OBD_ON_IP</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:05db17a9-b4ba-9023-65f3-f11556ef470a">
+																	<SHORT-NAME>DCM_PERIODICTRANS_ON_IP</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:b5cdc33e-66ed-978c-74af-4e1f5e047475">
+																	<SHORT-NAME>DCM_PERIODIC_ON_CAN</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:c2ebf80e-0ea1-9127-6275-47aff3e803a5">
+																	<SHORT-NAME>DCM_PERIODIC_ON_FLEXRAY</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:ab63e8ce-d304-8bba-357a-8bbf66a690ce">
+																	<SHORT-NAME>DCM_ROE_ON_CAN</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:53087174-5316-8ca9-38af-e4fa3387ad53">
+																	<SHORT-NAME>DCM_ROE_ON_FLEXRAY</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:7d9cc1b2-908d-97f1-6632-3db46023f25c">
+																	<SHORT-NAME>DCM_ROE_ON_IP</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:d24a12fc-1720-89f8-6e12-985a5305746f">
+																	<SHORT-NAME>DCM_SUPPLIER_1</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:52af82b3-39ec-96bf-3cd7-94e75bbc2ab5">
+																	<SHORT-NAME>DCM_SUPPLIER_10</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:ea58fd02-17c9-9336-726f-bc3689cd18e0">
+																	<SHORT-NAME>DCM_SUPPLIER_11</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:33545ba7-8ced-9366-6334-c9b8e4168cd2">
+																	<SHORT-NAME>DCM_SUPPLIER_12</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:44b14b2f-8ebb-95b0-66c1-6d885c2b175c">
+																	<SHORT-NAME>DCM_SUPPLIER_13</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:9f6fae1a-8b07-96dd-40ae-4868db946741">
+																	<SHORT-NAME>DCM_SUPPLIER_14</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:754e864e-6b8e-9535-6c2a-2704e72fd8ef">
+																	<SHORT-NAME>DCM_SUPPLIER_15</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:f169dc56-b35a-8d75-5471-550da470bbae">
+																	<SHORT-NAME>DCM_SUPPLIER_2</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:f2497c9a-8163-937e-70fc-9b1f1322de64">
+																	<SHORT-NAME>DCM_SUPPLIER_3</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:e817e36c-2d51-94ed-372d-a0c869f19f01">
+																	<SHORT-NAME>DCM_SUPPLIER_4</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:e7ef13aa-82b1-938a-362c-268332b9f41e">
+																	<SHORT-NAME>DCM_SUPPLIER_5</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:461a5e5f-4045-8f31-587c-4eea45331530">
+																	<SHORT-NAME>DCM_SUPPLIER_6</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:c2ef64a0-1558-8afd-5a9f-b52ce33c790f">
+																	<SHORT-NAME>DCM_SUPPLIER_7</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:206427bd-cb90-8ddd-42b2-2611287696a9">
+																	<SHORT-NAME>DCM_SUPPLIER_8</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:ae0c1077-8fa4-904b-68fb-94d6d8edc088">
+																	<SHORT-NAME>DCM_SUPPLIER_9</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="70421d86-e86b-4ba4-b1cd-99bd42529c1e">
+																	<SHORT-NAME>DCM_UDS_ON_CAN</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="3faf8847-5b74-48fb-87b9-e4e09210fe09">
+																	<SHORT-NAME>DCM_UDS_ON_FLEXRAY</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+																<ECUC-ENUMERATION-LITERAL-DEF UUID="26fd9e8a-4e2a-4268-99f8-0a658b02ad23">
+																	<SHORT-NAME>DCM_UDS_ON_IP</SHORT-NAME>
+																	<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																</ECUC-ENUMERATION-LITERAL-DEF>
+															</LITERALS>
+														</ECUC-ENUMERATION-PARAM-DEF>
+														<!-- PARAMETER DEFINITION: DcmDslProtocolIsParallelExecutab -->
+														<!-- PARAMETER DEFINITION: DcmDslProtocolMaximumResponseSize -->
+														<!-- PARAMETER DEFINITION: DcmDslProtocolPreemptTimeout -->
+														<!-- PARAMETER DEFINITION: DcmDslProtocolPriority -->
+														<!-- PARAMETER DEFINITION: DcmDslProtocolTransType -->
+														<!-- PARAMETER DEFINITION: DcmSendRespPendOnTransToBoot -->
+														<!-- PARAMETER DEFINITION: DcmTimStrP2ServerAdjust -->
+														<!-- PARAMETER DEFINITION: DcmTimStrP2StarServerAdjust -->
+													</PARAMETERS>
+													<SUB-CONTAINERS>
+														<!-- Container Definition: DcmDslConnection -->
+														<ECUC-CHOICE-CONTAINER-DEF UUID="d3172768-def3-4a74-a1f9-7338f4aad45d">
+															<SHORT-NAME>DcmDslConnection</SHORT-NAME>
+															<DESC>
+																<L-2 L="EN">This container contains links between Diagnostic Protocol (=DcmDslProtocolRow) and the according Rx or Tx channel.</L-2>
+															</DESC>
+															<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+															<UPPER-MULTIPLICITY>254</UPPER-MULTIPLICITY>
+															<POST-BUILD-CHANGEABLE>true</POST-BUILD-CHANGEABLE>
+															<CHOICES>
+																<!-- Container Definition: DcmDslMainConnection -->
+																<ECUC-PARAM-CONF-CONTAINER-DEF UUID="73c3186d-e11c-4a23-a8ea-149733afe129">
+																	<SHORT-NAME>DcmDslMainConnection</SHORT-NAME>
+																	<DESC>
+																		<L-2 L="EN">This container contains configuration for Diagnostic Main Connection</L-2>
+																	</DESC>
+																	<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+																	<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+																	<POST-BUILD-CHANGEABLE>false</POST-BUILD-CHANGEABLE>
+																	<MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+																	<PARAMETERS>
+																		<!-- PARAMETER DEFINITION: DcmDslProtocolRxTesterSourceAddr -->
+																		<ECUC-INTEGER-PARAM-DEF UUID="1032d3f5-ac53-4b81-925f-fb46dad4d627">
+																			<SHORT-NAME>DcmDslProtocolRxTesterSourceAddr</SHORT-NAME>
+																			<DESC>
+																				<L-2 L="EN">Specifies a unique identifier of a diagnostic client connection.
+
+Effect:
+------------------------------------
+The Dcm is able to identify different clients or the same client on multiple channels using this identifier.
+
+Constraints:
+------------------------------------
+For each DcmDslConnection there shall be a unique value assigned to this parameter.
+
+Dependencies:
+------------------------------------
+none
+
+Runtime effects:
+------------------------------------
+none
+
+Code ROM usage effects:
+------------------------------------
+none
+
+Const data ROM usage effects:
+------------------------------------
+none
+
+Global RAM usage effects:
+------------------------------------
+none
+
+Stack RAM usage effects:
+------------------------------------
+none</L-2>
+																			</DESC>
+																			<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+																			<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+																			<IMPLEMENTATION-CONFIG-CLASSES>
+																				<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																					<CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+																					<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+																				</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																				<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																					<CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+																					<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+																				</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																				<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																					<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																					<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+																				</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																			</IMPLEMENTATION-CONFIG-CLASSES>
+																			<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																			<REQUIRES-INDEX>false</REQUIRES-INDEX>
+																			<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+																			<MAX>65535</MAX>
+																			<MIN>0</MIN>
+																		</ECUC-INTEGER-PARAM-DEF>
+																		<ECUC-INTEGER-PARAM-DEF UUID="2f86f01d-1d20-4431-ac9d-30a3efcf9848">
+																			<SHORT-NAME>DcmDslPayloadLimit</SHORT-NAME>
+																			<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+																			<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+																			<IMPLEMENTATION-CONFIG-CLASSES>
+																				<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																					<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																					<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+																				</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																				<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																					<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																					<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+																				</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																				<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																					<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																					<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+																				</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																			</IMPLEMENTATION-CONFIG-CLASSES>
+																			<ORIGIN>Vector Informatik</ORIGIN>
+																			<REQUIRES-INDEX>false</REQUIRES-INDEX>
+																			<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+																			<DEFAULT-VALUE>4095</DEFAULT-VALUE>
+																			<MAX>4294967295</MAX>
+																			<MIN>0</MIN>
+																		</ECUC-INTEGER-PARAM-DEF>
+																	</PARAMETERS>
+																	<SUB-CONTAINERS>
+																		<!-- Container Definition: DcmDslProtocolRx -->
+																		<ECUC-PARAM-CONF-CONTAINER-DEF UUID="be4dca73-791e-4113-bfe2-f94785686cdf">
+																			<SHORT-NAME>DcmDslProtocolRx</SHORT-NAME>
+																			<DESC>
+																				<L-2 L="EN">This container describes a single Dcm logical receive PDU.
+
+Effect:
+------------------------------------
+For each defined DcmDslProtocolRx, the Dcm will be able to receive a diagnostic request.
+
+Constraints:
+------------------------------------
+none
+
+Dependencies:
+------------------------------------
+none
+
+Runtime effects:
+------------------------------------
+none
+
+Code ROM usage effects:
+------------------------------------
+none
+
+Const data ROM usage effects:
+------------------------------------
+The Dcm configuration ROM usage scales straight proportionally with the number of Dcm receive PDUs.
+
+Global RAM usage effects:
+------------------------------------
+none
+
+Stack RAM usage effects:
+------------------------------------
+none</L-2>
+																			</DESC>
+																			<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+																			<UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+																			<POST-BUILD-CHANGEABLE>true</POST-BUILD-CHANGEABLE>
+																			<MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+																			<PARAMETERS>
+																				<!-- PARAMETER DEFINITION: DcmDslProtocolRxAddrType -->
+																				<ECUC-ENUMERATION-PARAM-DEF UUID="b579a0d7-a2a5-4071-a9e4-00007b15d3fe">
+																					<SHORT-NAME>DcmDslProtocolRxAddrType</SHORT-NAME>
+																					<DESC>
+																						<L-2 L="EN">Specifies the request addressing type on a concrete receive Dcm PduId.
+
+Effect:
+------------------------------------
+Depending on the request type specified here, the Dcm will be able to react correctly according to the ISO14229-1.
+
+Constraints:
+------------------------------------
+none
+
+Dependencies:
+------------------------------------
+none
+
+Runtime effects:
+------------------------------------
+none
+
+Code ROM usage effects:
+------------------------------------
+none
+
+Const data ROM usage effects:
+------------------------------------
+none
+
+Global RAM usage effects:
+------------------------------------
+none
+
+Stack RAM usage effects:
+------------------------------------
+none</L-2>
+																					</DESC>
+																					<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+																					<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+																					<IMPLEMENTATION-CONFIG-CLASSES>
+																						<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																							<CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+																							<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+																						</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																						<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																							<CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+																							<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+																						</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																						<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																							<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																							<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+																						</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																					</IMPLEMENTATION-CONFIG-CLASSES>
+																					<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																					<REQUIRES-INDEX>false</REQUIRES-INDEX>
+																					<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+																					<LITERALS>
+																						<ECUC-ENUMERATION-LITERAL-DEF UUID="cee7f867-3570-4ebb-969a-dee09adb7a8f">
+																							<SHORT-NAME>DCM_FUNCTIONAL_TYPE</SHORT-NAME>
+																							<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																						</ECUC-ENUMERATION-LITERAL-DEF>
+																						<ECUC-ENUMERATION-LITERAL-DEF UUID="84b3372c-257d-4235-8ccc-573fda8270ea">
+																							<SHORT-NAME>DCM_PHYSICAL_TYPE</SHORT-NAME>
+																							<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																						</ECUC-ENUMERATION-LITERAL-DEF>
+																					</LITERALS>
+																				</ECUC-ENUMERATION-PARAM-DEF>
+																				<!-- PARAMETER DEFINITION: DcmDslProtocolRxChannelId -->
+																				<!-- PARAMETER DEFINITION: DcmDslProtocolRxPduId -->
+																				<ECUC-INTEGER-PARAM-DEF UUID="b1394a95-26da-439b-841c-6baec3b231bf">
+																					<SHORT-NAME>DcmDslProtocolRxPduId</SHORT-NAME>
+																					<DESC>
+																						<L-2 L="EN">Specifies the logical handle value of a concrete Dcm receive PDU.
+NOTE: This value is generated automatically by the Configurator 5 tool.
+
+Effect:
+------------------------------------
+Using this value Dcm is able to distinguish the different transport layer connections.
+
+Constraints:
+------------------------------------
+none
+
+Dependencies:
+------------------------------------
+none
+
+Runtime effects:
+------------------------------------
+none
+
+Code ROM usage effects:
+------------------------------------
+none
+
+Const data ROM usage effects:
+------------------------------------
+none
+
+Global RAM usage effects:
+------------------------------------
+none
+
+Stack RAM usage effects:
+------------------------------------
+none</L-2>
+																					</DESC>
+																					<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+																					<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+																					<IMPLEMENTATION-CONFIG-CLASSES>
+																						<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																							<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																							<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+																						</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																						<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																							<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																							<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+																						</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																						<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																							<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																							<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+																						</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																					</IMPLEMENTATION-CONFIG-CLASSES>
+																					<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																					<REQUIRES-INDEX>false</REQUIRES-INDEX>
+																					<SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+																					<DEFAULT-VALUE>0</DEFAULT-VALUE>
+																					<MAX>65535</MAX>
+																					<MIN>0</MIN>
+																				</ECUC-INTEGER-PARAM-DEF>
+																			</PARAMETERS>
+																			<REFERENCES>
+																				<!-- Reference Definition: DcmDslProtocolRxPduRef -->
+																				<ECUC-REFERENCE-DEF UUID="e1f80c96-33ef-48b6-aa05-251202f9afee">
+																					<SHORT-NAME>DcmDslProtocolRxPduRef</SHORT-NAME>
+																					<DESC>
+																						<L-2 L="EN">Links a logical Dcm receive PduId with a concrete Dcm receive PDU.
+
+Effect:
+------------------------------------
+This setting connects the Dcm to the outside world.
+
+Constraints:
+------------------------------------
+Only receive PDUs for the ECU diagnostics shall be assigned here.
+The same receive PDU shall not be used again in other Dcm connections.
+
+Dependencies:
+------------------------------------
+none
+
+Runtime effects:
+------------------------------------
+none
+
+Code ROM usage effects:
+------------------------------------
+none
+
+Const data ROM usage effects:
+------------------------------------
+none
+
+Global RAM usage effects:
+------------------------------------
+none
+
+Stack RAM usage effects:
+------------------------------------
+none</L-2>
+																					</DESC>
+																					<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+																					<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+																					<IMPLEMENTATION-CONFIG-CLASSES>
+																						<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																							<CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+																							<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+																						</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																						<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																							<CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+																							<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+																						</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																						<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																							<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																							<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+																						</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																					</IMPLEMENTATION-CONFIG-CLASSES>
+																					<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																					<REQUIRES-INDEX>false</REQUIRES-INDEX>
+																					<DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucPduCollection/Pdu</DESTINATION-REF>
+																				</ECUC-REFERENCE-DEF>
+																				<!-- Symbolic Name Reference Definition: DcmDslProtocolRxComMChannelRef -->
+																				<ECUC-SYMBOLIC-NAME-REFERENCE-DEF UUID="dcedd2e5-7540-45c4-ac65-5ce8fc368909">
+																					<SHORT-NAME>DcmDslProtocolRxComMChannelRef</SHORT-NAME>
+																					<LONG-NAME>
+																						<L-4 L="EN">Dsl Protocol Rx ComM Channel Ref</L-4>
+																					</LONG-NAME>
+																					<DESC>
+																						<L-2 L="EN">Links a specific ComMChannel with a Dcm logical receive PduId.
+
+Effect:
+------------------------------------
+With this parameter the Dcm will be able to keep the communication on the specified ComMChannel awake as required by AR 4 DCM SWS.
+
+Constraints:
+------------------------------------
+The ComMChannel shall be exactly the one that corresponds to the communication channel on which the PDU linked in DcmDslProtocolRxPduRef is to be received.
+
+Dependencies:
+------------------------------------
+Refer to: /Dcm/DcmConfigSet/DcmDsl/DcmDslProtocol/DcmDslProtocolRow/DcmDslConnection/DcmDslMainConnection/DcmDslProtocolRx/DcmDslProtocolRxPduRef
+
+Runtime effects:
+------------------------------------
+none
+
+Code ROM usage effects:
+------------------------------------
+none
+
+Const data ROM usage effects:
+------------------------------------
+none
+
+Global RAM usage effects:
+------------------------------------
+none
+
+Stack RAM usage effects:
+------------------------------------
+none</L-2>
+																					</DESC>
+																					<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+																					<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+																					<IMPLEMENTATION-CONFIG-CLASSES>
+																						<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																							<CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+																							<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+																						</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																						<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																							<CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+																							<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+																						</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																						<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																							<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																							<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+																						</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																					</IMPLEMENTATION-CONFIG-CLASSES>
+																					<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																					<REQUIRES-INDEX>false</REQUIRES-INDEX>
+																					<DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/ComM/ComMConfigSet/ComMChannel</DESTINATION-REF>
+																				</ECUC-SYMBOLIC-NAME-REFERENCE-DEF>
+																			</REFERENCES>
+																		</ECUC-PARAM-CONF-CONTAINER-DEF>
+																		<!-- Container Definition: DcmDslProtocolTx -->
+																		<ECUC-PARAM-CONF-CONTAINER-DEF UUID="63231539-d580-484d-922d-af02da61923f">
+																			<SHORT-NAME>DcmDslProtocolTx</SHORT-NAME>
+																			<DESC>
+																				<L-2 L="EN">This container describes a single Dcm logical transmit PDU.
+
+Effect:
+------------------------------------
+If DcmDslProtocolTx is defined, the Dcm will be able to respond to a diagnostic request on the associated main-connection.
+
+Constraints:
+------------------------------------
+none
+
+Dependencies:
+------------------------------------
+none
+
+Runtime effects:
+------------------------------------
+none
+
+Code ROM usage effects:
+------------------------------------
+none
+
+Const data ROM usage effects:
+------------------------------------
+The Dcm configuration ROM usage scales straight proportionally with the number of Dcm transmit PDUs.
+
+Global RAM usage effects:
+------------------------------------
+none
+
+Stack RAM usage effects:
+------------------------------------
+none</L-2>
+																			</DESC>
+																			<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+																			<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+																			<POST-BUILD-CHANGEABLE>false</POST-BUILD-CHANGEABLE>
+																			<MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+																			<PARAMETERS>
+																				<!-- PARAMETER DEFINITION: DcmDslTxConfirmationPduId -->
+																				<ECUC-INTEGER-PARAM-DEF UUID="23eb5f7e-6b7a-44e9-a993-52697e0ff6bb">
+																					<SHORT-NAME>DcmDslTxConfirmationPduId</SHORT-NAME>
+																					<DESC>
+																						<L-2 L="EN">Specifies the logical handle value of a concrete Dcm transmit PDU.
+NOTE: This value is generated automatically by the Configurator 5 tool.
+
+Effect:
+------------------------------------
+Using this value Dcm is able to distinguish the different transport layer connections at response confirmation time.
+
+Constraints:
+------------------------------------
+none
+
+Dependencies:
+------------------------------------
+none
+
+Runtime effects:
+------------------------------------
+none
+
+Code ROM usage effects:
+------------------------------------
+none
+
+Const data ROM usage effects:
+------------------------------------
+none
+
+Global RAM usage effects:
+------------------------------------
+none
+
+Stack RAM usage effects:
+------------------------------------
+none</L-2>
+																					</DESC>
+																					<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+																					<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+																					<IMPLEMENTATION-CONFIG-CLASSES>
+																						<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																							<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																							<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+																						</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																						<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																							<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																							<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+																						</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																						<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																							<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																							<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+																						</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																					</IMPLEMENTATION-CONFIG-CLASSES>
+																					<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																					<REQUIRES-INDEX>false</REQUIRES-INDEX>
+																					<SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+																					<DEFAULT-VALUE>0</DEFAULT-VALUE>
+																					<MAX>65535</MAX>
+																					<MIN>0</MIN>
+																				</ECUC-INTEGER-PARAM-DEF>
+																			</PARAMETERS>
+																			<REFERENCES>
+																				<!-- Reference Definition: DcmDslProtocolTxPduRef -->
+																				<ECUC-REFERENCE-DEF UUID="29e521be-836f-4d5a-8393-498deda55629">
+																					<SHORT-NAME>DcmDslProtocolTxPduRef</SHORT-NAME>
+																					<DESC>
+																						<L-2 L="EN">Links a logical Dcm transmit PDU with a concrete Dcm transmit PDU, that will be used for diagnostic response transmission.
+
+Effect:
+------------------------------------
+This setting connects the Dcm to the outside world.
+
+Constraints:
+------------------------------------
+Only transmit PDUs for the ECU diagnostics shall be assigned here.
+The same transmit PDU shall not be used again in other Dcm connections.
+
+Dependencies:
+------------------------------------
+none
+
+Runtime effects:
+------------------------------------
+none
+
+Code ROM usage effects:
+------------------------------------
+none
+
+Const data ROM usage effects:
+------------------------------------
+none
+
+Global RAM usage effects:
+------------------------------------
+none
+
+Stack RAM usage effects:
+------------------------------------
+none
+</L-2>
+																					</DESC>
+																					<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+																					<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+																					<IMPLEMENTATION-CONFIG-CLASSES>
+																						<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																							<CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+																							<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+																						</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																						<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																							<CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+																							<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+																						</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																						<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																							<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																							<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+																						</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																					</IMPLEMENTATION-CONFIG-CLASSES>
+																					<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+																					<REQUIRES-INDEX>false</REQUIRES-INDEX>
+																					<DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucPduCollection/Pdu</DESTINATION-REF>
+																				</ECUC-REFERENCE-DEF>
+																			</REFERENCES>
+																		</ECUC-PARAM-CONF-CONTAINER-DEF>
+																	</SUB-CONTAINERS>
+																</ECUC-PARAM-CONF-CONTAINER-DEF>
+																<!-- Container Definition: DcmDslPeriodicTransmission -->
+																<!-- Container Definition: DcmDslResponseOnEvent -->
+															</CHOICES>
+														</ECUC-CHOICE-CONTAINER-DEF>
+													</SUB-CONTAINERS>
+												</ECUC-PARAM-CONF-CONTAINER-DEF>
+											</SUB-CONTAINERS>
+										</ECUC-PARAM-CONF-CONTAINER-DEF>
+										<!-- Container Definition: DcmDslServiceRequestManufacturerNotification -->
+										<!-- Container Definition: DcmDslServiceRequestSupplierNotification -->
+									</SUB-CONTAINERS>
+								</ECUC-PARAM-CONF-CONTAINER-DEF>
+								<!-- Container Definition: DcmDsp -->
+								<ECUC-PARAM-CONF-CONTAINER-DEF UUID="aa023b9c-df95-4e06-a5ec-b2cc93686e6a">
+									<SHORT-NAME>DcmDsp</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">These parameters apply to Diagnostic Service Processing. There will always be one set of these parameters per DCM.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<POST-BUILD-CHANGEABLE>false</POST-BUILD-CHANGEABLE>
+									<MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+									<SUB-CONTAINERS>
+										<!-- Container Definition: DcmDspComControl -->
+										<!-- Container Definition: DcmDspControlDTCSetting -->
+										<!-- Container Definition: DcmDspData -->
+										<!-- Container Definition: DcmDspDataInfo -->
+										<!-- Container Definition: DcmDspDid -->
+										<!-- Container Definition: DcmDspDidInfo -->
+										<!-- Container Definition: DcmDspDidRange -->
+										<!-- Container Definition: DcmDspMemory -->
+										<!-- Container Definition: DcmDspPid -->
+										<!-- Container Definition: DcmDspRequestControl -->
+										<!-- Container Definition: DcmDspRoe -->
+										<!-- Container Definition: DcmDspRoutine -->
+										<!-- Container Definition: DcmDspRoutineInfo -->
+										<!-- Container Definition: DcmDspSecurity -->
+										<!-- Container Definition: DcmDspSession -->
+										<ECUC-PARAM-CONF-CONTAINER-DEF UUID="406e9926-28e1-4fb0-b891-b8a69cecce6e">
+											<SHORT-NAME>DcmDspSession</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">This container includes all diagnostic sessions the Dcm shall support.
+
+Effect:
+------------------------------------
+For each diagnostic session to be supported by Dcm a DcmDspSessionRow sub-container shall be defined.
+
+Constraints:
+------------------------------------
+For each session level, there shall always be a corresponding sub-services for service 0x10.
+
+Dependencies:
+------------------------------------
+Refer to "Dcm/DcmConfigSet/DcmDsd/DcmDsdServiceTable/DcmDsdService/DcmDsdSubService/DcmDsdSubServiceId".
+
+Runtime effects:
+------------------------------------
+none
+
+Code ROM usage effects:
+------------------------------------
+none
+
+Const data ROM usage effects:
+------------------------------------
+The Dcm configuration data ROM usage scales straight proportionally to the number of sessions defined.
+
+Global RAM usage effects:
+------------------------------------
+none
+
+Stack RAM usage effects:
+------------------------------------
+none</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<POST-BUILD-CHANGEABLE>false</POST-BUILD-CHANGEABLE>
+											<MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+											<SUB-CONTAINERS>
+												<!-- Container Definition: DcmDspSessionRow -->
+												<ECUC-PARAM-CONF-CONTAINER-DEF UUID="b4183522-05ba-43a5-a948-ced6a20bf9e6">
+													<SHORT-NAME>DcmDspSessionRow</SHORT-NAME>
+													<DESC>
+														<L-2 L="EN">Definition of a single Row of session control configuration (per session control)</L-2>
+													</DESC>
+													<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+													<UPPER-MULTIPLICITY>31</UPPER-MULTIPLICITY>
+													<POST-BUILD-CHANGEABLE>false</POST-BUILD-CHANGEABLE>
+													<MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+													<PARAMETERS>
+														<!-- PARAMETER DEFINITION: DcmDspSessionForBoot -->
+														<!-- PARAMETER DEFINITION: DcmDspSessionLevel -->
+														<ECUC-INTEGER-PARAM-DEF UUID="c9c452c9-3b75-452e-b35d-da3ee5e70cc5">
+															<SHORT-NAME>DcmDspSessionLevel</SHORT-NAME>
+															<DESC>
+																<L-2 L="EN">Specifies the value of the corresponding diagnostic session.
+
+Effect:
+------------------------------------
+This value will be used when the Dcm_GetSesCtrlType API is called from the application to report the currently active session.
+
+Constraints:
+------------------------------------
+For each session level, there shall always be a corresponding sub-services for service 0x10.
+
+Dependencies:
+------------------------------------
+Refer to "Dcm/DcmConfigSet/DcmDsd/DcmDsdServiceTable/DcmDsdService/DcmDsdSubService/DcmDsdSubServiceId".
+
+Runtime effects:
+------------------------------------
+none
+
+Code ROM usage effects:
+------------------------------------
+none
+
+Const data ROM usage effects:
+------------------------------------
+none
+
+Global RAM usage effects:
+------------------------------------
+none
+
+Stack RAM usage effects:
+------------------------------------
+none</L-2>
+															</DESC>
+															<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+															<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+															<IMPLEMENTATION-CONFIG-CLASSES>
+																<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																	<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																	<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+																</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																	<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																	<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+																</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																	<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																	<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+																</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+															</IMPLEMENTATION-CONFIG-CLASSES>
+															<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+															<REQUIRES-INDEX>false</REQUIRES-INDEX>
+															<SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+															<DEFAULT-VALUE>0</DEFAULT-VALUE>
+															<MAX>255</MAX>
+															<MIN>0</MIN>
+														</ECUC-INTEGER-PARAM-DEF>
+														<!-- PARAMETER DEFINITION: DcmDspSessionP2ServerMax -->
+														<ECUC-FLOAT-PARAM-DEF UUID="0e68b6b9-d6d2-47c4-bf68-f66bb3b7d68e">
+															<SHORT-NAME>DcmDspSessionP2ServerMax</SHORT-NAME>
+															<LONG-NAME>
+																<L-4 L="EN">Dsp Session P2ServerMax</L-4>
+															</LONG-NAME>
+															<DESC>
+																<L-2 L="EN">Determines the diagnostic session specific P2 time in seconds.
+
+Effect:
+------------------------------------
+This parameter will be reported by Dcm within the positive response to the corresponding session activation request. The really monitored time by Dcm is specified from the currently active protocol.
+
+Constraints:
+------------------------------------
+none
+
+Dependencies:
+------------------------------------
+For the real monitored time adjustment refer to "/Dcm/DcmConfigSet/DcmDsl/DcmDslProtocol/DcmDslProtocolRow/DcmTimStrP2ServerAdjust".
+
+Runtime effects:
+------------------------------------
+none
+
+Code ROM usage effects:
+------------------------------------
+none
+
+Const data ROM usage effects:
+------------------------------------
+none
+
+Global RAM usage effects:
+------------------------------------
+none
+
+Stack RAM usage effects:
+------------------------------------
+none</L-2>
+															</DESC>
+															<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+															<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+															<IMPLEMENTATION-CONFIG-CLASSES>
+																<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																	<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																	<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+																</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																	<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																	<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+																</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																	<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																	<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+																</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+															</IMPLEMENTATION-CONFIG-CLASSES>
+															<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+															<REQUIRES-INDEX>false</REQUIRES-INDEX>
+															<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+															<DEFAULT-VALUE>0.05</DEFAULT-VALUE>
+															<MAX>1000</MAX>
+															<MIN>0</MIN>
+														</ECUC-FLOAT-PARAM-DEF>
+														<!-- PARAMETER DEFINITION: DcmDspSessionP2StarServerMax -->
+														<ECUC-FLOAT-PARAM-DEF UUID="e70f32e2-96a8-4c78-affd-449fd61d3ed9">
+															<SHORT-NAME>DcmDspSessionP2StarServerMax</SHORT-NAME>
+															<LONG-NAME>
+																<L-4 L="EN">Dsp Session P2StarServerMax</L-4>
+															</LONG-NAME>
+															<DESC>
+																<L-2 L="EN">Determines the diagnostic session specific P2* time in seconds.
+
+Effect:
+------------------------------------
+This parameter will be reported by Dcm within the positive response to the corresponding session activation request. The really monitored time by Dcm is specified from the currently active protocol.
+
+Constraints:
+------------------------------------
+none
+
+Dependencies:
+------------------------------------
+For the real monitored time adjustment refer to "/Dcm/DcmConfigSet/DcmDsl/DcmDslProtocol/DcmDslProtocolRow/DcmTimStrP2StarServerAdjust".
+
+Runtime effects:
+------------------------------------
+none
+
+Code ROM usage effects:
+------------------------------------
+none
+
+Const data ROM usage effects:
+------------------------------------
+none
+
+Global RAM usage effects:
+------------------------------------
+none
+
+Stack RAM usage effects:
+------------------------------------
+none</L-2>
+															</DESC>
+															<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+															<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+															<IMPLEMENTATION-CONFIG-CLASSES>
+																<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																	<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																	<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+																</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																	<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																	<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+																</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+																	<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+																	<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+																</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+															</IMPLEMENTATION-CONFIG-CLASSES>
+															<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+															<REQUIRES-INDEX>false</REQUIRES-INDEX>
+															<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+															<DEFAULT-VALUE>5</DEFAULT-VALUE>
+															<MAX>100000</MAX>
+															<MIN>0</MIN>
+														</ECUC-FLOAT-PARAM-DEF>
+													</PARAMETERS>
+												</ECUC-PARAM-CONF-CONTAINER-DEF>
+											</SUB-CONTAINERS>
+										</ECUC-PARAM-CONF-CONTAINER-DEF>
+										<!-- Container Definition: DcmDspTestResultByObdmid -->
+										<!-- Container Definition: DcmDspVehInfo -->
+									</SUB-CONTAINERS>
+								</ECUC-PARAM-CONF-CONTAINER-DEF>
+								<!-- Container Definition: DcmGeneral -->
+								<ECUC-PARAM-CONF-CONTAINER-DEF UUID="f371683d-212a-4873-9a09-74b4d0d91acb">
+									<SHORT-NAME>DcmGeneral</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">This container contains the configuration (parameters) for Component wide parameters</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<POST-BUILD-CHANGEABLE>false</POST-BUILD-CHANGEABLE>
+									<MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+									<PARAMETERS>
+										<!-- PARAMETER DEFINITION: DcmDevErrorDetect -->
+										<!-- PARAMETER DEFINITION: DcmRequestManufacturerNotificationEnabled -->
+										<!-- PARAMETER DEFINITION: DcmRequestSupplierNotificationEnabled -->
+										<!-- PARAMETER DEFINITION: DcmRespondAllRequest -->
+										<!-- PARAMETER DEFINITION: DcmTaskTime -->
+										<ECUC-FLOAT-PARAM-DEF UUID="b481ded5-9181-4236-b2be-b43bc9943073">
+											<SHORT-NAME>DcmTaskTime</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">Allow to configure the time for the periodic cyclic task in seconds.
+
+Effect:
+-----------------------------------------
+This value is used to set up the Dcm Service-Description and BSW scheduler. All diagnostic timers managed by Dcm use this setting as a base time for the internal time constants' calculation.
+
+Constraints:
+-----------------------------------------
+The specified time shall be a multiple of the time values defined in all diagnostic timing settings in the Dcm configuration.
+
+Dependencies:
+-----------------------------------------
+All diagnostic timing parameters.
+
+Runtime effects:
+-----------------------------------------
+Too low values will increase the Dcm responsiveness, but will increase the CPU load. Too high values of this parameter will lead to rear Dcm task activation (lower CPU load), but the Dcm internal timers' accuracy will not be optimal.
+
+Code ROM usage effects:
+------------------------------------
+none
+
+Const data ROM usage effects:
+-----------------------------------------
+none
+
+Global RAM usage effects:
+-----------------------------------------
+none
+
+Stack RAM usage effects:
+-----------------------------------------
+none
+</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<IMPLEMENTATION-CONFIG-CLASSES>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+											</IMPLEMENTATION-CONFIG-CLASSES>
+											<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+											<REQUIRES-INDEX>false</REQUIRES-INDEX>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>0.01</DEFAULT-VALUE>
+											<MAX>100</MAX>
+											<MIN>0</MIN>
+										</ECUC-FLOAT-PARAM-DEF>
+										<!-- PARAMETER DEFINITION: DcmVersionInfoApi -->
+										<!-- PARAMETER DEFINITION: DcmUserConfigFile -->
+										<ECUC-STRING-PARAM-DEF UUID="791b85cd-041e-4f98-8ea3-3f8cf0cc2873">
+											<SHORT-NAME>DcmUserConfigFile</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">Path to an external user configuration file used by the Configurator 5 generation tool.
+
+Effect:
+-----------------------------------------
+If you want to overwrite some of the settings in the generated configuration file (Dcm_Cfg.h), you can specify a path to a user defined configuration file. The user defined configuration file will be included at the end of the generated preprocessor switches. Definitions in the user defined configuration file can overwrite definitions in the generated configuration file.
+
+The path shall be a valid path to the user configuration file. For simplified and project specific user configuration files references, the following Configurator 5 environment variables can be used:
+
+$(DpaProjectFolder) Absolute directory of the loaded *.dpa file.
+$(EcuProjectName) Name of the project defined in the loaded *.dpa file.
+$(EcucFile) Absolute directory "ECUC", defined by the loaded *.dpa file, containing files $(EcuProjectName).ecuc.arxml and $(EcuProjectName).ecuc.Initial.arxml .
+$(EcucFolder) Parent directory of $(EcucFile).
+$(SipRootPath) Absolute directory "SIP", defined by the loaded *.dpa file.
+$(OutputFolder) (Relative) directory "GenData", defined by the loaded *.dpa file. See setting "Root Target Folder" of Configurator 5.
+$(ServiceSwcFolder) Absolute directory "ServiceComponents", defined by the loaded *.dpa file.
+
+
+Constraints:
+-----------------------------------------
+Not all of the settings can be overwritten simply by triggering the preprocessor switch. Some of the options are complex and the code generator generates less or more code depending on the setting.
+
+USE SUCH A FILE ONLY AFTER DISCUSSION WITH VECTOR.
+
+Dependencies:
+-----------------------------------------
+none
+
+Runtime effects:
+-----------------------------------------
+none
+
+Code ROM usage effects:
+------------------------------------
+none
+
+Const data ROM usage effects:
+-----------------------------------------
+none
+
+Global RAM usage effects:
+-----------------------------------------
+none
+
+Stack RAM usage effects:
+-----------------------------------------
+none
+</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<IMPLEMENTATION-CONFIG-CLASSES>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+											</IMPLEMENTATION-CONFIG-CLASSES>
+											<ORIGIN>Vector Informatik</ORIGIN>
+											<REQUIRES-INDEX>false</REQUIRES-INDEX>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+										</ECUC-STRING-PARAM-DEF>
+										<!-- PARAMETER DEFINITION: DcmDefensiveBehaviorEnabled -->
+										<!-- PARAMETER DEFINITION: DcmMaxNumberIterationsPerTask -->
+										<!-- PARAMETER DEFINITION: DcmFinalResponseToFblEnabled -->
+										<!-- PARAMETER DEFINITION: DcmResetToFblAfterSessionFinalResposeEnabled -->
+										<!-- PARAMETER DEFINITION: DcmCalibrationOfObdIdsEnabled -->
+										<!-- PARAMETER DEFINITION: DcmCalibrationOfObdIdsMemoryType -->
+										<!-- PARAMETER DEFINITION: DcmDspDataDefaultEndianness -->
+										<!-- PARAMETER DEFINITION: DcmDemApiVersion -->
+										<!-- PARAMETER DEFINITION: DcmSecurityLevelChangeNotificationEnabled -->
+										<!-- PARAMETER DEFINITION: DcmSplitTasksEnabled -->
+										<!-- PARAMETER DEFINITION: DcmMainFunctionWorkerTaskTime -->
+										<!-- PARAMETER DEFINITION: DcmBswApiVersion -->
+										<!-- PARAMETER DEFINITION: DcmStateRecoveryAfterResetEnabled -->
+										<!-- PARAMETER DEFINITION: DcmKeepAliveTime -->
+										<!-- PARAMETER DEFINITION: DcmSafeBswChecks -->
+										<!-- PARAMETER DEFINITION: DcmVirtualRequestEnabled -->
+										<!-- PARAMETER DEFINITION: DcmSupportedIDCalculationSuppressionEnabled -->
+										<!-- PARAMETER DEFINITION: DcmDtrDataProvisionViaDemEnabled -->
+										<ECUC-BOOLEAN-PARAM-DEF UUID="798411f3-ceed-4743-9a33-fd30d56963df">
+											<SHORT-NAME>DcmQueuedRequest</SHORT-NAME>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<IMPLEMENTATION-CONFIG-CLASSES>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+											</IMPLEMENTATION-CONFIG-CLASSES>
+											<ORIGIN>Vector Informatik</ORIGIN>
+											<REQUIRES-INDEX>false</REQUIRES-INDEX>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>false</DEFAULT-VALUE>
+										</ECUC-BOOLEAN-PARAM-DEF>
+										<ECUC-BOOLEAN-PARAM-DEF UUID="3b6fdac8-b255-43af-8a34-eda0406c6f79">
+											<SHORT-NAME>DcmKeySlotMode</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">Enable switching from key slot to all slot mode.</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<IMPLEMENTATION-CONFIG-CLASSES>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+											</IMPLEMENTATION-CONFIG-CLASSES>
+											<ORIGIN>Vector Informatik</ORIGIN>
+											<REQUIRES-INDEX>false</REQUIRES-INDEX>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>false</DEFAULT-VALUE>
+										</ECUC-BOOLEAN-PARAM-DEF>
+										<ECUC-BOOLEAN-PARAM-DEF UUID="a2c57d4a-ab1f-4ccf-b757-ef3278cde03a">
+											<SHORT-NAME>DcmBaudrateSwitch</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">This parameter switches the APIs FblCwCheckBaudrate and FblCwSwitchBaudrate ON or OFF.
+true: APIs are enabled.
+false: APIs are disabled.</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<IMPLEMENTATION-CONFIG-CLASSES>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+											</IMPLEMENTATION-CONFIG-CLASSES>
+											<ORIGIN>Vector Informatik</ORIGIN>
+											<REQUIRES-INDEX>false</REQUIRES-INDEX>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>true</DEFAULT-VALUE>
+										</ECUC-BOOLEAN-PARAM-DEF>
+										<ECUC-INTEGER-PARAM-DEF UUID="8a52c0cd-0c2c-4f1f-8ba4-c32a954b858c">
+											<SHORT-NAME>DcmNwStatusRxBufferSize</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">Buffer size for the network status reception buffer.</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<IMPLEMENTATION-CONFIG-CLASSES>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+											</IMPLEMENTATION-CONFIG-CLASSES>
+											<ORIGIN>Vector Informatik</ORIGIN>
+											<REQUIRES-INDEX>false</REQUIRES-INDEX>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>32</DEFAULT-VALUE>
+										</ECUC-INTEGER-PARAM-DEF>
+										<ECUC-INTEGER-PARAM-DEF UUID="1b49be0d-6d4b-4125-ba0e-f871ae8c7555">
+											<SHORT-NAME>DcmCanHardwareLoopTimeout</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">Timeout value for CAN hardware loops (in cycles, typically 1 ms)</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<IMPLEMENTATION-CONFIG-CLASSES>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+											</IMPLEMENTATION-CONFIG-CLASSES>
+											<ORIGIN>Vector Informatik</ORIGIN>
+											<REQUIRES-INDEX>false</REQUIRES-INDEX>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>100</DEFAULT-VALUE>
+										</ECUC-INTEGER-PARAM-DEF>
+										<ECUC-INTEGER-PARAM-DEF UUID="fcf1c761-79fa-409e-a1ba-3a88cec0d5ad">
+											<SHORT-NAME>DcmTaskCycle</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">Cycle count of CanTp, FrSM, EthSM and ComM tasks. Other tasks are either called every timer cycle (Ethernet) or polled (CAN)</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<IMPLEMENTATION-CONFIG-CLASSES>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+											</IMPLEMENTATION-CONFIG-CLASSES>
+											<ORIGIN>Vector Informatik</ORIGIN>
+											<REQUIRES-INDEX>false</REQUIRES-INDEX>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>5</DEFAULT-VALUE>
+										</ECUC-INTEGER-PARAM-DEF>
+										<ECUC-BOOLEAN-PARAM-DEF UUID="3eae4b07-f542-4a99-a1b2-3d0640153c34">
+											<SHORT-NAME>DcmVersionInfoApi</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">Preprocessor switch to enable or disable the output Version info of the functionality.</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<IMPLEMENTATION-CONFIG-CLASSES>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+											</IMPLEMENTATION-CONFIG-CLASSES>
+											<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+											<REQUIRES-INDEX>false</REQUIRES-INDEX>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>false</DEFAULT-VALUE>
+										</ECUC-BOOLEAN-PARAM-DEF>
+										<ECUC-BOOLEAN-PARAM-DEF UUID="12747245-6b69-4fb7-b9df-b0d077f3b1a9">
+											<SHORT-NAME>DcmDevErrorDetect</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">Switches the Default Error Tracer (Det) detection and notification ON or OFF.</L-2>
+											</DESC>
+											<INTRODUCTION>
+												<P>
+													<L-1 L="EN">* true: enabled (ON).
+                                        * false: disabled (OFF).</L-1>
+												</P>
+											</INTRODUCTION>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<IMPLEMENTATION-CONFIG-CLASSES>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+											</IMPLEMENTATION-CONFIG-CLASSES>
+											<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+											<REQUIRES-INDEX>false</REQUIRES-INDEX>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>false</DEFAULT-VALUE>
+										</ECUC-BOOLEAN-PARAM-DEF>
+										<ECUC-BOOLEAN-PARAM-DEF UUID="2027c7f4-a264-4301-900a-9121ecb0307b">
+											<SHORT-NAME>DcmRespondAllRequest</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">If set to FALSE the Dcm will not respond to diagnostic request  that contains a service ID which is in the range from 0x40 to 0x7F or in the  range from 0xC0 to 0xFF (Response IDs).</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<IMPLEMENTATION-CONFIG-CLASSES>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+											</IMPLEMENTATION-CONFIG-CLASSES>
+											<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+											<REQUIRES-INDEX>false</REQUIRES-INDEX>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>true</DEFAULT-VALUE>
+										</ECUC-BOOLEAN-PARAM-DEF>
+									</PARAMETERS>
+									<REFERENCES>
+										<ECUC-FOREIGN-REFERENCE-DEF UUID="f555cce4-31f7-4289-b373-aae62891fecb">
+											<SHORT-NAME>DcmBswInitializationFilter</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">FblCw initializes all BSW modules configured in /MICROSAR/EcuC/EcucGeneral/BswInitialization.
+Use this filter to filter the module from the list.</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+											<IMPLEMENTATION-CONFIG-CLASSES>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+											</IMPLEMENTATION-CONFIG-CLASSES>
+											<ORIGIN>Vector Informatik</ORIGIN>
+											<REQUIRES-INDEX>false</REQUIRES-INDEX>
+											<DESTINATION-TYPE>ECUC-MODULE-DEF</DESTINATION-TYPE>
+										</ECUC-FOREIGN-REFERENCE-DEF>
+									</REFERENCES>
+								</ECUC-PARAM-CONF-CONTAINER-DEF>
+								<!-- Container Definition: DcmPageBufferCfg -->
+								<!-- Container Definition: DcmProcessingConditions -->
+								<ECUC-PARAM-CONF-CONTAINER-DEF UUID="c7f1201c-aa63-47db-940b-7f1457f49ba3">
+									<SHORT-NAME>DcmGeneration</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Contains the generation configuration parameters of the module.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<POST-BUILD-CHANGEABLE>false</POST-BUILD-CHANGEABLE>
+									<PARAMETERS>
+										<!--IpduMOutOfBoundsWriteProtectionStrategy-->
+										<!--IpduMOutOfBoundsWriteSanitizer-->
+										<!--IpduMOutOfBoundsReadSanitizer-->
+										<ECUC-BOOLEAN-PARAM-DEF UUID="f7b6359d-4fe0-435f-aa10-770cac039ec6">
+											<SHORT-NAME>DcmReduceConstantData2Define</SHORT-NAME>
+											<LONG-NAME>
+												<L-4 L="EN">Reduce Constant Data To a Define</L-4>
+											</LONG-NAME>
+											<DESC>
+												<L-2 L="EN">This parameter activates/deactivates the capability to generate CONFIG-CLASS PRE-COMPILE ROM arrays as constant define.
+
+FALSE: ROM arrays are generated as data even if all values are identical.
+TRUE: ROM arrays are generated as constant define if all values are identical.</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<IMPLEMENTATION-CONFIG-CLASSES>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+											</IMPLEMENTATION-CONFIG-CLASSES>
+											<ORIGIN>Vector Informatik</ORIGIN>
+											<REQUIRES-INDEX>false</REQUIRES-INDEX>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>true</DEFAULT-VALUE>
+										</ECUC-BOOLEAN-PARAM-DEF>
+										<ECUC-INTEGER-PARAM-DEF UUID="40dd0da4-1874-4b1f-b5d1-ef18aac7d2fe">
+											<SHORT-NAME>DcmReduceNumericalDataByOffsetThreshold</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">This parameter activates/deactivates the capability to compress numerical CONFIG-CLASS PRE-COMPILE ROM data by using a constant offset.
+0: The optimization is not performed.
+&gt;0: This is the threshold to activate the data optimization.
+
+Code: the code size is increased due to the usage of the constant offset operation in the data access.
+RAM: no change expected.
+ROM: the ROM size is minimized.
+Runtime: the runtime is increased due to the usage of the constant offset operation in the data access.</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<IMPLEMENTATION-CONFIG-CLASSES>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+											</IMPLEMENTATION-CONFIG-CLASSES>
+											<ORIGIN>Vector Informatik</ORIGIN>
+											<REQUIRES-INDEX>false</REQUIRES-INDEX>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>2</DEFAULT-VALUE>
+											<MIN>0</MIN>
+										</ECUC-INTEGER-PARAM-DEF>
+										<!--IpduMShortSymbols-->
+										<ECUC-BOOLEAN-PARAM-DEF UUID="3f936dc5-3cab-4086-b22b-0d7d0bb04391">
+											<SHORT-NAME>DcmShortSymbols</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">This parameter activates/deactivates the capability to generate shortened symbol names.
+
+FALSE: symbol names are generated in a human readable style based on the MIP, tags and variant names.
+TRUE: symbol names are generated based on the MIP and a CRC32.</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<IMPLEMENTATION-CONFIG-CLASSES>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+											</IMPLEMENTATION-CONFIG-CLASSES>
+											<ORIGIN>Vector Informatik</ORIGIN>
+											<REQUIRES-INDEX>false</REQUIRES-INDEX>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>false</DEFAULT-VALUE>
+										</ECUC-BOOLEAN-PARAM-DEF>
+										<!--IpduMInterfacesForDeactivatedData-->
+										<ECUC-BOOLEAN-PARAM-DEF UUID="ae122c19-6484-4157-87b5-6b2f980ae67e">
+											<SHORT-NAME>DcmInterfacesForDeactivatedData</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">This parameter activates/deactivates the capability to generate bsw data interfaces for deactivated data elements. This is an advantage for the BSW developer to reduce the time to market with a development environment using auto completition and to investigate potential interfaces.
+
+FALSE: data interfaces are not generated if the data elementis deactivated.
+TRUE: data interfaces are generated as e.g. emty macros.</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<IMPLEMENTATION-CONFIG-CLASSES>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+											</IMPLEMENTATION-CONFIG-CLASSES>
+											<ORIGIN>Vector Informatik</ORIGIN>
+											<REQUIRES-INDEX>false</REQUIRES-INDEX>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>false</DEFAULT-VALUE>
+										</ECUC-BOOLEAN-PARAM-DEF>
+										<!--IpduMReferringKeysInComments-->
+										<ECUC-BOOLEAN-PARAM-DEF UUID="f1fa2577-1065-4354-af5a-304636776536">
+											<SHORT-NAME>DcmReferringKeysInComments</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">This parameter activates/deactivates the capability to generate referring keys in comments. This is an advantage for the developer to investigate indirections, but this feature reduces the overall readability of the generated data.
+
+FALSE: referring keys are not generated in comments.
+TRUE: referring keys are generated in comments.</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<IMPLEMENTATION-CONFIG-CLASSES>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+												<ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+													<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+													<CONFIG-VARIANT>VARIANT-POST-BUILD-SELECTABLE</CONFIG-VARIANT>
+												</ECUC-IMPLEMENTATION-CONFIGURATION-CLASS>
+											</IMPLEMENTATION-CONFIG-CLASSES>
+											<ORIGIN>Vector Informatik</ORIGIN>
+											<REQUIRES-INDEX>false</REQUIRES-INDEX>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>false</DEFAULT-VALUE>
+										</ECUC-BOOLEAN-PARAM-DEF>
+									</PARAMETERS>
+								</ECUC-PARAM-CONF-CONTAINER-DEF>
+							</SUB-CONTAINERS>
+						</ECUC-PARAM-CONF-CONTAINER-DEF>
+					</CONTAINERS>
+				</ECUC-MODULE-DEF>
+				<ECUC-MODULE-CONFIGURATION-VALUES UUID="d3543f32-3d21-4072-955a-7738459404ca">
+					<SHORT-NAME>Dcm_Pre</SHORT-NAME>
+					<DEFINITION-REF DEST="ECUC-MODULE-DEF">/MICROSARFBL/Dcm</DEFINITION-REF>
+					<CONTAINERS>
+						<ECUC-CONTAINER-VALUE UUID="fc82607b-1f32-4e52-a0ed-0a50c7b7d63f">
+							<SHORT-NAME>DcmConfigSet</SHORT-NAME>
+							<DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSARFBL/Dcm/DcmConfigSet</DEFINITION-REF>
+							<SUB-CONTAINERS>
+								<ECUC-CONTAINER-VALUE UUID="c3683159-72e7-4189-8943-852ab58295ce">
+									<SHORT-NAME>DcmGeneral</SHORT-NAME>
+									<DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSARFBL/Dcm/DcmConfigSet/DcmGeneral</DEFINITION-REF>
+									<PARAMETER-VALUES>
+										<ECUC-NUMERICAL-PARAM-VALUE>
+											<DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSARFBL/Dcm/DcmConfigSet/DcmGeneral/DcmRespondAllRequest</DEFINITION-REF>
+											<VALUE>1</VALUE>
+										</ECUC-NUMERICAL-PARAM-VALUE>
+										<ECUC-NUMERICAL-PARAM-VALUE>
+											<DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSARFBL/Dcm/DcmConfigSet/DcmGeneral/DcmVersionInfoApi</DEFINITION-REF>
+											<VALUE>0</VALUE>
+										</ECUC-NUMERICAL-PARAM-VALUE>
+									</PARAMETER-VALUES>
+									<REFERENCE-VALUES>
+										<ECUC-REFERENCE-VALUE>
+											<DEFINITION-REF DEST="ECUC-FOREIGN-REFERENCE-DEF">/MICROSARFBL/Dcm/DcmConfigSet/DcmGeneral/DcmBswInitializationFilter</DEFINITION-REF>
+											<VALUE-REF DEST="BSW-MODULE-ENTRY">/MICROSARFBL/Dcm</VALUE-REF>
+										</ECUC-REFERENCE-VALUE>
+										<ECUC-REFERENCE-VALUE>
+											<DEFINITION-REF DEST="ECUC-FOREIGN-REFERENCE-DEF">/MICROSARFBL/Dcm/DcmConfigSet/DcmGeneral/DcmBswInitializationFilter</DEFINITION-REF>
+											<VALUE-REF DEST="BSW-MODULE-ENTRY">/AUTOSAR/EcucDefs/Fee</VALUE-REF>
+										</ECUC-REFERENCE-VALUE>
+									</REFERENCE-VALUES>
+								</ECUC-CONTAINER-VALUE>
+							</SUB-CONTAINERS>
+						</ECUC-CONTAINER-VALUE>
+					</CONTAINERS>
+				</ECUC-MODULE-CONFIGURATION-VALUES>
+				<ECUC-MODULE-CONFIGURATION-VALUES UUID="3418867f-fbf3-4d98-bbf9-e70ba88b4fec">
+					<SHORT-NAME>Dcm_Rec</SHORT-NAME>
+					<DEFINITION-REF DEST="ECUC-MODULE-DEF">/MICROSARFBL/Dcm</DEFINITION-REF>
+					<CONTAINERS></CONTAINERS>
+				</ECUC-MODULE-CONFIGURATION-VALUES>
+			</ELEMENTS>
+		</AR-PACKAGE>
+	</AR-PACKAGES>
+</AUTOSAR>

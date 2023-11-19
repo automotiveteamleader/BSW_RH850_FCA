@@ -1,0 +1,3556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issueReport xmlns="urn:com:vector:pes:issuereport"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="urn:com:vector:pes:issuereport Interchange_Format_IssueReport-v1.xsd">
+   <schemaVersion>1</schemaVersion>
+   <reportData>
+      <title>Open Issues in 'CBD1800284'</title>
+      <reportCreationDate>2018-08-03</reportCreationDate>
+      <reportIdentifier>CBD1800284-D00-2018-08-03-16:11:39</reportIdentifier>
+   </reportData>
+   <license>
+      <licenseNumber>CBD1800284</licenseNumber>
+      <customer>Nexteer Automotive Corporation
+Package: FBL Fca SLP5 - the company Nexteer Automotive company with Full RScan</customer>
+      <vectorContactEmail>Support@vector.com</vectorContactEmail>
+      <maintenanceExpiryDate>2018-09-01</maintenanceExpiryDate>
+   </license>
+   <deliveries>
+      <delivery>
+         <releaseNumber>D00</releaseNumber>
+         <slp>FBL Fca SLP5</slp>
+         <sip>20.07.00</sip>
+      </delivery>
+   </deliveries>
+   <issues>
+      <issue category="runtimeIssueWithoutWorkaround">
+         <identifier>ESCAN00099826</identifier>
+         <package>If_AsrIfCan</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>High</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Wrong Hth used for Can_Write API</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+The successful sending of a Can message is not possible.
+Or a wrong CanHardwareObject (send buffer) will be used for transmission (send on wrong controller or as FullCAN instead of BasicCAN)
+In case a receive buffer will be used for Hth instead of a send buffer, a DET is thrown from the Can driver if it is enabled.
+
+
+When does this happen:
+-------------------------------------------------------------------
+The issue occurs during runtime, when the Can_Write API is called with a wrong hth.
+The wrong hth is only chosen if the generated data from the Can driver does not have a channel sorted mailbox configuration.
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Occurs when using a can driver, which expected no channel specific sorting of the hth's.
+AND
+only if none Vector CAN driver used</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>4.06.00</firstAffectedVersion>
+         <versionsFixed>4.08.80</versionsFixed>
+      </issue>
+      <issue category="runtimeIssueWithoutWorkaround">
+         <identifier>ESCAN00098581</identifier>
+         <package>SysService_Asr4BswMCfg5</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>High</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Init Action Lists on multiple partitions are not working correct</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Init Action Lists might be not executed as expected, as a consequence some modules are not initialized.
+
+
+When does this happen:
+-------------------------------------------------------------------
+During initialization.
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Only in configurations with multiple BswMConfig containers (Beta functionality)
+
+AND 
+
+The BswMActionListPriority is set to the same value for init action lists configured in different BswMConfig containers.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>13.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="runtimeIssueWithoutWorkaround">
+         <identifier>ESCAN00099928</identifier>
+         <package>Gw_AsrPduRCfg5</package>
+         <subpackage>Implementation</subpackage>
+         <severity>High</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Communication Interface Queued Rx API forwarding routing path do not work with regular PduR queue</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Communication Interface Queued Rx API Forwarding routing paths do not work correctly.
+The Queue will always overflow and will therefore be flushed. A DET error with API-ID PDUR_FCT_RMIF_FQ and Error code PDUR_E_PDU_INSTANCES_LOST is reported if error reporting is enabled.
+After the flush the same behavior occurs again.
+The Pdu which is first in the queue will be forwarded to the upper layer in context of the MainFunction. All other Pdus will remain in the queue and will not be forwarded. They will be discarded at the queue flush.
+
+When does this happen:
+-------------------------------------------------------------------
+Always during runtime.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+The routing path must satisfy all of the following conditions:
+- Communication interface Pdu
+- API Forwarding
+- Rx direction
+- Queue depth set to some value &gt; 0</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+For Multicore routing paths use the so called 'Multicore queue'. The queueing can't be used for singlecore routing paths. 
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>11.03.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="runtimeIssueWithWorkaround">
+         <identifier>ESCAN00061207</identifier>
+         <package>GenTool_ConfiguratorCfg5</package>
+         <subpackage>Application</subpackage>
+         <severity>Medium</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>DaVinci Configurator 5: Issue Reporting Procedure</headline>
+         <problemDescription>This ticket describes the reporting of DaVinci Configurator Pro issues. This ticket is a general information and not an issue.
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+Issues of the DaVinci Configurator Pro tool are not part of the active issue reporting (i.e. this report).
+The DaVinci Configurator Pro issue list can be downloaded from our home page:
+
+DaVinci Developer OpenIssue Lists
+https://portal.vector.com/web/davinci/shared-folder?t=c2b431ff-5dae-4a72-83ec-b9c8ca17561c
+
+DaVinci Configurator Pro OpenIssue Lists
+https://portal.vector.com/web/davinci/shared-folder?t=15d156f3-65d3-4b6e-8107-ec44051aebff</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+This is not an issue but only a reference to the tool specific issue reporting.
+No changes to the delivery required.</resolutionDescription>
+         <firstAffectedVersion>5.00.01</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="runtimeIssueWithWorkaround">
+         <identifier>ESCAN00096248</identifier>
+         <package>Gw_AsrPduRCfg5</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Medium</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Validator PDUR12501 is not shown as error for PduRDestPduRef</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Validator message PDUR12501 is shown on a PduRDestPduRef. It is shown as information only, but in reality shall be an error message.
+
+
+When does this happen:
+-------------------------------------------------------------------
+During live validation in the DaVinci Configurator 5.
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+The validator message is shown if the global Pdu of PduRDestPduRef is referenced by more than one other container. This kind of 1:N routing path is not supported.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Check if the validation message is shown for a PduRDestPduRef. 
+If No, then you're not affected.
+If Yes, check if this is correctly configured. The PduR will only forward the Pdu to one of the destination container (the destination is chosen randomly while generating due to the internal Java structure). The routing to this destination container will then work as configured.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>9.01.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="runtimeIssueWithWorkaround">
+         <identifier>ESCAN00096588</identifier>
+         <package>FblUpd_Ap_Rh850</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Medium</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Updater is not reset safe without initializing the PLL [will not get fixed]</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Standard bootloader update sequence without power loss will work always properly but an power loss during the update will lock the device in a state which cannot be left without attaching a debugger of external flash tool.
+
+Background:
+In standard use case the Bootloader may initialize the PLL for the updater. After an power loss during updating the updater is called directly without bootloader. Therefore the updater requires it's own PLL initialization. Without proper PLL initialization in ApplFblUpdHwInit(), it is not possible to initialize the Renesas flash libraries and FlashDriver_InitSync() will return a failure code. The updater will attempt to reprogram the bootloader since the flash driver init failed.
+
+Hint: A comparable behavior can be caused by other missing (hardware-) initialization. 
+
+When does this happen:
+-------------------------------------------------------------------
+When a reset interrupts the bootloader update process and the updater starts without first running the bootloader initialization code. 
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+All projects that have not adapted and tested ApplFblUpdHwInit() to initialize the PLL.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+This issue can be avoided by testing updater as stand alone software at customer side.
+
+
+Resolution:
+-------------------------------------------------------------------
+No resolution. The topic will move into documentation.
+
+The ApplFblUpdHwInit() gets a default code for PLL initialization as a template compareable to bootloader ApplFblInit PLL example</resolutionDescription>
+         <firstAffectedVersion>1.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="runtimeIssueWithWorkaround">
+         <identifier>ESCAN00097200</identifier>
+         <package>FblPduSystemDescrExtractor</package>
+         <subpackage>VASE</subpackage>
+         <severity>Medium</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>useless information might remain in the ARXML file after deleting Pdus</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+While deleting PDUs  from an ARXML with the VASE-Script  some other communication elements being referenced by the Pdus are not required anymore and have to be deleted as well. If the ARXML File to be patched describes EthernetCommunication then the file might be affected by this issue.
+
+As a consequence of this . if a new project in DaVinci Configurator 5 is created with the patched ARXML File,some information is also imported  which had to be deleted by the script . Then the customer needs to delete this information manually in its project.
+
+
+When does this happen:
+-------------------------------------------------------------------
+This might occur if there are RoutingGroups for EthernetCommunication in the ARXML File  The VASE-Script does not delete the RoutingGroups
+
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+If the customer wants to delete Pdus which will be transmitted over Ethernet from the list found in the file UserVariablesConfig.xml .
+
+	&lt;variable name="ISignalIPdus" remove="yes"/&gt;
+	&lt;variable name="MultiplexedIPdus" remove="yes"/&gt;
+	&lt;variable name="UserDefinedPdus" remove="yes"/&gt;
+	&lt;variable name="UserDefinedIPdus" remove="yes"/&gt;	
+	&lt;variable name="GeneralPurposePdus" remove="yes"/&gt;	
+	&lt;variable name="SecuredIPdus" remove="yes"/&gt;
+	&lt;variable name="DcmIPdus" remove="yes"/&gt; 
+	&lt;variable name="XcpPdus" remove="yes"/&gt;
+	&lt;variable name="NmPdus" remove="yes"/&gt;	
+	&lt;variable name="GeneralPurposeIPdus" remove="yes"/&gt;</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Remove the useless information from the Cfg5 configuration
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products. 
+
+Technical resolution:
+ Error is resolved in file FblPduSystemDescrExtractorSkript.py 
+ Function : deleteSocketConnectionIPduIdentifier line 822</resolutionDescription>
+         <firstAffectedVersion>1.03.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="runtimeIssueWithWorkaround">
+         <identifier>ESCAN00093263</identifier>
+         <package>DrvCan_Mpc5700McanLl</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Medium</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Missing "if" statement</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+The transition to "Start" or "Stop" Mode is returned erroneously as "Done" to upper layers.
+ E.g. the MCAN can still be active with pending Tx requests although Stop Mode reached is notified.
+
+When does this happen:
+-------------------------------------------------------------------
+At run time.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Only for AutoSar 4.x
+AND
+MCAN Revision 2.x, 3.0.0, 3.0.1
+AND
+CAN_BOSCH_ERRATUM_008 == STD_ON.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Enable "Hardware Loop Check by application" and check for timeout notifications for "kCanLoopStart"/"kCanLoopStop".
+If a timeout appears the requested mode change must be repeated.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>2.08.00</firstAffectedVersion>
+         <versionsFixed>2.09.01</versionsFixed>
+      </issue>
+      <issue category="runtimeIssueWithWorkaround">
+         <identifier>ESCAN00099329</identifier>
+         <package>FblMain</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Medium</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Stay-In-Boot (Force Boot Mode) is not able to process messages if FBL_ENABLE_PRE_WDINIT is enabled</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Bootloader does not process diagnostic messages due to a locked diagnostic buffer.
+
+When does this happen:
+-------------------------------------------------------------------
+Runtime issue after a Stay-In-Boot message has been received.
+
+   
+In which configuration does this happen:
+-------------------------------------------------------------------
+When using the following configuration:
+
+FBL_ENABLE_STAY_IN_BOOT
+and message reception is done in FblCwStateTask()
+and FBL_ENABLE_PRE_WDINIT
+and FBL_ENABLE_PRE_TIMERINIT
+
+Message reception is done in FblCwStateTask() if one of the following settings is valid:
+FBL_CW_ENABLE_TASK_CODE_IN_RAM
+or FBL_CW_ENABLE_RECEPTION_IN_STATE_TASK
+or MSR based communication stack used
+or CBD based communication stack use</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Disable FBL_ENABLE_PRE_WDINIT. Possible NV-memory accesses or other long lasting tasks should be moved to initialization tasks after the Stay-In-Boot message has been processed.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>3.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="runtimeIssueWithWorkaround">
+         <identifier>ESCAN00097115</identifier>
+         <package>FblLib_Mem</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Medium</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Buffer overflow during gap fill operation</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+A write to the internal buffer holding the fill pattern for the gap fill operation is outside the array bounds.
+This can cause other variables to be overwritten, resulting in undefined behavior.
+
+When system check is enabled (FBL_ENABLE_SYSTEM_CHECK) the corrupted buffer will be detected afterwards and a general error will be issued.
+
+
+When does this happen:
+-------------------------------------------------------------------
+During the gap fill operation, e.g. during a RequestTransferExit.
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+When all of the following conditions apply:
+
+- Gap fill is enabled (FBL_MEM_ENABLE_GAP_FILL)
+- Gap fill segmentation is smaller than the memory segment size (FBL_MEM_GAP_FILL_SEGMENTATION &lt; FBL_MEM_SEGMENT_SIZE)
+Typically the gap fill segmentation is equal to the write segmentation (FBL_MEM_WRITE_SEGMENTATION).</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Ensure the gap fill segmentation is equal to or larger than the memory segment size (FBL_MEM_GAP_FILL_SEGMENTATION &gt;= FBL_MEM_SEGMENT_SIZE).
+Typicall this can be achieve by setting the WriteSegmentation in the configuration tool to at least to the size of the greatest SegmentSize of your memory drivers.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>3.01.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="runtimeIssueWithWorkaround">
+         <identifier>ESCAN00092116</identifier>
+         <package>FblDrvFlash_Rh850Rv40His</package>
+         <subpackage>Impl_Base</subpackage>
+         <severity>Medium</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Long runtime of flash library functions can delay the Rx frame processing</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Flash library operations might be very runtime consuming.
+This might delay the processing of a Rx frame that long, that the corresponding CAN mailbox has already been overwritten with the following Rx frame assigned to the mailbox.
+The download will abort with a NRC 0x73 (WrongBlockSequenceCounter).
+
+
+When does this happen:
+-------------------------------------------------------------------
+During the flash routines of the flash library.
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+-Usage of pipelined programming/early acknowledge
+-So far the behavior has only been detected on F1H and F1K derivatives</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Driving the system with a higher clock also speed up the flash operations and reduces their runtime.
+(verified with R7F7015032+R7F7015874AFP @ 120MHz)
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>1.06.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00098408</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compile errors when inline function are used and DataDeduplicationStrategy != NONE</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+A compile error for  undeclared arrays in inline functions. 
+The arrays are optimized through the ComStackLib and don't exist anymore. 
+
+When does this happen:
+-------------------------------------------------------------------
+The error is issued by the compiler during compilation of the code in case the configuration is as described below.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Any configuration where EGenDataInterfaceStrategy.INLINE_FUNCTION and DataDeduplicationStrategy != NONE</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Use EGenDataInterfaceStrategy.FUNCTION_LIKE_MACRO
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>8.11.00</firstAffectedVersion>
+         <versionsFixed>9.00.00</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00079491</identifier>
+         <package>FblLib_Mem</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Diagnostic timing too slow (pipelining)</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Diagnostic timers active while the ECU is idle do not trigger in time. This can delay actions like e.g. reset when S3 timeout occurs.
+Depending on the diagnostic implementation the following timers may be affected:
+
+- S3 session timeout
+- Security access delay
+- Sleep mode
+
+
+When does this happen:
+-------------------------------------------------------------------
+After data was received (e.g. through TransferData), the final response is already transmitted, but the actual programming is carried out in a background operation (pipelined programming).
+The effect is observable when the next event resetting or evaluating the respective timers does not occur before the timer usually runs out. E.g. when no service request is received within S3, the session timeout is delayed by the time required to program the pending data.
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+When the diagnostic timer values are counted down outside of the context of the watchdog trigger function configured through __ApplFblMemWdTrigger (typically FblLookForWatchog), e.g. in FblDiagTimer task called in FblRepeat.
+Additionally at least one of the following has to apply:
+
+- Pipelined programming is used (FBL_ENABLE_PIPELINED_PROGRAMMING)
+- Pipelined verification is used (FBL_MEM_ENABLE_VERIFY_PIPELINED)</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>1.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00097873</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Generated data streams toggle with each code generation if &lt;MSN&gt;ReduceDataByStreaming is enabled</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Generated Code has to be recompiled or added again to the Users CMS because
+the order in streamed CONST arrays is not deterministic and changes by chance with each code generation.
+
+When does this happen:
+-------------------------------------------------------------------
+At generation time.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Any configuration where &lt;MSN&gt;ReduceDataByStreaming returns true.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Configure &lt;MSN&gt;ReduceDataByStreaming to false if available.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>1.01.00</firstAffectedVersion>
+         <versionsFixed>8.13.00</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00094355</identifier>
+         <package>If_AsrIfCan</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>[Error] CANIF10027 None CAN-channel has multiple BasicCAN Tx-objects. Hence the feature "CanIfMultipleBasicCANTxObjects" is not required in current configuration and must be disabled.</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+One of the following validation messages always occurs during configuration:
+
+[Error] CANIF10027 - A feature is not supported in current configuration and shall be disabled. 
+- None CAN-channel has multiple BasicCAN Tx-objects. Hence the feature "CanIfMultipleBasicCANTxObjects" is not required in current configuration and must be disabled.
+Solving action: Disable parameter: "CanIfMultipleBasicCANTxObjects".
+
+-&gt; After executing of this solving action you get the following validation message within the CanDrv:
+
+
+[Error] CAN02002 - An invalid value is configured 
+- CanMultipleBasicCANTxObjects is not active but multiple TX BasicCANs used on some controller.
+Solving action: Enable parameter: "CanMultipleBasicCANTxObjects"
+
+-&gt; After execution of this solving action you get the validation message mentioned above
+
+
+When does this happen:
+-------------------------------------------------------------------
+During configuration
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+In case there is at least one CAN channel with no BasicCAN Tx-hardware object (there is no "CanHardwareObject" with "CanHandleType" == BASIC and "CanObjectType" == TRANSMIT)
+-&gt; The configuration has only FullCAN-objects or no Tx-objects at all on at least one channel</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Make sure you get [Error] CANIF10027 (i.e. solve [Error] CAN02002 if present).
+Set the parameter "CanIfMultipleBasicCANTxObjects" to user defined and keep it enabled.
+[Error] CANIF10027 is then demoted to a warning that can be ignored.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>4.02.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00098584</identifier>
+         <package>MemService_AsrNvM</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>NvM NVM01036 validation does not clearly describe the problem</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+DaVinci Cfg5 shows the NvM error NVM01036 NVM01036 "NvMCalcRamBlockCrc requires configured NvMBlockCrcType, NvMSelectBlockForReadAll, NvMRamBlockDataAddress and disabled" for NvMBlockDescriptors derived from NvBlockNeeds. Resolving the problem via provided solving action leads to other validation errors in e.g. RTE.
+
+Since the NvMBlockDescriptor is derived from NvBlockNeeds, the error cannot be fixed within the DaVinci Cfg5.
+
+When does this happen:
+-------------------------------------------------------------------
+NvMBlockDescriptor derived from NvBlockNeeds. For other blocks the error shall be clear and resolvable within the Cfg5.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+NvBlockNeeds with calcRamBlockCrc true, reliability != NO and enabled explicit synchronization leads to NvMBlockDescriptor with NvMBlockUseCrc true, NvMBlockCrcType != NoCrc and NvMBlockUseSyncMechanism.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Correct the NvMBlockDescriptor preconditions directly within the DaVinci Developer -&gt; ensure the configuration matches the preconditions described in error message NVM01036. Do not use the provided solving action!
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>4.02.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00098498</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Linker error: Undefined Symbol &lt;MSN&gt;_Get&lt;ElementTagName&gt;Of&lt;StructTagName&gt;</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Linker error: Undefined Symbol &lt;MSN&gt;_Get&lt;ElementTagName&gt;Of&lt;StructTagName&gt;
+
+When does this happen:
+-------------------------------------------------------------------
+Always and immediately at compile time.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+The Generator returns in the class which implements ICslGenerationBase in getPrecompilePreprocessingStrategy() EPrecompilePreprocessingStrategy.PREPROCESSOR_SWITCH
+AND
+setPrecompilePreprocessingStrategy() is set with EPrecompilePreprocessingStrategy.RUNTIME_CHECKING in a VarStruct without elements.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+set PrecompilePreprocessingStrategy globally to EPrecompilePreprocessingStrategy.RUNTIME_CHECKING
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>8.08.00</firstAffectedVersion>
+         <versionsFixed>9.00.00</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00099860</identifier>
+         <package>FblDef</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler error: shift count is too large</headline>
+         <problemDescription>What happens (symptoms): 
+-------------------------------------------------------------------
+
+V_MEMROM0 static V_MEMROM1 tStateBitmap V_MEMROM2              kDiagStateMaskGeneralConditions[STATECHECK_ARRAYSIZE]     = STATE_BUILDARRAY(kDiagStateMaskAllLong);
+fbl_diag.c",609  Error[Pe063]:  shift count is too large
+
+
+When does this happen:
+-------------------------------------------------------------------
+
+The error is issued by the compiler during compilation of the code in case the configuration is as described below.
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+All configurations</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>4.00.00</firstAffectedVersion>
+         <versionsFixed>4.04.01</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00099461</identifier>
+         <package>GenTool_CsAsrLegacyDb2SystemDescr</package>
+         <subpackage>Application</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Messages having 'FrameRouting' attribute with value 'NONE' are not ignored for routing</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Messages with attribute 'FrameRouting' == 'NONE' are not converted correctly. They are considered for gateway routing instead of being treated as having no attribute 'FrameRouting' at all.
+
+When does this happen:
+-------------------------------------------------------------------
+During conversion of dbc.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+In every dbc containing attribute 'FrameRouting' with value 'NONE'.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+To exclude from gateway routing, delete attribute 'FrameRouting'.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>1.08.18</firstAffectedVersion>
+         <versionsFixed>1.08.22</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00097240</identifier>
+         <package>If_AsrIfCan</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>CanIf debug data cannot be found in the map file</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+During A2L update some symbols of CanIf (that the CanIf generator actually registers through the CFG5 McData Service Interface) cannot be found in the map file.
+CanIf_CtrlStates.CtrlModeOfCtrlStates
+CanIf_CtrlStates.PduModeOfCtrlStates 
+
+When does this happen:
+-------------------------------------------------------------------
+After compilation when  the A2L / calibration workflow is used to generate a complete A2L file with addresses of the target.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Whenever generation of Debug Data is enabled in DaVinci Configurator and CanIf is used.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Fix the generated symbols in the A2L file manually before proceeding with the A2L workflow.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>3.07.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00098803</identifier>
+         <package>_3rdParty_McalIntegration_Helper</package>
+         <subpackage>VectorIntegration</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Tool does not show text when Windows mode is set to Classic</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+
+Grid does not contain text when Windows design is set to classic mode.
+
+
+When does this happen:
+-------------------------------------------------------------------
+When Windows design is set to classic mode.
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+All.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products:
+
+Step2.AddActionSetsToGridView(...)
+
+Fixed in snapshot 2.03.00.3:
+Components.Mcal2:_3rdParty_McalIntegration_Helper@root[2.03.00.3] &lt;alm:entity?guid=PCKGINST-11966ACD-40EF-47AC-900C-141C92AC8C6D&gt;</resolutionDescription>
+         <firstAffectedVersion>2.02.03</firstAffectedVersion>
+         <versionsFixed>2.03.01</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00099582</identifier>
+         <package>SysService_CryptoCv</package>
+         <subpackage>Impl_actCLib</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler error: actAES.h:23 missing argument for macro P2FUNC</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+actAES.h:23	23		missing argument for macro P2FUNC:23 23 missing argument for macro P2FUNC
+
+When does this happen:
+-------------------------------------------------------------------
+The error is issued by the compiler during compilation of the code in case the configuration is as described below.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+If aes is used.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>2.00.00</firstAffectedVersion>
+         <versionsFixed>3.02.00, 2.10.01</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00081436</identifier>
+         <package>FblDrvFlash_Rh850Rv40His</package>
+         <subpackage>Impl_Base</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Using FlashDriver_SetResetVector() might cause exception</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+When using FlashDriver_SetResetVector() an exception occurs.
+
+When does this happen:
+-------------------------------------------------------------------
+When code called from wdTriggerFct (typically FblLookForWatchdog()) is not located in RAM.
+This may apply e.g. to the Communication Wrapper task functions.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+if FLASH_ENABLE_SET_RESETVECTOR_API is enabled.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+ Either manually handle memDrvDeviceActive in the updater or locate any code referenced by FblLookForWatchdog() in RAM
+
+
+Resolution:
+-------------------------------------------------------------------
+None.</resolutionDescription>
+         <firstAffectedVersion>1.02.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00099959</identifier>
+         <package>Tp_Asr4TpCan</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler error: undefined reference to `CanTp_IsTxSduCfgIndUsedOfRxPduMap'</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+The following errors are shown when trying to build the project:
+CanTp.c:(.text.CanTp_RxIndication+0x30): error: undefined reference to `CanTp_IsTxSduCfgIndUsedOfRxPduMap'
+CanTp.c:(.text.CanTp_RxIndication+0x3a): error: undefined reference to `CanTp_GetTxSduCfgIndStartIdxOfRxPduMap'
+CanTp.c:(.text.CanTp_RxIndication+0x40): error: undefined reference to `CanTp_GetTxSduCfgInd'
+CanTp.c:(.text.CanTp_RxIndication+0x436): error: undefined reference to `CanTp_IsTxSduCfgIndUsedOfRxPduMap'
+
+
+When does this happen:
+-------------------------------------------------------------------
+The error is issued by the compiler during compilation of the code in case the configuration is as described below.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+This happens in configurations fulfilling all of the following conditions:
+- The CanTp is configured to support Postbuild-Selectable (the macro CANTP_POSTBUILD_VARIANT_SUPPORT in CanTp_Cfg.h is defined as STD_ON)
+- The Implementation variant is set to VARIANT-PRE-COMPILE ( the macro CANTP_CONFIGURATION_VARIANT in CanTp_Cfg.h is defined as  CANTP_CONFIGURATION_VARIANT_PRECOMPILE)
+- No Tx SDUs are configured (the macro CANTP_NUM_TX_SDUS in CanTp_Cfg.h is defined as 0)</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Add a user configuration file to the CanTp (CanTp/CanTpGeneral/CanTpUserConfigFile) with the following lines:
+
+#if (CANTP_POSTBUILD_VARIANT_SUPPORT == STD_ON) &amp;&amp; (CANTP_CONFIGURATION_VARIANT == CANTP_CONFIGURATION_VARIANT_PRECOMPILE) &amp;&amp; (CANTP_NUM_TX_SDUS == 0)
+
+# if !defined (CanTp_IsTxSduCfgUsedOfTxSduSnv2Hdl)
+#  define CanTp_IsTxSduCfgUsedOfTxSduSnv2Hdl(x) FALSE
+# endif
+
+# if !defined (CanTp_GetTxSduCfgIdxOfTxSduSnv2Hdl)
+#  define CanTp_GetTxSduCfgIdxOfTxSduSnv2Hdl(x)(PduIdType)0
+# endif
+
+# if !defined (CanTp_IsTxSduCfgUsedOfRxSduCfg)
+#  define CanTp_IsTxSduCfgUsedOfRxSduCfg(x) FALSE
+# endif
+
+# if !defined (CanTp_GetTxSduCfgIdxOfRxSduCfg)
+#  define CanTp_GetTxSduCfgIdxOfRxSduCfg(x) (PduIdType)0
+# endif
+
+# if !defined (CanTp_IsTxSduCfgIndUsedOfRxPduMap)
+#  define CanTp_IsTxSduCfgIndUsedOfRxPduMap(x) FALSE
+# endif
+
+#endif
+
+
+Resolution:
+-------------------------------------------------------------------
+Not yet available.</resolutionDescription>
+         <firstAffectedVersion>2.01.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00091455</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>A RuntimeException "unknown DataTapeRep enumeration" for sint64 is thrown</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+A RuntimeException "unknown DataTapeRep enumeration" for sint64 is thrown at generation time.
+
+When does this happen:
+-------------------------------------------------------------------
+Always and immediately under specific circumstances. See in which configuration does this happen.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Any configuration using the EComStackDataTypeRep sint64.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>6.00.00</firstAffectedVersion>
+         <versionsFixed>8.03.01</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00094541</identifier>
+         <package>SysService_Asr4BswMCfg5</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Auto-Configuration Communication Control: Rules without expressions are created and so validation errors are shown</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+The validation tab shows the following message:
+
+AR-ECUC02008	Invalid multiplicity (3 messages)
+	AR-ECUC02008	Mandatory parameter BswMRuleExpressionRef is missing in CC_&lt;CHANNELNAME&gt;_&lt;PNCNAME_RX
+		BswMRuleExpressionRef
+		/ActiveEcuC/BswM/BswMConfig/BswMArbitration/CC_&lt;CHANNELNAME&gt;_&lt;PNCNAME&gt;
+	AR-ECUC02008	Mandatory parameter BswMRuleExpressionRef is missing in CC_&lt;CHANNELNAME&gt;_&lt;PNCNAME_RX_DM
+		BswMRuleExpressionRef
+		/ActiveEcuC/BswM/BswMConfig/BswMArbitration/CC_&lt;CHANNELNAME&gt;_&lt;PNCNAME&gt;
+	AR-ECUC02008	Mandatory parameter BswMRuleExpressionRef is missing in CC_&lt;CHANNELNAME&gt;_&lt;PNCNAME_TX
+		BswMRuleExpressionRef
+		/ActiveEcuC/BswM/BswMConfig/BswMArbitration/CC_&lt;CHANNELNAME&gt;_&lt;PNCNAME&gt;
+
+When does this happen:
+-------------------------------------------------------------------
+Always after execution of the Communication Control assistant.
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+In configurations with PNCs where at least one PduGroup is mapped to different PNCs
+
+AND 
+
+Not all PNCs of a channel are configured (selected) in the Communication Control assistant.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Rules must be deleted manually from configuration.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>11.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00094259</identifier>
+         <package>SysService_Asr4BswMCfg5</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Auto-Configuration Communication Control shows an error in case of not available module Com</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Auto-Configuration shows the following error:
+
+Configuration *error*
+
+Reason for *error*:
+Could not collect all necessary informations. Solve errors in depending Modules first!
+
+To see following errors in the Validation view execute on-demand generator validation!
+
+Container ComConfig does not exist. Element def.: /[ANY]/Com/ComConfig
+
+
+When does this happen:
+-------------------------------------------------------------------
+Always during configuration.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+In all configurations without the module Com.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>2.01.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00100154</identifier>
+         <package>SysService_SecModHis</package>
+         <subpackage>Impl_Crc</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Speed optimized CRC32 is not calculated correctly</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Speed optimized CRC is not calculated correctly.
+
+
+When does this happen:
+-------------------------------------------------------------------
+When a CRC is calculated.
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Platforms with an "int" type smaller than 32 Bit
+and
+Speed optimization (SEC_CRC_OPT == SEC_CRC_SPEED_OPTIMIZED) is used for non-reflected CRCs (SEC_CRC_32_MODE == SEC_CRC_MODE_NON_REFLECTED).</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Use size optimized CRC calculation variant.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>2.04.00</firstAffectedVersion>
+         <versionsFixed>2.04.02</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00098413</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Linker error: Undefined Symbol &lt;MSN&gt;_Get&lt;ElementTagName&gt;Of&lt;StructTagName&gt;</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Linker error: Undefined Symbol &lt;MSN&gt;_Get&lt;ElementTagName&gt;Of&lt;StructTagName&gt;
+
+When does this happen:
+-------------------------------------------------------------------
+Always and immediately at compile time.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+The Generator returns in the class which implements ICslGenerationBase in getPrecompilePreprocessingStrategy() EPrecompilePreprocessingStrategy.PREPROCESSOR_SWITCH
+AND
+setPrecompilePreprocessingStrategy() is set with EPrecompilePreprocessingStrategy.RUNTIME_CHECKING in a ConstStruct without elements.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+set PrecompilePreprocessingStrategy globally to EPrecompilePreprocessingStrategy.RUNTIME_CHECKING
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>8.08.00</firstAffectedVersion>
+         <versionsFixed>9.00.00</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00092001</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler error: Undefined identifier *IterType with size relations</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compile error occurs in the doxygen group *IterableTypesWithSizeRelations. The type definition of the size relevant array *IterType is undefined.
+
+When does this happen:
+-------------------------------------------------------------------
+The error is issued by the compiler during compilation of the code in case the configuration is as described below.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Any configuration with a ConstStruct containing only indirection, which is deactivated by a reason.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No Workaround available.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>8.00.00</firstAffectedVersion>
+         <versionsFixed>8.03.01</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00100193</identifier>
+         <package>AN-ISC-8-1184_Compiler_Warnings</package>
+         <subpackage>Doc_ApplicationNote</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Improve description</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+The application note can be misinterpreted how globally accepted compiler warnings are handled.
+
+When does this happen:
+-------------------------------------------------------------------
+When reading the application note.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+N/A</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+The application note stated that there are ESCANs for all compiler warnings.
+ESCANs are not required if compiler warnings are caused by the documented standard usecases.
+Keep this in mind when reading the application note.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>1.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00096652</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>IllegalStateException is thrown and no files are generated</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+An illegalStateException is thrown and no files are generated.
+e.g. IllegalStateException: The size of the &lt;A&gt; pointing to &lt;B&gt; does not match to the size of the &lt;C&gt;! 
+
+When does this happen:
+-------------------------------------------------------------------
+Always and immediately under specific circumstances. See in which configuration does this happen.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Any configuration using Zero2UnsortedNStartEndIdxWithoutLength or One2UnsortedNStartEndIdxWithoutLength indirections in the in the Configuration Class POST-BUILD.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>8.07.02</firstAffectedVersion>
+         <versionsFixed>8.11.01</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00099352</identifier>
+         <package>If_AsrIfCan</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>ConsistencyRT00002 - Error at validator runtime: CanIfTxBufferSupportValidator</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+The following error occurs in CFG5:
+
+ConsistencyRT00002	Error at validator runtime (1 message)
+	ConsistencyRT00002	Consistency: an exception was caught while executing onModelEvent() of a validator. Configuration inconsistencies couldn't be reported by this validator. ModelView:UnfilteredInvariantProjectModelView
+This is not a configuration problem but an internal implementation error. Please contact Vector for support.
+Validator-Class: com.vector.cfg.gen.If_AsrIfCan.validation.TxValidators.TxBufferValidators.CanIfTxBufferSupportValidator Validator-Description:Setting control of features: "CanIfPublicTxBuffering, "CanIfMultipleBasicCANTxObjects" and "CanIfCtrlDrvTxCancellation".
+Further runtime errors of this validator won't be reported in the UI.
+Ex: java.lang.IllegalArgumentException: The passed instance element (/ActiveEcuC/Can/CanConfigSet/CN_PB_9dcd9cfb_Tx (DefRef: /MICROSAR/Can_CanoeemuCanoe/Can/CanConfigSet/CanHardwareObject)) is not unique in the ModelTraverser InstanceTree.
+You can only pass elements which are unique in the InstanceTree, or you have to use the selectxxxAsSubView() methods.
+Please enable debug log level to see more details.
+We are sorry, but due to this internal error, code generation of /MICROSAR/CanIf, /[ANY]/Can has to be blocked. As a workaround, you may try to restart DaVinci Configurator. Otherwise, please call Vector for support.
+		/ActiveEcuC/Can
+		/ActiveEcuC/CanIf
+
+
+When does this happen:
+-------------------------------------------------------------------
+During configuration
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+The same Can/CanConfigSet/CanHardwareObject is referenced by multiple CanIf/CanIfInitCfg/CanIfInitHohCfg/CanIfHthCfg/CanIfHthIdSymRef</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Referencing the same CanHardwareObject from multiple CanIfHthCfgs is a mis-configuration - delete the duplicated CanIfHthCfgs and reload the configuration to avoid the exception.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>4.06.01</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00096629</identifier>
+         <package>SysService_AsrDet</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Linker error: unresolved symbol error for not existing callout function referenced in Det_Cfg.o in case of disabled DET</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+If the DET is disabled and a callout funtion is configured which does not exist an unresolved symbol error is thrown by the linker.
+
+When does this happen:
+-------------------------------------------------------------------
+The error is issued by the linker during linking of the code in case the configuration is as described below.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+The issue occurs if all of the following conditions apply:
+1) The DET is disabled by setting DetEnableDet = false
+AND
+2) One or more callout functions are configured, e.g. DetErrorHook, DetReportRuntimeErrorCallout or DetReportTransientFaultCallout
+AND
+3) At least one of the configured callout functions does not exist</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+The following workarounds are possible: 
+1) In order to disable the DET remove it from the configuration.
+2) Don't link Det_Cfg.o in case DET is disabled in your configuration.
+3) Provide the configured callout functions also for a disabled DET.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>10.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00099864</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Generation Error: ArxmlToA2l01009 - Generation of A2L file failed</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+DVMcDataConverter returned exit code 1. [Error] MICROSAR McDataConverter: M1001 An element with the same name "Initialized" has already been processed;
+McDataConverter can't be generated because of same shortname of MC-DATA-INSTANCE in internal behaviours of different modules.
+
+When does this happen:
+-------------------------------------------------------------------
+The error is issued by the generator during generation of Cfg5.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+- generate debug data is enabled
+- isSelectable = true</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Switch off generate debug data.
+If you need the debug data the error can be fixed manually. Contact the support Microsar@de.vector.com for further details.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>5.00.00</firstAffectedVersion>
+         <versionsFixed>10.00.02, 8.11.03, 9.01.01</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00099526</identifier>
+         <package>Gw_AsrPduRCfg5</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>CanTpEnableSynchronousTransmit cannot be used with non MICROSAR Components</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+The feature CanTpEnableSynchronousTransmit cannot be used with non MICROSAR components because the functionality is not specified by AUTOSAR.
+
+When does this happen:
+-------------------------------------------------------------------
+At runtime.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Any configuration where the PduR is used and suggests to set CanTpEnableSynchronousTransmit to true.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Set the CanTp/CanTpGeneral/CanTpEnableSynchronousTransmit to UserDefined and false.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>5.00.00</firstAffectedVersion>
+         <versionsFixed>14.02.00</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00088524</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler error: Undeclared identifier in the initialization structure</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compiler throws an error for an undeclared identifier used in the root initialization structure.
+
+When does this happen:
+-------------------------------------------------------------------
+The error is issued by the compiler during compilation of the code in case the configuration is as described below.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+The configuration contains multiple predefined variants (selectable)
+AND
+array or struct symbols are generated to the configuration class precompile
+AND
+isReduceConstantData2Define() returns true
+AND
+isInterfacesForDeactivatedData() returns true</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+if isInterfacesForDeactivatedData() is user configurable a workaround is available else not.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>7.00.00</firstAffectedVersion>
+         <versionsFixed>8.01.00</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00097876</identifier>
+         <package>SysService_Asr4BswMCfg5</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Generated data streams toggle with each code generation if &lt;MSN&gt;ReduceDataByStreaming is enabled</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Generated Code has to be recompiled or added again to the Users CMS because
+the order in streamed CONST arrays is not deterministic and changes by chance with each code generation.
+
+When does this happen:
+-------------------------------------------------------------------
+At generation time.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Any configuration where &lt;MSN&gt;ReduceDataByStreaming returns true.</problemDescription>
+         <firstAffectedVersion>2.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00099525</identifier>
+         <package>Tp_Asr4TpCan</package>
+         <subpackage>Doc_TechRef</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>CanTpEnableSynchronousTransmit cannot be used with non MICROSAR Components</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Add a warning box to chapter 3.1.2.8 and to the integration chapter that CanTpEnableSynchronousTransmit cannot be used with non MICROSAR components.
+
+When does this happen:
+-------------------------------------------------------------------
+At runtime.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Any configuration where CanTp/CanTpGeneral/CanTpEnableSynchronousTransmit is configured to true.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+
+Resolution:
+-------------------------------------------------------------------
+Not yet available.</resolutionDescription>
+         <firstAffectedVersion>3.01.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00087367</identifier>
+         <package>FblDrvCan_Mpc5700McanCrx</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Internal: CAN FD configuration for current MCAN versions (Rev 3.x) has to be reworked</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+CAN FD configuration with 3.x revisions most likely is incorrect.
+
+
+When does this happen:
+-------------------------------------------------------------------
+Configurations with CAN FD and Bootloader CAN driver
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+CAN FD mode 1 activated</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>1.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00096164</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler error: A generated value is not in range of the specified datatype</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+RuntimeExeption "&lt;MSN&gt;90500 The value 18446744073709551615 with comment () is not in the range of the specified datatype" is thrown during generation of the module.
+
+When does this happen:
+-------------------------------------------------------------------
+The error is issued by the compiler during generation of the code in case the configuration is as described below.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Always
+OR
+if &lt;MSN&gt;ReduceNumericalDataByOffsetThreshold  is configured to a value &gt; 0.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+configure getReduceNumericalDataByOffsetThreshold() to 0 is configurable.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>5.00.00</firstAffectedVersion>
+         <versionsFixed>8.13.00</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00099640</identifier>
+         <package>FblWrapperCom_PduR</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler error: CAN driver with infix not supported</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+The dependencies to the CAN driver cannot be resolved. 
+
+When does this happen:
+-------------------------------------------------------------------
+The error is issued by the compiler during compilation of the code in case the configuration is as described below.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+CAN driver with infix is used.
+E.g. DrvCan_Spc58xxMcanAsr placed in folder Can_30_Mcan.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Create a header file Can.h, which remaps all infixed function and data type identifiers to match the name without infix used by fbl_cw.c, e.g.
+
+#define Can_MainFunction_Write  Can_30_Mcan_MainFunction_Write
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>4.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00098477</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler error &lt;MSN&gt;_GetPCConfigIdxOfPBConfig() undefined</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compiler error &lt;MSN&gt;_GetPCConfigIdxOfPBConfig() undefined.
+
+When does this happen:
+-------------------------------------------------------------------
+The error is issued by the compiler during compilation of the code in case the configuration is as described below.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+- runtime checking is enabled globally
+- in variant post-build loadable and selectable=false
+-  precompile elements</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+set PrecompilePreprocessingStrategy to PREPROCESSOR_SWITCH
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>8.08.00</firstAffectedVersion>
+         <versionsFixed>9.00.00</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00098353</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>IllegalStateException is thrown and no files are generated</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+An illegalStateException is thrown and no files are generated.
+e.g. IllegalStateException: The numberOfDataElements has not been calculated by VVarIndirectableSizeCreator
+
+When does this happen:
+-------------------------------------------------------------------
+Always and immediately under specific circumstances. See in which configuration does this happen.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+A IVarElementInArray has multiple IndirectableFeatureDeactivationConditions where two or more IndirectableFeatureDeactivationConditions are true.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Find a way that only one IndirectableFeatureDeactivationConditions is true.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>5.00.00</firstAffectedVersion>
+         <versionsFixed>8.13.00</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00097828</identifier>
+         <package>SysService_Asr4BswMCfg5</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler error: 'Network' : undeclared identifier</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+The compiler throws an error like the following one:
+
+error C2065: 'Network' : undeclared identifier
+
+
+When does this happen:
+-------------------------------------------------------------------
+The error is issued by the compiler during compilation of the code in case the configuration is as described below.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+If the BswM has more than one instance of container BswMConfig (Multi Partition UseCase)
+
+AND
+
+BswMDevErrorDetect is enabled
+
+AND
+
+One of the following Mode Request ports is used:
+ComM_InitiateReset
+ComM_CurrentPNCMode
+Dcm_ApplicationUpdated
+EthIf_PortGroupLinkStateChg
+J1939DcmBroadcastStatus
+EcuM_CurrentState
+EcuM_CurrentWakeup
+EcuM_RequestedState
+Nm_StateChangeNotification
+NvM_CurrentBlockMode
+NvM_CurrentJobMode
+PduR_RxIndication
+PduR_TpRxIndication
+PduR_TpStartOfReception
+PduR_TpTxConfirmation
+PduR_Transmit
+PduR_TxConfirmation
+Sd_ClientServiceCurrentState
+Sd_ConsumedEventGroupCurrentState
+Sd_EventHandlerCurrentState
+WdgM_RequestPartitionReset</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>10.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00094319</identifier>
+         <package>SysService_Asr4BswMCfg5</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Auto-Configuration Communication Control: Init Mode of Lin Schedule Indication is missing</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+A validator in Cfg5 reports the following warning:
+
+BSWM01057       Init Mode of CC_LinScheduleIndication_&lt;Schedule Name&gt; is not known.
+                Set BswMBswModeInitValueMode(value=) to LinSMConf_LinSMSchedule_&lt;NAME&gt;
+/ActiveEcuC/BswM/BswMConfig/BswMArbitration/CC_LinScheduleIndication_LIN00_&lt;Schedule_Name&gt;/BswMModeInitValue/BswMBswModeInitValue[BswMBswModeInitValueMode]
+                /ActiveEcuC/BswM/BswMConfig/BswMArbitration/CC_LinScheduleIndication_LIN00_&lt;Schedule_Name&gt;
+
+
+
+When does this happen:
+-------------------------------------------------------------------
+Always after configuring the Auto-Configuration Communication Control.
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Only in configurations with at least one Lin channel 
+
+AND 
+
+Auto-Configuration Communication Control is configured.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Set the normal schedule via the provided solving action.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>10.01.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00098260</identifier>
+         <package>If_AsrIfCan</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Erroneous validation message "CanIfMultipleBasicCANTxObjects is not required"</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Erroneous validation message CANIF10027 (None CAN-channel has multiple BasicCAN Tx-objects. Hence the feature ""CanIfMultipleBasicCANTxObjects" is not required in current configuration and must be disabled.) shows up in CFG5 and cannot be solved.
+
+
+When does this happen:
+-------------------------------------------------------------------
+During configuration.
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Multiple CAN drivers are used
+
+AND
+
+There is at least one CAN channel with != 1 BasicCAN Tx-hardware object ("CanHardwareObject" with "CanHandleType" == BASIC and "CanObjectType" == TRANSMIT) for one of the drivers.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Set the parameter "CanIfMultipleBasicCANTxObjects" to user defined and keep it enabled.
+[Error] CANIF10027 is then demoted to a warning that can be ignored.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>4.02.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00095072</identifier>
+         <package>FblKbApi</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>ApplFblSetModulePresence() Cannot write presence pattern to multiple memory devices with different erased values</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+ApplFblSetModulePresence() errantly returns kFblFailed when it has written a valid presence pattern. Download will be halted.
+
+
+When does this happen:
+-------------------------------------------------------------------
+During the validation of a block of memory down loaded to secondary device type with a different erased value than primary memory
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+FBL_ENABLE_PRESENCE_PATTERN
+  AND
+FBL_ENABLE_MULTIPLE_MEM_DEVICES
+ AND
+FBL_FLASH_DELETED is a different value than the deleted value of the secondary device driver.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+ApplFblSetModulePresence() has to be adapted according to the erased code.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>1.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00098464</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Missing increment and decrement function macros for variable indirections</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+The increment and decrement function macros are missing for varStructs.
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+when varStructs with variable indirections are used.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>8.11.00</firstAffectedVersion>
+         <versionsFixed>9.00.00</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00099689</identifier>
+         <package>_3rdParty_McalIntegration_Helper</package>
+         <subpackage>VectorIntegration</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Missing icon in tool bar icon of Helper Tool</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+If icon size is set to big in the settings of the windows task bar, the tool icon of Helper Tool is not shown correctly. See attached screenshot.
+Second case: if Windows 10 is used the icon size is not relevant but the problem occurs.
+
+When does this happen:
+-------------------------------------------------------------------
+If icon size is set to big in the settings of the windows task bar.
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+All.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available in case of Windows 10 is used and the icon size is not changed.
+In all other cases the icon size shall be set to small then the problem does not occur.
+
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>2.02.03</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00093413</identifier>
+         <package>SysService_Asr4BswMCfg5</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Auto Configuration Module Initialization - Changed User Include Files always restores</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+If the EcuM_Init_PBCfg.h entry in the User Config File (/MICROSAR/BswM/BswMGeneral/BswMUserIncludeFiles/BswMUserIncludeFile) list is overwritten by some other value or being replaced, it is being restored after the Module Configuration Auto Configuration is applied again and the other value might be removed.
+
+
+When does this happen:
+-------------------------------------------------------------------
+During the configuration with DaVinci Configurator in the BSW Management Editor in the following sequence:
+- Configure Module Initialization is clicked
+- Finish is clicked
+- One of the /MICROSAR/BswM/BswMGeneral/BswMUserIncludeFiles/BswMUserIncludeFile has the value EcuM_Init_PBCfg.h, this one is being changed or deleted.
+- Configure Module Initialization is clicked once again
+- Finish is clicked
+- the dialog 'Manual Adaptions' does not pop up or it pops up but the change is not displayed
+- Finish is clicked in the 'Manual Adaptions' dialog if it is displayed
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Any configuration using the Module Initialization Auto Configurations in BSW Management in DaVinci Configurator
+
+AND
+
+EcuM is configured as Postbuild Loadable or Postbuild Selectable</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Redo the previously manual changes that have been overwritten.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>2.00.01</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00098418</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler error: A generated value is not in range of the specified datatype</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+RuntimeExeption "&lt;MSN&gt;90500 The value 18446744073709551615 with comment () is not in the range of the specified datatype" is thrown during generation of the module.
+
+When does this happen:
+-------------------------------------------------------------------
+The error is issued by the compiler during compilation of the code in case the configuration is as described below.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+if &lt;MSN&gt;ReduceNumericalDataByOffsetThreshold  is configured to a value &gt; 0 and if DeduplicationStrategy is NONE.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+configure getReduceNumericalDataByOffsetThreshold() to 0 or use DeduplicationStrategy !=NONE.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>5.00.00</firstAffectedVersion>
+         <versionsFixed>9.00.00</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00097355</identifier>
+         <package>SysService_Asr4BswMCfg5</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Auto-Configuration Ecu State Handling: Self run request timeout value is not shown correct in case of 0</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+The overview page of the Auto-configuration Ecu State handling does not show the correct value for the self run request timeout. Instead it shows the default value (0.1).
+
+
+When does this happen:
+-------------------------------------------------------------------
+Always if the value is set to 0.
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+In all configurations with Auto-Configuration Ecu State Handling configured
+
+AND 
+
+Value of self run request timeout is set to 0.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>11.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00093405</identifier>
+         <package>SysService_Asr4BswMCfg5</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Auto Configuration - Invalid multiplicity after manual adaptations of container BswMAvailableActions</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+User-modifications about a changed BswMAvailableActions subcontainer are recognized by the Auto Configuration assistant but even if they should be kept, the assistant will re-create the original action. This leads to an invalid model because the user modification is not removed by the assistant.
+
+Example:
+- Configure Communication Control is used and Reinitialize TX is turned ON, Finish is clicked.
+- the /MICROSAR/BswM/BswMConfig/BswMModeControl/BswMAction CC_EnableDM_&lt;I-PDU-Group&gt; has a BswMDeadlineMonitoringControl container which is deleted within the Basic Editor
+- Instead another BswMAvailableActions subcontainer is created of another type, e.g. BswMComMModeLimitation
+- Configure Communication Control is used once again and Finish is clicked. An option if offered to either keep this modification or to restore it, but independent of the choice, the original BswMDeadlineMonitoringControl is restored without removing the user modification. Because the user modification is not removed the multiplicity of the container BswMAvailableActions[0...1] is violated.
+
+
+When does this happen:
+-------------------------------------------------------------------
+During the configuration with DaVinci Configurator in the BSW Management Editor in the following sequence:
+- Configure &lt;Auto Configuration&gt; is clicked
+- Finish is clicked
+- Some objects like a /MICROSAR/BswM/BswMConfig/BswMModeControl/BswMAction/BswMAvailableActions/BswMDeadlineMonitoringControl container are deleted or changed
+- Configure &lt;Auto Configuration&gt; is clicked once again
+- Finish is clicked
+- the dialog 'Manual Adaptions' does pop up 
+- Finish is clicked in the 'Manual Adaptions' dialog 
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Any configuration using one of the Auto Configurations in BSW Management in DaVinci Configurator</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Redo the previously manual changes that have been overwritten.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>10.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00093839</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>CFG5 Exception or Compile Error "Too many initializer values"</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+CFG5 shows the following error message
+"Exception in &lt;MSN&gt; generator during Generation encountered"
+and no files are generated.
+The detailed error description is: java.lang.NullPointerException 
+
+OR
+
+the compiler informs about arrays of structs with too many initializer values.
+
+When does this happen:
+-------------------------------------------------------------------
+at generation time
+
+OR
+
+at compile time
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Any configuration where the postbuild-selectable support is enabled for this module
+AND
+the generator uses the API setRequiresIndexUsedArray() with the parameter true.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+deactivate ComStackLib boolean deduplications
+AND
+configure &lt;MSN&gt;StructBoolDataUsage to a value different from "BITMASKING"
+AND
+generate again.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>4.00.00</firstAffectedVersion>
+         <versionsFixed>8.06.00, 8.05.01</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00099427</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler error &lt;MSN&gt;_Get&lt;Parameter&gt;OfPCConfig() undefined</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compiler error undefined &lt;MSN&gt;_Get&lt;Parameter&gt;OfPCConfig() Macro.
+An invalid &lt;MSN&gt;_Get&lt;Parameter&gt;OfPCConfig() Macro is generated with the CSL Optimization ReduceConstantData2Define = true and RUNTIME_CHECKING.
+
+When does this happen:
+-------------------------------------------------------------------
+The error is issued by the compiler during compilation of the code in case the configuration is as described below.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+EModuleConfigurationVariant = PRECOMPILE
+isReduceConstantData2Define = true
+EPrecompilePreprocessingStrategy = RUNTIME_CHECKING
+empty Const Array</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>8.08.00</firstAffectedVersion>
+         <versionsFixed>10.00.01, 9.01.01</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00094875</identifier>
+         <package>If_AsrIfMem</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler error: dld.exe: warning: Undefined symbol 'MemIf_*_WriteWrapper' in file 'obj/MemIf_Cfg.o'</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compiler error: dld.exe: warning: Undefined symbol 'MemIf_*_WriteWrapper' in file 'obj/MemIf_Cfg.o' 
+
+When does this happen:
+-------------------------------------------------------------------
+During linking the project
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Windriver Diab compiler for PPC version is used  (tested with version 5.9.4.8)</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Redefine MEMIF_LOCAL_INLINE to MEMIF_LOCAL (e.g. in Compiler_Cfg.h)
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>5.02.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00096594</identifier>
+         <package>SysService_CryptoCv</package>
+         <subpackage>Impl_actCLib</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>C Standard Library is used</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+limits.h from C Standard Library is used
+(in actPlatformTypes.h)
+
+
+
+When does this happen:
+-------------------------------------------------------------------
+always
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+always</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>1.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00095553</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler error: Undefined identifier *PtrType to VARs of simple types with &lt;MSN&gt;_USE_INIT_POINTER to STD_ON</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compile error occurs in the doxygen group *PBRootValueTypes. The type definition of the *PtrType used for VARs of simple types is undefined.
+
+When does this happen:
+-------------------------------------------------------------------
+The error is issued by the compiler during compilation of the code in case the configuration is as described below.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Any configuration where
+&lt;MSN&gt;_USE_INIT_POINTER is defined to STD_ON
+AND
+the generator instanciates objects of the type IVarVar (simple VARs in the config root) in the Configuration Class LINK time or POST-BUILD.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>8.04.00</firstAffectedVersion>
+         <versionsFixed>8.09.00</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00098632</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler error: Redefinition of &lt;Msn&gt;_Is&lt;BoolConstVar&gt;OfPCConfig</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Two macros are generated to check if a BoolConstVar is enabled:
+
+1. &lt;Msn&gt;_Is&lt;BoolConstVar&gt;OfPCConfig()                ((&lt;Msn&gt;_ConfigDataPtr-&gt;&lt;BoolConstVar&gt;OfPCConfig) != FALSE)	
+2. &lt;Msn&gt;_Is&lt;BoolConstVar&gt;OfPCConfig()                (&lt;MSN&gt;_&lt;BOOLCONSTVAR&gt;OFPCCONFIG_MASK == (&lt;Msn&gt;_GetMaskedBitsOfPCConfig(Index) &amp; SOAD_&lt;BOOLCONSTVAR&gt;OFPCCONFIG_MASK))	
+
+With both Macros a compiler Error is generated.
+
+When does this happen:
+-------------------------------------------------------------------
+The error is issued by the compiler during compilation of the code in case the configuration is as described below.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+2 Configurations:
+1. 	EModuleConfigurationVariant = VARIANT_PRE_COMPILE
+	EBoolDataInArrayOfStructStrategy = BITMASKING
+	2 or more BoolConstVar are generated
+	EPrecompilePreprocessingStrategy = PREPROCESSOR_SWITCH 
+	selectable = true
+2. 	EModuleConfigurationVariant = VARIANT_PRE_COMPILE
+	EBoolDataInArrayOfStructStrategy = BITMASKING
+	2 or more BoolConstVar are generated
+	EPrecompilePreprocessingStrategy = RUNTIME_CHECKING</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+EBoolDataInArrayOfStructStrategy = BOOLEAN or BITFIELD
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>5.00.00</firstAffectedVersion>
+         <versionsFixed>9.00.00</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00094414</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler error: Undeclared identifier in GetAddressOfDataMacros</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compiler throws an error for an undeclared identifier used in GetAddressOfDataMacros.
+
+When does this happen:
+-------------------------------------------------------------------
+The error is issued by the compiler during compilation of the code in case the configuration is as described below.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+isOutOfBoundsReadSanitizer() returns true
+AND
+isReduceDataByStreaming() returns true
+AND
+the GetAddressOfDataMacro is activated and used in the embedded source code.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Do not use the OutOfBoundsReadSanitizer as intended in productive builds.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>7.00.00</firstAffectedVersion>
+         <versionsFixed>8.07.00</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00099160</identifier>
+         <package>_3rdParty_McalIntegration_Helper</package>
+         <subpackage>VectorIntegration</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Patch action fails because file path is too long</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Performing patch actions on a SIP where the path and/or file names are too long avoid the execution of the patch action. The 3rd Party Integration Helper Tool reports an error in the GUI.
+
+
+When does this happen:
+-------------------------------------------------------------------
+If files which have to be patched have a too long path or file name.
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+All with long path names (&gt; 259 characters).</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Copy the SIP into a directory with short path. If error still occurs try again with a shorter path. Try as long as path is so short that the error does not occur.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products:
+
+- PatchFiles.PatchFileGeneric(...): 
+--- redesign 
+--- use LongPathFile.Open(...) to open files because this method can handle long paths 
+
+- FileDirectoryExt.CopyFileLong(...): add log entry  if file which have to be copied does not exist
+- LongPathFile.CheckReadOnly(...): fix spelling error in 
+
+Fixed in following RC:
+Components.Mcal2:_3rdParty_McalIntegration_Helper@root[2.03.01.2] &lt;alm:entity?guid=PCKGINST-39958391-9D96-4649-B465-A71D0282CCF4&gt;</resolutionDescription>
+         <firstAffectedVersion>1.00.00</firstAffectedVersion>
+         <versionsFixed>2.03.01</versionsFixed>
+      </issue>
+      <issue category="apparentIssue">
+         <identifier>ESCAN00097063</identifier>
+         <package>SysService_Asr4BswMCfg5</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Auto-Configuration Communication Control: Tx PDU-Groups are not assigned to a channel and can not be selected</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Some Tx PDU-Groups are listed at the end of the communication control view and are marked in grey as not available with the following annotation:
+
+"Channel of corresponding Group PDUs could not be determined"
+
+
+When does this happen:
+-------------------------------------------------------------------
+Always during execution of the Auto-Configuration Communication Control.
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+In Configurations with at least one Tx Pdu Group, in which all of the Tx Pdus have different global Pdu References in parameters /MICROSAR/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/PduRDestPdu and /MICROSAR/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/PduRSrcPdu.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Control of Tx PDU-Groups has to be configured with manual BswM Rules.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>13.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00091343</identifier>
+         <package>If_AsrIfCan</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: warning C4310: cast truncates constant value</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compile warning occurs.
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+If transmit buffer is configured as FIFO and cancel API is supported.
+(canifcfg.h: CANIF_TRANSMIT_BUFFER_FIFO == STD_ON &amp;&amp; CANIF_CANCEL_SUPPORT_API == STD_ON)</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available. Warning was checked, not critical.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>6.09.00</firstAffectedVersion>
+         <versionsFixed>6.17.00</versionsFixed>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00092074</identifier>
+         <package>SysService_SecModHis</package>
+         <subpackage>Impl_SeedKey</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: condition is always false</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compiler: Tasking 3.0r3:
+c166 W549: ["../../../BSW/SecMod/Sec_SeedKey.c" 221/18] condition is always false
+
+#define SEC_WORD_TYPE_SIZE    4u
+
+SecM_StatusType SecM_GenerateSeed( V_MEMRAM1 SecM_SeedType V_MEMRAM2 V_MEMRAM3 * seed )
+{
+result = SEC_PRNG_GENERATE_RANDOM(SEC_PRNG_POOL, pRandom, SEC_WORD_TYPE_SIZE);  &lt;---------
+}
+
+
+static SecM_StatusType SecM_GenerateRandomLcg( V_MEMRAM1 SecM_ByteType V_MEMRAM2 V_MEMRAM3 * pRandom, SecM_LengthType length )
+{
+
+   byteCount = length;
+
+   if (byteCount &gt; SEC_WORD_TYPE_SIZE)&lt;-------------------  always false since we always pass "SEC_WORD_TYPE_SIZE"
+   {
+      byteCount = SEC_WORD_TYPE_SIZE;
+   }
+
+}
+
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+For all configurations where LCG random number generator is used and seed length doesn't exceed size of word type (32 bit / 4 byte).</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>3.01.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00067159</identifier>
+         <package>MemService_AsrNvM</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: cast truncates constant value</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+
+&gt;..\..\bsw\nvm\nvm_crc.c(229) : warning C4310: cast truncates constant value
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+CANoeEmu + VS2008
+It depends on definition of uint16_least: Warning occures only if uint16_least is not of type int.
+
+ 
+Hint:
+-------------------------------------------------------------------
+The compiler warning is known and has been analyzed thoroughly for its impact on the code. Nevertheless it will not be fixed, because the cast confirms and enforces this behavior (i.e. the value SHALL be truncated, if necessary).
+Additionally: Why uint16_least is not (unsigned) int? -&gt; this data type fulfills all requirements on a 16 bit unsigned value...</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround necessary.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>3.08.01</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00100182</identifier>
+         <package>Gw_AsrPduRCfg5</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: A value that cannot be used to initialize an entity with a function pointer type</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compiler warns for a value that cannot be used to initialize an entity with a function pointer type with MSN_CopyRxData, MSN_CopyTxData and MSN_StartOfReception.
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Any configuration using a BSW or CDD adjacent to the PduR which has been implemented based on an AUTOSAR Specification that uses const in API parameters of MSN_CopyRxData, MSN_CopyTxData and MSN_StartOfReception.
+The AUTOSAR Specifications have been changed multiple times between ASR 4.00.03 and today.
+There is no common solution for all versions possible and you have to accept the compile warning until all components in the system have implemented the Com-Stack API harmonization introduced with ASR 4.03.00.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>1.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00068435</identifier>
+         <package>MemService_AsrNvM</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: narrowing or signed-to-unsigned type conversion found: unsigned int to unsigned char</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+
+- Compiler warns for narrowing or signed-to-unsigned type conversion found: unsigned int to unsigned char
+
+Warning occurs in following function:
+FUNC(void, NVM_PRIVATE_CODE) NvM_QueueInit(void)
+
+        ...
+        NvM_JobQueue_at[index].PrevEntry = index - 1u;
+
+
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+It happens in all configurations
+ 
+Hint:
+-------------------------------------------------------------------
+The compiler warning is known and has been analyzed thoroughly for its impact on the code. Nevertheless it will not be fixed due to MISRA 2004 - implicit conversion is allowed in this case.
+Additionally, it is obvious that actually no narrowing occurs (even a compiler could be capable of detection). Result of expression is always in range of [0,254].</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Just ignore warning.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>3.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00068872</identifier>
+         <package>DrvCan__coreAsr</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: the order of volatile accesses is undefined in this statement</headline>
+         <problemDescription>What happens (symptoms):
+---------------------------------------------------------------
+Compiler issues warning messages like this:
+undefined behavior: the order of volatile accesses is undefined in this statement
+
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Rx Queue is enabled</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Ignore Warning
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>3.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00089424</identifier>
+         <package>SysService_CryptoCv</package>
+         <subpackage>Impl_ESLib</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: dead assignment to "returnValue" eliminated</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compiling file: ../../../BSW/SecMod/ESLib_RSA_V15_Ver_SHA256.c
+
+ctc W588: ["../../../BSW/SecMod/ESLib_RSA_V15_Ver_SHA256.c" 193/17] dead assignment to "returnValue" eliminated
+ctc W588: ["../../../BSW/SecMod/ESLib_RSA_V15_Ver_SHA256.c" 358/17] dead assignment to "returnValue" eliminated
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+- Signature verification using RSASSA-PKCS1-v1_5 is used</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>1.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00100176</identifier>
+         <package>If_AsrIfCan</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: cast truncates constant value</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+The compiler warns for a truncation of a constant value due to cast.
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+CANIF_WAKEUP_VALIDATION is enabled AND CANIF_WAKEUP_VALID_ALL_RX_MSGS is disabled AND CANIF_WAKEUP_VALID_ONLY_NM_RX_MSGS is enabled</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available. Warning was checked, not critical.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>5.00.00</firstAffectedVersion>
+         <versionsFixed>6.17.00</versionsFixed>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00087501</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: "signed/unsigned mismatch" due to missing cast in 0:N or 1:N indirections</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+"Signed/unsigned mismatch" compiler warning due to missing cast for the subtracted indirection length. 
+The length macro of a 0:N or 1:N indirection calculates the length through endIndex - startIndex.
+This subtraction can be interpreted by the compiler as a signed value without a explicit unsigned cast.
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+any configuration using 0:N or 1:N Indirections with the length member
+AND
+the indirection configuration class is PRE-COMPILE</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Perform a cast in your embedded code.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>1.00.00</firstAffectedVersion>
+         <versionsFixed>8.01.00</versionsFixed>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00098411</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: conversion from somelargertype to somesmallertype, possible loss of data</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compiler warns for a conversion from somelargertype to somesmallertype, possible loss of data.
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Any empty indirection based array that uses EPrecompilePreprocessingStrategy.RUNTIME_CHECKING.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>8.12.00</firstAffectedVersion>
+         <versionsFixed>9.00.00</versionsFixed>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00077761</identifier>
+         <package>SysService_SecModHis</package>
+         <subpackage>Impl_Verification</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: Conversion from integer to smaller pointer</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compiler warns: Conversion from integer to smaller pointer
+
+Example for IAR compiler:
+pWorkspace = (V_MEMRAM1 SEC_VERIFY_CLASS_CCC_WORKSPACE_TYPE V_MEMRAM2 V_MEMRAM3 *)pVerifyParam-&gt;currentHash.sigResultBuffer; 
+D:\usr\usage\Delivery\CBD14x\CBD1400332\D01\external\BSW\SecMod\Sec_Verification.c",1335  Warning[Pe1053]: conversion from integer to smaller pointer
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Always.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>2.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00055157</identifier>
+         <package>Common_Vdef</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: truncating assignment</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+A compiler warning similar the following may occur:
+#warning cps12x ../../../external/BSW/Can\can_drv.c:&lt;Line&gt; truncating assignment
+
+The following statements are issues by the compiler:
+if ( CanLL_HwIsSleep(CAN_HW_CHANNEL_CANPARA_ONLY)   )  { return ( VUINT8_CAST ( canStatus[channel] | kCanHwIsSleep ) ); }
+if ( CanLL_HwIsStop(CAN_HW_CHANNEL_CANPARA_ONLY)    )  { return ( VUINT8_CAST ( canStatus[channel] | kCanHwIsStop ) ); }
+if ( CanLL_HwIsBusOff(CAN_HW_CHANNEL_CANPARA_ONLY)  )  { return (( VUINT8_CAST  canStatus[channel] | kCanHwIsBusOff ) ); }
+if ( CanLL_HwIsPassive(CAN_HW_CHANNEL_CANPARA_ONLY) )  { return ( VUINT8_CAST ( canStatus[channel] | kCanHwIsPassive ) ); }
+if ( CanLL_HwIsWarning(CAN_HW_CHANNEL_CANPARA_ONLY) )  { return ( VUINT8_CAST ( canStatus[channel] | kCanHwIsWarning ) ); }
+return ( VUINT8_CAST (canStatus[channel] &amp; kCanTxOn) );
+
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+In every configuration</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Ignore the warning.
+
+Nevertheless, the affected components (e.g. CAN driver) can be corrected by inserting the following lines in the component user config file: 
+
+#if defined (C_DRV_INTERNAL)
+# if defined (C_COMP_COSMIC_MCS12_MSCAN)
+#  undef VUINT8_CAST
+#  define VUINT8_CAST (vuint8)
+# endif
+#endif
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>1.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00091340</identifier>
+         <package>If_AsrIfCan</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: cast truncates constant value</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compile warning occurs.
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+If partial network wakeup PDU filtering is active. 
+(canifcfg.h: CANIF_PN_WU_TX_PDU_FILTER == STD_ON)</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available. Issue is checked and not critical.
+
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>5.00.00</firstAffectedVersion>
+         <versionsFixed>6.17.00</versionsFixed>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00065890</identifier>
+         <package>DrvCan_Mpc5700McanLl</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: cast discards '__attribute__((noreturn))' qualifier from pointer target type</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+The compiler generates the following warning:
+
+Compiling file: ../../../external/BSW/Can/Can.c
+../../../external/BSW/Can/Can.c: In function 'CanBasicCanMsgReceived':
+../../../external/BSW/Can/Can.c:1745:16: warning: cast discards '__attribute__((noreturn))' qualifier from pointer target type [-Wcast-qual]
+../../../external/BSW/Can/Can.c:1750:10: warning: cast discards '__attribute__((noreturn))' qualifier from pointer target type [-Wcast-qual]
+../../../external/BSW/Can/Can.c:1780:55: warning: cast discards '__attribute__((noreturn))' qualifier from pointer target type [-Wcast-qual]
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+GNU compiler and -Wcast-qual compiler option is used</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Omit gcc command option -Wcast-qual.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>1.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00098070</identifier>
+         <package>MemService_AsrNvM</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: NvM_Cfg.c: 'ServiceId' : unreferenced formal parameter</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+1&gt;  NvM_Cfg.c
+1&gt;..\..\Appl\GenDataVtt\NvM_Cfg.c(588): warning C4100: 'ServiceId' : unreferenced formal parameter
+
+with Visual Studio compiler
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Any configuration with disabled NvMMultiBlockCallback and NvMBswMMultiBlockJobStatusInformation</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>3.01.02</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00089425</identifier>
+         <package>SysService_CryptoCv</package>
+         <subpackage>Impl_ESLib</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: missing braces around initializer</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compiling file: ../../../BSW/SecMod/ESLib_version.c
+ctc W542: ["../../../BSW/SecMod/ESLib_version.c" 73/4] missing braces around initializer
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+In all configurations.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Since ESLib_version.c is only used for component testing, it can be excluded from the build for integration.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>1.01.01</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00065891</identifier>
+         <package>DrvCan_Mpc5700McanLl</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: cast increases required alignment of target type</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compiler generates the following warning:
+
+Compiling file: ../../../external/BSW/Can/Can.c
+../../../external/BSW/Can/Can.c: In function 'CanBasicCanMsgReceived':
+../../../external/BSW/Can/Can.c:1745:16: warning: cast increases required alignment of target type [-Wcast-align]
+../../../external/BSW/Can/Can.c:1750:10: warning: cast increases required alignment of target type [-Wcast-align]
+../../../external/BSW/Can/Can.c:1752:29: warning: cast increases required alignment of target type [-Wcast-align]
+../../../external/BSW/Can/Can.c:1758:30: warning: cast increases required alignment of target type [-Wcast-align]
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+GNU compiler and -Wcast-align compiler option is used</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Omit gcc command option -Wcast-align
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>1.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00088061</identifier>
+         <package>SysService_Asr4BswMCfg5</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>BswM_Lcfg.c: warning: 'function' : conversion from 'const BswM_ImmediateUserStartIdxOfModeReqeustMappingType' to 'BswM_SizeOfImmediateUserType', possible loss of data</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+BswM_Lcfg.c: warning: 'function' : conversion from 'const BswM_ImmediateUserStartIdxOfModeReqeustMappingType' to 'BswM_SizeOfImmediateUserType', possible loss of data
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+All</problemDescription>
+         <firstAffectedVersion>7.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00093016</identifier>
+         <package>FblMio</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler Warning: possible truncation at implicit conversion to type "unsigned short int"</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compiler warning: ctc W560: possible truncation at implicit conversion to type "unsigned short int"
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+in every configuration</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>2.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00089241</identifier>
+         <package>SysService_CryptoCv</package>
+         <subpackage>Impl_actCLib</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: multiple warnings</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+- Compiler warns for possible loss of data: Check if cast is missing and if there is really a data loss due to an implicit/explicit cast on the target platform
+- Compiler warns for ambiguous code, parentheses recommended.
+
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Always.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>1.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00097851</identifier>
+         <package>FblUpd_Main</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: FblUpdCheckAddressRange was declared but never referenced</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compiler warning is issue by the compiler:
+
+..\Vector_FBL_SIP_Rh850\BSW\FblUpd\upd_main.c", line 411: warning #177-D: 
+	          function "FblUpdCheckAddressRange" was declared but never referenced
+	  static tFblResult FblUpdCheckAddressRange( tFblAddress address, tFblAddress rangeStart, tFblLength rangeLength )
+
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+FBL_UPD_ENABLE_HOOK_ADJUST_SEGMENT_PROGRAM and FBL_UPD_ENABLE_HOOK_ADJUST_SEGMENT_VALIDITY are not defined.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>3.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00099190</identifier>
+         <package>SysService_Asr4BswMCfg5</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: BswM_Lcfg.c(2990): warning C4100: 'handleId' : unreferenced formal parameter</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compiler warns about C4100: 'handleId' : unreferenced formal parameter in BswM_Lcfg.c.
+
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+In all configurations which use actions of type BswMTimerControl.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>6.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00096165</identifier>
+         <package>Common_Vdef</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: : incompatible redefinition of macro "LOCAL_INLINE" in v_def.h</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+The compiler warns about incompatible redefinition of macro "LOCAL_INLINE" in v_def.h.
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+V_def.h and compiler.h are used in one system. This are mixed system with CANbedded and Autosar modules.
+AND  v_def.h is included before compiler.h. 
+AND the definition of LOCAL_INLINE differs between v_def.h and compiler.h
+
+Hint:
+-------------------------------------------------------------------
+The compiler warning is known and has been analyzed thoroughly for its impact on the code. Nevertheless it will not be fixed due there is no fix inside this component possible and a workaround is available.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+The definition of LOCAL_INLINE has to be copied from compiler.h to the user configuration file of  v_cfg.h .
+
+#define LOCAL_INLINE       &lt;depends on compiler&gt;
+
+
+Resolution:
+-------------------------------------------------------------------
+The issue will not be resolved.</resolutionDescription>
+         <firstAffectedVersion>3.55.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00088362</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: "cast truncates constant value" with signed data</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compiler warns for "cast truncates constant value" due to cast of subtracted signed data.
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.  
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+your component generator generates signed data in the configuration class precompile
+AND
+your component generator implementation returns in isReduceConstantData2Define() true
+AND
+your component generator implementation returns in getDataDeduplicationStrategy() != EDataDeduplicationStrategy.NONE</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+If the values for isReduceConstantData2Define() and getDataDeduplicationStrategy() are user configurable, you have a workaround else not.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>1.00.00</firstAffectedVersion>
+         <versionsFixed>8.01.00</versionsFixed>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00081459</identifier>
+         <package>DrvCan__coreAsr</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: function "ApplCanTimerLoop" was declared but never referenced</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+compiler warning: function "ApplCanTimerLoop" was declared but never referenced
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+In all configurations where feature SLeep/Wakeup is not enabled. And no other transition needs this hardware transition loop.
+
+Hint:
+-------------------------------------------------------------------
+The compiler warning is known and has been analyzed thoroughly for its impact on the code. 
+Nevertheless it will not be fixed due to compiler will remove this function so no effect in code size will occur.
+And the code complexity will increase significant to fix this problem by pre-processor switches</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Ignore Warning
+
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>4.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00068434</identifier>
+         <package>DrvCan__coreAsr</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: conditional expression or part of it is always true/false</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+
+- Compiler warns for "condition is always true": This may happen depending on configuration, i.e. assert checks
+
+in function Can_SetControllerMode  following code is available
+
+...
+            transitionRequest = kCanRequested;
+          
+            CanMicroModeRestore();
+          }
+          if ( transitionRequest == CAN_NOT_OK ) /* PRQA S 3355,3356,3358,3359 */ /* MD_Can_13.7 */
+          { /* PRQA S 3201 */ /* MD_Can_3201 */
+            retval = CAN_NOT_OK;
+            transitionDone = CAN_NOT_OK; /* at least one HW channel is not in new state (CAN_MSR40: poll later) */
+          }
+
+..
+
+this issues following compiler warning:
+ if ( transitionRequest == CAN_NOT_OK )          -        warning (dcc:1606): conditional expression or part of it is always true/false
+
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+All configurations.
+but not for all Platform implementations (hw always return OK for state transition)</problemDescription>
+         <resolutionDescription>Workaround:
+--------------------------
+
+Ignore warning</resolutionDescription>
+         <firstAffectedVersion>4.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00092073</identifier>
+         <package>SysService_SecModHis</package>
+         <subpackage>Impl_SeedKey</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: condition is always true</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compiler: Tasking 3.0r3:
+c166 W549: ["../../../BSW/SecMod/Sec_SeedKey.c" 370/19] condition is always true
+
+
+SecM_StatusType SecM_GenerateSeed( V_MEMRAM1 SecM_SeedType V_MEMRAM2 V_MEMRAM3 * seed )
+{
+
+      /* Generate pseudo random numbers */
+      result = SEC_PRNG_GENERATE_RANDOM(SEC_PRNG_POOL, pRandom, SEC_WORD_TYPE_SIZE); &lt;-------------------- SecM_GenerateRandomLcg () returns always SECM_OK
+
+      if (SECM_OK == result) &lt;---------- always true
+      {
+         /* Generate pseudo random numbers */
+         result = SEC_PRNG_GENERATE_RANDOM(SEC_PRNG_POOL, pRandom, SEC_WORD_TYPE_SIZE);
+         pBaseSeed-&gt;seedY = SecM_GetInteger(SEC_WORD_TYPE_SIZE, pRandom);
+
+      }
+}
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+When utilized random number generator always succeeds and therefore always returns SECM_OK.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>3.01.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00051574</identifier>
+         <package>SysService_AsrDet</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>[MSR4 only] Compiler warning: statement is unreachable</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compiler warns for unreachable statement in API function Det_ReportError
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.   
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Configurations with disabled "Enable Extended Debug Support" and DET_AUTOSARVERSION == 4</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is not resolved because there is no technical solution.</resolutionDescription>
+         <firstAffectedVersion>5.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="compilerWarning">
+         <identifier>ESCAN00087536</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Warning in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>Compiler warning: 'function' : conversion from 'const &lt;SomeType&gt;' to '&lt;AnotherType&gt;', possible loss of data</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Compiler warns for possible loss of data in the module source code: 'function' : conversion from 'const &lt;SomeType&gt;' to '&lt;AnotherType&gt;', possible loss of data
+
+When does this happen:
+-------------------------------------------------------------------
+The warning is issued by the compiler during compilation of the code in case the configuration is as described below.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+The module is in the configuration variant postbuild loadable or postbuild loadable selectable
+AND
+indirections are modelled in the code generator pointing from the configuration class is POSTBUILD to a destination in the configuration class PRE-COMPILE or LINK.
+
+OR
+
+if the &lt;MSN&gt;NumericalDataTypeMinimizationStrategy if applicable is configured to NONE.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+Add a type cast if in the embedded source code to avoid the warning.
+OR
+Do not offer &lt;MSN&gt;NumericalDataTypeMinimizationStrategy with NONE.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>7.00.00</firstAffectedVersion>
+         <versionsFixed>8.07.00</versionsFixed>
+      </issue>
+      <issue category="notReleased">
+         <identifier>ESCAN00100033</identifier>
+         <package>FblKbApi_Frame_Fca</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>BETA version - the BSW module is in BETA state</headline>
+         <problemDescription>What is the impact of BETA software:
+-------------------------------------------------------------------
+BETA software 
+- must not be used in productive projects as they may result in unpredictable ECU behavior
+- may not provide all features intended for the productive project
+- is not or only partly tested and not all quality measures have taken place
+�
+Which functionality is BETA:
+-------------------------------------------------------------------
+The complete BSW module is in BETA state</problemDescription>
+         <firstAffectedVersion>0.95.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="notReleased">
+         <identifier>ESCAN00100032</identifier>
+         <package>FblKbApi_Fca</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>BETA version - the BSW module is in BETA state</headline>
+         <problemDescription>What is the impact of BETA software:
+-------------------------------------------------------------------
+BETA software 
+- must not be used in productive projects as they may result in unpredictable ECU behavior
+- may not provide all features intended for the productive project
+- is not or only partly tested and not all quality measures have taken place
+�
+Which functionality is BETA:
+-------------------------------------------------------------------
+The complete BSW module is in BETA state</problemDescription>
+         <firstAffectedVersion>0.95.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="notReleased">
+         <identifier>ESCAN00098377</identifier>
+         <package>SysService_Asr4BswMCfg5</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>BETA version - the BSW module has a feature with BETA state (FEAT-2721)</headline>
+         <problemDescription>What is the impact of BETA software:
+-------------------------------------------------------------------
+BETA software 
+- must not be used in productive projects as they may result in unpredictable ECU behavior
+- may not provide all features intended for the productive project
+- is not or only partly tested and not all quality measures have taken place
+
+
+Which functionality is BETA:
+-------------------------------------------------------------------
+The following feature/function is in BETA state. 
+- Configuration of more than one BswMConfig container / MultiPartition Support</problemDescription>
+         <firstAffectedVersion>13.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="notReleased">
+         <identifier>ESCAN00100035</identifier>
+         <package>FblKbApi_FrameNv_Fca</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>BETA version - the BSW module is in BETA state</headline>
+         <problemDescription>What is the impact of BETA software:
+-------------------------------------------------------------------
+BETA software 
+- must not be used in productive projects as they may result in unpredictable ECU behavior
+- may not provide all features intended for the productive project
+- is not or only partly tested and not all quality measures have taken place
+�
+Which functionality is BETA:
+-------------------------------------------------------------------
+The complete BSW module is in BETA state</problemDescription>
+         <firstAffectedVersion>0.95.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="notReleased">
+         <identifier>ESCAN00100034</identifier>
+         <package>FblKbApi_FrameDiag_Fca</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>BETA version - the BSW module is in BETA state</headline>
+         <problemDescription>What is the impact of BETA software:
+-------------------------------------------------------------------
+BETA software 
+- must not be used in productive projects as they may result in unpredictable ECU behavior
+- may not provide all features intended for the productive project
+- is not or only partly tested and not all quality measures have taken place
+�
+Which functionality is BETA:
+-------------------------------------------------------------------
+The complete BSW module is in BETA state</problemDescription>
+         <firstAffectedVersion>0.95.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="notReleased">
+         <identifier>ESCAN00092470</identifier>
+         <package>SysService_Asr4BswMCfg5</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>BETA version - the BSW module has a feature with BETA state (FEAT-1454)</headline>
+         <problemDescription>What is the impact of BETA software:
+-------------------------------------------------------------------
+BETA software 
+- must not be used in productive projects as they may result in unpredictable ECU behavior
+- may not provide all features intended for the productive project
+- is not or only partly tested and not all quality measures have taken place
+
+
+Which functionality is BETA:
+-------------------------------------------------------------------
+The following feature/function is in BETA state. 
+- Configuration of Switch Ports (Mode Request Port (BswM_EthIf_PortGroupLinkStateChg))
+
+Additonal:
+Currently the BswM general switch BswMEthIfEnabled is not set via a Auto-Validation. During fixing of this BETA ESCAN a validation has to be implemented which ensures that the BswMEthIfEnabled is true if the EthIf calls this API and if the Mode Request Port is configured in BswM.</problemDescription>
+         <firstAffectedVersion>10.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="notReleased">
+         <identifier>ESCAN00100031</identifier>
+         <package>FblDiag_14229_Fca</package>
+         <subpackage>Implementation</subpackage>
+         <severity>Low</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>false</safetyRelevant>
+         <headline>BETA version - the BSW module is in BETA state</headline>
+         <problemDescription>What is the impact of BETA software:
+-------------------------------------------------------------------
+BETA software 
+- must not be used in productive projects as they may result in unpredictable ECU behavior
+- may not provide all features intended for the productive project
+- is not or only partly tested and not all quality measures have taken place
+�
+Which functionality is BETA:
+-------------------------------------------------------------------
+The complete BSW module is in BETA state</problemDescription>
+         <firstAffectedVersion>0.95.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="safetyRelevant">
+         <identifier>ESCAN00097518</identifier>
+         <package>MemService_AsrNvM</package>
+         <subpackage>Implementation</subpackage>
+         <severity>High</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>true</safetyRelevant>
+         <headline>CRC32 calculations deliver wrong results</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+CRC32s calculated internally by NVM are not as specified by AUTOSAR, i.e. the results may differ, depending on number of single CRC library calls done per NVM block.
+Calculated values are still CRCs, but they don't match the results from using corresponding standardized CRC32 calculations
+
+Since CRC handling is done internally, this is usually not visible to users.
+
+The issue becomes visible, if NVM's configuration changed between a write and a read request (see below): Data may become unreadable due to failed CRC check.
+
+
+When does this happen:
+-------------------------------------------------------------------
+It happens at run-time during CRC calculation.
+However this behavior is symmetric, i.e. calculated CRC during writes match the CRC calculated during reads. Data can be written and read back as expected.
+
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+It happens for all blocks having CRC (NvMBlockUseCrc) enabled, and CRC type (NvMBlockCrcType) was set to CRC32 .
+If (in a running project), the number of "Bytes per MainFunction" (NvMCrcNumOfBytes) was changed, existing data become unreadable, because same data result in different CRC.</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+In a running project's configuration don't change the number of "Bytes per MainFunction" (NvMCrcNumOfBytes).
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>5.00.00</firstAffectedVersion>
+         <versionsFixed/>
+      </issue>
+      <issue category="safetyRelevant">
+         <identifier>ESCAN00096387</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>High</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>true</safetyRelevant>
+         <headline>Undefined ECU behavior due to invalid index access if &lt;MSN&gt;WriteOutOfBoundsWriteProtectionStrategy is INDEX_SATURATION and Post Build Variance Support is true</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+The issue results in an undefined behavior of the ECU due to invalid index RAM write access in the bounds of the array.
+
+When does this happen:
+-------------------------------------------------------------------
+The issue occurs always at runtime if VAR arrays are used by the component.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Any configuration where the Post Build Variance Support is true in the module configuration.
+AND
+all component configuration data is different in variants.
+AND
+&lt;MSN&gt;WriteOutOfBoundsWriteProtectionStrategy is configured to INDEX_SATURATION.
+
+This feature is classified by the most components with the "WARNING" "The feature must never be used in productive builds!".</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+IF
+the component generator offers the parameter &lt;MSN&gt;WriteOutOfBoundsWriteProtectionStrategy configure it to NONE
+ELSE
+no workaround available.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>7.00.00</firstAffectedVersion>
+         <versionsFixed>8.03.03, 8.07.03, 8.03.80, 8.06.01, 8.07.81, 8.05.02, 8.07.80, 8.01.01, 8.11.00, 8.00.01, 8.04.01, 8.03.81, 8.05.80</versionsFixed>
+      </issue>
+      <issue category="safetyRelevant">
+         <identifier>ESCAN00096411</identifier>
+         <package>CommonAsr_ComStackLib</package>
+         <subpackage>GenTool_GeneratorMsr</subpackage>
+         <severity>Critical</severity>
+         <issueClass>Issue in a released product</issueClass>
+         <safetyRelevant>true</safetyRelevant>
+         <headline>Undefined ECU behavior due to invalid value access in post build selectable configuration with more than 2 variants</headline>
+         <problemDescription>What happens (symptoms):
+-------------------------------------------------------------------
+Undefined ECU behavior due to invalid CONST value access in arrays or structs.
+
+The effect can be for example:
+- Det_ReportError is called if configured.
+- Callbacks can be called or even not if intended.
+- Memory can be overwritten.
+
+When does this happen:
+-------------------------------------------------------------------
+Always at runtime if the condition below matches.
+
+In which configuration does this happen:
+-------------------------------------------------------------------
+Any configuration where the Post Build Variance Support is true in the module configuration
+AND
+arrays and structures are of the Configuration Class PRECOMPILE or LINKTIME (Note: Even POST-BUILD configurations have data of the Configuration Class PRECOMPILE or LINKTIME)
+AND
+more than 2 configured variants
+AND
+the data is reduced. 
+(The not optimized configuration data contains the same subsets of data in multiple variants. 
+This triggers a variant dependent data reduction optimization in the generator. 
+Note, that this is not visible in the generated code since the not optimized configuration data is not output by the generator.)</problemDescription>
+         <resolutionDescription>Workaround:
+-------------------------------------------------------------------
+No workaround available.
+
+Resolution:
+-------------------------------------------------------------------
+The described issue is corrected by modification of all affected work-products.</resolutionDescription>
+         <firstAffectedVersion>4.00.00</firstAffectedVersion>
+         <versionsFixed>8.07.80, 8.05.80, 8.01.01, 8.03.80, 8.05.02, 8.00.01, 8.07.03, 8.06.01, 8.03.03, 8.04.01, 8.11.01, 8.03.81, 8.07.81</versionsFixed>
+      </issue>
+   </issues>
+</issueReport>
